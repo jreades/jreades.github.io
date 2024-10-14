@@ -1,37 +1,48 @@
-## Welcome to GitHub Pages
+One of these days I'll have time to actually update this micro-site, but chances are that you've come here by mistake looking for one of the repos/web sites listed below.
 
-You can use the [editor on GitHub](https://github.com/jreades/jreades.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+## Teaching
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Code Camp
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This resource is intended to help students quickly acquire the basics of coding in Python (up to the point of using functions) so that they are less overwhelmed during the first few weeks of term. You can run Pytnon code in the browser, allowing for interactive exploration alongside the basic teaching materials.
 
-```markdown
-Syntax highlighted code block
+[Access the Code Camp micro-site](https://jreades.github.io/code-camp/)/
 
-# Header 1
-## Header 2
-### Header 3
+### Foundations of Spatial Data Science (CASA0013)
 
-- Bulleted
-- List
+This is a significant evolution from the work I originally developed while in the Department of Geography at King's College London. The whole thing is now built in Quarto (including practical notebooks) and then pushed to GitHub.io.
 
-1. Numbered
-2. List
+[Access the FSDS micro-site](https://jreades.github.io/fsds/).
 
-**Bold** and _Italic_ and `Code` text
+### Spatial Data Science Computing Environment
 
-[Link](url) and ![Image](src)
-```
+This repo contains the information need to generate a Docker image for use by students on CASA0013 and other CASA modules. We build a custom Anaconda environment, add Quarto and a couple of other tools, and add some fonts so that students have some choices about how their reports look in Quarto.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+[Access the SDS Environment micro-site](https://jreades.github.io/sds_env/).
 
-### Jekyll Themes
+### Flip
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jreades/jreades.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Not yet public, but hopefully finished soon is a set of scripts that allow you to easily maintain a set of open source teaching resources for use in a 'flipped' teaching format. 
 
-### Support or Contact
+[Access the Flipped resources](https://github.com/jreades/flip/).
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Q&A Plugin
+
+A simple Quarto plugin that allows you to develop a question and answer code block side-by-side, but only one is passed through on rendering to the notebook, PDF, or HTML output. So it becomes possible to, for instance, include the question with the iPython notebook, and the answer in the PDF.
+
+[Access the QNA documentation](https://github.com/jreades/qna).
+
+## Research
+
+### Understanding Unrban Gentrification with Machine Learning
+
+The code used for our research is [available here](https://github.com/jreades/urb-studies-predicting-gentrification).
+
+### Talks
+
+A selection of my public talks can be [found here](https://jreades.github.io/talks/).
+
+### Programming Historian
+
+The code that underpins our *Programming Historian* article can be [found here](https://github.com/jreades/ph-tutorial-code)
