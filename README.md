@@ -5,7 +5,7 @@ One of these days I'll have time to actually update this micro-site, but chances
 
 ### Code Camp
 
-This resource is intended to help students quickly acquire the basics of coding in Python (up to the point of using functions) so that they are less overwhelmed during the first few weeks of term. You can run Pytnon code in the browser, allowing for interactive exploration alongside the basic teaching materials.
+This resource is intended to help students quickly acquire the basics of coding in Python (up to the point of using functions) so that they are less overwhelmed during the first few weeks of term. You can run Python code in the browser, allowing for interactive exploration alongside the basic teaching materials.
 
 [Access the Code Camp micro-site](https://jreades.github.io/code-camp/)/
 
