@@ -10,8 +10,6 @@ pip install -r requirements.txt
 quarto preview
 ```
 
-## Where things live
-
 | What | Where |
 | --- | --- |
 | Look and feel (colours, fonts, grid, hero bleed) | `styles/theme.scss`, tokens at the top |
