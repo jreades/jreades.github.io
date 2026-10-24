@@ -27,12 +27,13 @@ listing:
 :::
 
 ::: {.hang}
-# Cities are designed, *and measured*, by the same people. {.display}
+# Looking *closer*. {.display}
 :::
 
 ::: {style="grid-column:4 / span 5;padding-top:36px"}
-<p class="lead-text">Spatial data science, housing and the built environment: the research, the teaching and the tools that go with them.</p>
-<p class="lab" style="text-transform:none;letter-spacing:0;font-size:.9rem">[One-paragraph bio: role, institution, what you are working on now]</p>
+<p class="lead-text">From neighbourhoods to geographic data science, and many things in between, plus the research, teaching, the tools that go with them.</p>
+<p class="lab" style="text-transform:none;letter-spacing:0;font-size:.9rem">
+Prof. of Geographic Data Science at the [Centre for Advanced Spatial Analysis (CASA)](http://casa.ucl.ac.uk/) and, for my sins, Head of Department. Currently working on the [No Place Like Home](https://www.nospacelikehome.study/about) project and, hopefully, some AI-Support Research.</p>
 :::
 
 :::
