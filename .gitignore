@@ -9,3 +9,8 @@ _generated/
 **/*.quarto_ipynb
 
 /_*.local
+img/duotone/.manifest.json
+img/duotone/_contact.jpg
+img/scenes/*.jpg
+img/scenes/*.jpeg
+img/scenes/*.png

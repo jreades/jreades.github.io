@@ -4,6 +4,7 @@ project:
   pre-render: scripts/build_pubs.py
   resources:
     - img/
+    - "!img/scenes/"
   render:
     - "*.qmd"
     - "posts/*.qmd"
