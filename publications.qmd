@@ -11,7 +11,7 @@ pagetitle: "CV and publications — Jon Reades"
 # Publications, by type of output {.display}
 :::
 ::: {style="grid-column:4 / span 6;padding-top:24px"}
-<p class="lead-text">Generated from `data/pubs.bib` and `data/talks.bib`, grouped by the `output` field of each entry.</p>
+<p class="lead-text">Journal articles, books, chapters, reports, theses and talks, newest first within each type.</p>
 :::
 :::
 

@@ -161,7 +161,7 @@ h1.display em { color: $accent; }
           color: $accent; border: 0; padding: 0; background: none; } }
       .description { font-size: 1.35rem; line-height: 1.45; max-width: 34em; margin-bottom: 20px; }
       .quarto-title-meta { font-family: $font-label; font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: $muted;
-        .quarto-title-meta-heading { display: none; } .date { margin: 0; } } }
+        .quarto-title-meta-heading { display: none; } .quarto-title-meta-contents p, .date { margin: 0; font-size: inherit; } } }
     h2, h3 { font-weight: 400; border: 0; margin-top: 2.2em; margin-bottom: .6em; }
     h2 { font-size: 1.8rem; line-height: 1.15; } h3 { font-size: 1.4rem; font-style: italic; }
     p, li { font-size: 1.05rem; line-height: 1.6; }
@@ -181,12 +181,18 @@ h1.display em { color: $accent; }
 // ---- Handheld: single column, 20px margins --------------------------------
 @media (max-width: 860px) {
   .g { padding-inline: 20px; column-gap: 16px; }
-  .page-layout-article #quarto-document-content { padding-inline: 20px; > *, > header { grid-column: 1 / -1; } .title { font-size: 2.4rem; } }
+  .page-layout-article #quarto-document-content { padding-inline: 20px; > *, > header { grid-column: 1 / -1; } > header .title { font-size: 2.4rem; } }
   .g > *, .row12 > *, .pubgroup > * { grid-column: 1 / -1 !important; }
   .row12, .pubgroup { grid-template-columns: 1fr; }
   h1.display { font-size: 2.4rem; }
-  .hero-window, .hero .g::before { height: 300px; }
+  .hero-window, .hero .g::before { height: 220px; }
   .hero-slim .hero-window, .hero-slim .g::before { height: 140px; }
   .navbar .navbar-container { padding-inline: 20px; }
   .site-foot .foot-r { justify-content: flex-start; margin-left: -12px; }
+  .lab { font-size: .7rem; }
+  .site-foot .foot-l { font-size: .75rem; }
+  .row12 > [aria-hidden] { display: none; }
+  .pubgroup h2, .listing-recent > .lab { margin-bottom: 12px !important; }
+  .navbar #quarto-search { order: 2; margin-left: auto; }
+  .navbar .navbar-toggler { order: 3; margin-left: .25rem; }
 }
