@@ -1,0 +1,53 @@
+---
+title: "Jon Reades"
+pagetitle: "Jon Reades"
+listing:
+  id: recent
+  contents: posts/*.qmd
+  sort: "date desc"
+  max-items: 5
+  template: styles/listing-recent.ejs
+  date-format: "MMM YYYY"
+  fields: [date, title, categories]
+---
+
+::: {.hero}
+::: {.g}
+<div class="span-all hero-window" role="img" aria-label="Placeholder landscape">
+<div class="hero-caption">[Photo: Scottish coast / Icelandic highland]</div>
+</div>
+:::
+:::
+
+::: {.g style="padding-top:56px;padding-bottom:72px"}
+
+::: {.hang-lab style="padding-top:14px"}
+<div class="lab">Jon Reades</div>
+
+{{< include _includes/social.html >}}
+
+:::
+
+::: {.hang}
+# Cities are designed, *and measured*, by the same people. {.display}
+:::
+
+::: {style="grid-column:4 / span 5;padding-top:36px"}
+<p class="lead-text">Spatial data science, housing and the built environment: the research, the teaching and the tools that go with them.</p>
+<p class="lab" style="text-transform:none;letter-spacing:0;font-size:.9rem">[One-paragraph bio: role, institution, what you are working on now]</p>
+:::
+
+:::
+
+::: {.g style="padding-bottom:88px"}
+<div class="lab span-all" style="padding-bottom:16px">Index</div>
+
+<a href="research.qmd" class="row12"><span class="lab" style="grid-column:1 / span 3">01</span><span style="grid-column:4 / span 4;font-size:2rem;line-height:1.05">Research</span><span style="grid-column:8 / span 4;color:#33414A">Housing markets, urban data infrastructure and the geography of London.</span><span class="lab" style="grid-column:12;text-align:right" aria-hidden="true">&rarr;</span></a>
+<a href="teaching.qmd" class="row12"><span class="lab" style="grid-column:1 / span 3">02</span><span style="grid-column:4 / span 4;font-size:2rem;line-height:1.05">Teaching</span><span style="grid-column:8 / span 4;color:#33414A">Course materials, tutorials and notes for students of spatial data science.</span><span class="lab" style="grid-column:12;text-align:right" aria-hidden="true">&rarr;</span></a>
+<a href="writing/index.qmd" class="row12"><span class="lab" style="grid-column:1 / span 3">03</span><span style="grid-column:4 / span 4;font-size:2rem;line-height:1.05">Writing</span><span style="grid-column:8 / span 4;color:#33414A">Longer versions of what ends up on LinkedIn, and fifteen years of posts.</span><span class="lab" style="grid-column:12;text-align:right" aria-hidden="true">&rarr;</span></a>
+<a href="field-notes/index.qmd" class="row12"><span class="lab" style="grid-column:1 / span 3">04</span><span style="grid-column:4 / span 4;font-size:2rem;line-height:1.05">Field notes</span><span style="grid-column:8 / span 4;color:#33414A">Gardening, mountain biking and anything else that does not fit elsewhere.</span><span class="lab" style="grid-column:12;text-align:right" aria-hidden="true">&rarr;</span></a>
+<div class="span-all" style="border-top:1px solid var(--rule)"></div>
+:::
+
+::: {#recent}
+:::

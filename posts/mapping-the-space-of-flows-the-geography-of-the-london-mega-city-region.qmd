@@ -1,0 +1,17 @@
+---
+title: "‘Mapping the Space of Flows’: the geography of the London Mega-City Region"
+date: 2013-09-17
+categories: ["Big Data", "Built Environment", "Economic Geography", "Mapping"]
+description: "I’m pleased to be able to post here the penultimate version of an article that Duncan Smith and I recently had accepted to Regional Studies. In this article we look at ways of combining ‘big data’ from a telecoms network with standard BRES "
+wp-url: http://www.reades.com/wp/?p=304
+---
+
+I’m pleased to be able to post here the penultimate version of an article that [Duncan Smith](http://citygeographics.org "City Geographics"){target="_blank" rel="noopener"} and I recently had accepted to [Regional Studies](http://www.tandfonline.com/loi/cres20 "Regional Studies"){target="_blank" rel="noopener"}. In this article we look at ways of combining ‘big data’ from a telecoms network with standard [BRES employment data](http://www.nomisweb.co.uk "NOMISweb"){target="_blank" rel="noopener"} to generate a more nuanced understanding of where ‘work’ happens in the Greater Southeast of England across several key sectors.
+
+Or to put in the terms of our abstract:
+
+> Telecommunications has radically reshaped the way that firms organise industrial activity. And yet, because many aspects of this technology are largely invisible (Batty, 1990), fourteen years after the publication of The Rise of the Network Society (Castells, 1996 \[2000\]) the corporate ‘space of flows’ remains largely unmapped. In this article, we combine detailed employment and telecoms usage data for the southeast of England to build a sector-by-sector profile of globalisation at the mega city-region scale. The intersection of these two datasets allows us to approach industrial geography in a new way, and to investigate in much more detail the polycentricity observed in Hall and Pain’s seminal polynet study (2006).
+
+You’re welcome to download and read the [attached PDF](http://www.reades.com/pdfs/Mapping_Space_of_Flows-Reades_and_Smith-Pre-Press_Public.pdf) (it has some quirks due to the LaTeX formatting process), but please cite only the published version in Regional Studies.
+
+[![](img/pdf.png){loading="lazy" decoding="async" width="128" height="128"}](http://www.reades.com/pdfs/Mapping_Space_of_Flows-Reades_and_Smith-Pre-Press_Public.pdf)

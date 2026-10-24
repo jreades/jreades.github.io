@@ -1,0 +1,47 @@
+---
+title: "2 Funded PhD Positions at King’s"
+date: 2015-04-09
+categories: ["Big Data", "Economic Geography", "Research"]
+description: "It’s been a long time coming, but I’m really pleased to be able to share details about two PhDs at King’s for which I have funding: one to look at the growth and evolution of the UK’s landline network, and one to look at the interface betwe"
+wp-url: http://www.reades.com/wp/?p=329
+---
+
+It’s been a long time coming, but I’m really pleased to be able to share details about two PhDs at King’s for which I have funding: one to look at the growth and evolution of the UK’s landline network, and one to look at the interface between smart city systems and urban governance. Read on for details about each.
+
+### The Growth & Evolution of the UK’s Phone Network
+
+This PhD project grew out of my interest in the impact of telecommunications on [how individuals and firms perceive and use ‘space’](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0014248){target="_blank" rel="noopener"}. And while I had been struck during my work at [CASA](http://casa.ucl.ac.uk/){target="_blank" rel="noopener"} on the power of network analytical approaches to understanding the flow of information and influence, I couldn’t help but notice that most network-based research is based on [just a few days’ or months’ worth of data](https://scholar.google.co.uk/scholar?hl=en&q=foursquare){target="_blank" rel="noopener"}. This PhD tries to address this issue using the much longer history captured in the BT Archives near Holborn to develop a more grounded view of how network structure interacts with socioeconomic change.
+
+From the post description and my original application:
+
+The rise of social media has stimulated interest in networks and their effects on society. However, despite ‘digital humanities’ approaches to archives, most analyses are undertaken using data that was ‘born digital’. Consequently, the deeper history of communications – and its effect on culture and society – remains under-researched.
+
+Consequently, the comprehensive archive managed by BT represents a unique resource for researchers, enabling us to ground our analysis of ‘impact’ in an understanding of the network as an object materialised through a range of artefacts: from physical cables and switches, to abstract statistics on usage by homes and businesses.
+
+The PhD’s objectives are:
+
+- To digitise data about the evolution of the national landline phone network over time.
+- To use maps & quantitative measures to examine the changing character/characteristics of the network.
+- To explore the (uneven) impact of this connectivity on local communities, identities and cultures through, for instance, the spreading of news and coordination of social movements and organisations.
+- To produce new histories of network development and in so doing, to contribute to contemporary debates about the cultural effects of a network society.
+- To produce an open access dataset available for future researchers in the humanities, and for the development of interactive online resources for SMG audiences.
+
+Interested? This PhD is AHRC-funded, which means that you need to meet several criteria, the most important of which is being an EU-resident at the time of application. Deadline is May 31st, 2015.
+
+See the full job description at [FindAPhD](http://www.findaphd.com/search/ProjectDetails.aspx?PJID=62797){target="_blank" rel="noopener"}.
+
+### Building the Smart City: Managing the Interface Between Urban Governance and Big Data
+
+[Federico Caprotti](http://www.kcl.ac.uk/sspp/departments/geography/people/academic/caprotti/index.aspx){target="_blank" rel="noopener"} and I developed this PhD proposal in collaboration with my friend and former colleague from SENSEable, [Francesco Calabrese](http://researcher.watson.ibm.com/researcher/view.php?person=ie-FCALABRE){target="_blank" rel="noopener"}. Francesco is now with IBM, where he manages the Smarter Urban Dynamics group at their Smarter Cities Lab in Dublin. In broad terms, our interest is in how ‘real-time’ systems are, or are not, affecting governance structures that used to operate on a planning basis of months or years.
+
+As an added bonus for the researcher: you’ll get to spend time ‘at the coalface’ working with IBM’s researchers in Dublin!
+
+From the description:
+
+The funded doctoral researcher will focus on Big Data for the real-time management of public transport, using as case studies cities where IBM has worked to develop responsive real- time Smart City management systems, and will seek to establish the foundations for an interdisciplinary dialogue between technical bodies of research on Smart City systems and applications, and social science approaches to sustainable urban governance.
+
+In addition, IBM will provide two industrial ‘internship’ periods at the end of the first (for 6 weeks) and second (for 3 months) years of research. Throughout the research, the student will receive supervisory input from Dr. Calabrese and his colleagues at IBM-SUD, and training opportunities for the student from in-house training courses provided by IBM, free of charge.
+
+Interested? This PhD is funded by King’s, which means that it’s open to *everyone*. If you’re an EU-resident, then it looks like a standard RCUK-funded PhD. If you’re *not* an EU-resident at time of application, then the scholarship will basically cover your PhD fees but you’ll still need to find money for living costs. Deadline is May 1st, 2015.
+
+See the full project description [here](http://www.kcl.ac.uk/study/pg/funding/sources/rtprojects/RT-scholarship-advert-project-CAPROTTI.pdf){target="_blank" rel="noopener"} and overview on [FindAPhD](http://www.findaphd.com/search/PhDDetails.aspx?CAID=2753){target="_blank" rel="noopener"}.

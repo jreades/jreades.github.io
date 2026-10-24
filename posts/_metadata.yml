@@ -1,0 +1,5 @@
+format:
+  html:
+    page-layout: article
+    toc: false
+    title-block-banner: false

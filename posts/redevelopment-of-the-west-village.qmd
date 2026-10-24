@@ -1,0 +1,21 @@
+---
+title: "Redevelopment of the West Village"
+date: 2008-06-22
+categories: ["Built Environment"]
+description: "From an article by Christopher Hitchens in Vanity Fair I was led to a web site opposed to the the redevelopment of St Vincent’s Hospital in the West Village section of Manhattan. Aside from the fact that Protect the Village is a really nice"
+wp-url: http://www.reades.com/wp/?p=340
+---
+
+From an article by Christopher Hitchens in [Vanity Fair](http://www.vanityfair.com/culture/features/2008/07/hitchens200807) I was led to a web site opposed to the the redevelopment of St Vincent’s Hospital in the West Village section of Manhattan. Aside from the fact that [Protect the Village](http://www.protectthevillage.org/) is a really nice, simple site, it got me thinking about the redevelopment of dense urban areas.
+
+But first off, it’s helpful to compare the street-level view [here](http://www.protectthevillage.org/images/st-vincent-plan-2.gif) with the developer’s model shown in the NY Post article in this [pdf](http://www.svcmc.org/documents/newhospital/c.pdf). See a difference? I’d tend to side with the PtV group here since not many of us are going to be lucky enough to take a look at the development from a helicopter after it’s built. So the extent to which the plan ‘works’ is going to be far more usefully measured from the ground, not the ‘god’s eye view’ in the Post.
+
+It’s much the same thing that happens when architects show off their little urban models with *their* masterpiece in translucent, lit-from-within plastic (lucite?) amongst all the drabness of the surrounding buildings. Uh, last time I checked your building had solid floors and walls that really don’t look anything like as glowing or spectacular as your model does here.
+
+Or as Anni Choi put it in PIDGIN: [Dear Architects, I am sick of your shit.](http://www.reades.com/pdf/deararchitects.pdf){target="_blank" rel="noopener"}
+
+Given how easy it is these days to generate mockups in SketchUp or a CAD application, I would have thought that every proposal should have the ability for people — online — to stroll around the building at ground level, not just fly past it on a (simulated) gloriously sunny day at 50mph from 60 feet up (where, again, everything usually looks nicer than at street level). What does it look like on a rainy day? Twenty years from now? *That* is what I would really like to see.
+
+All that aside, I also wonder what’s the tradeoff in terms of sustainability — both for the community and for the environment? On the whole, tall buildings are more sustainable in terms of using space efficiently (though there are some issues around the added load on sewerage and other infrastructure). But these buildings clearly *don’t* really fit with the overall look of the West Village and aren’t really designed to serve the local community in any way shape or form. It’s just more bloody penthouses, and few, if any, of them are likely to be remotely affordable.
+
+Affordability is, of course, the trick. Affordable for who? I get the feeling that in both London and New York a lot of what is going in is either for people earning more than \$200k/year or (in a much more limited way) for people qualifying for social housing. Where’s the stuff for people who are just doing normal jobs? If you see any that actually looks like somewhere you’d want to live, let me know.

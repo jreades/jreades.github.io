@@ -1,0 +1,15 @@
+# Images referenced by posts but not available on the old server
+
+- seaborn-plots-with-2-legends: http://www.reades.com/wp-content/uploads/2021/06/2-Legends-1024x1024.png (HTTP Error 404: Not Found)
+- changing-affordability-of-manchester: http://www.reades.com/wp-content/uploads/2015/06/Manchester-Poster-1Up-1997-Alt-small.png (HTTP Error 404: Not Found)
+- changing-affordability-of-manchester: http://www.reades.com/wp-content/uploads/2015/06/Manchester-Poster-1Up-2012-Alt-small.png (HTTP Error 404: Not Found)
+- mapping-the-changing-affordability-of-london: http://www.reades.com/wp-content/uploads/2015/06/Poster-1Up-1997-Alt-Small.png (HTTP Error 404: Not Found)
+- mapping-the-changing-affordability-of-london: http://www.reades.com/wp-content/uploads/2015/06/Poster-1Up-2012-Alt-Small.png (HTTP Error 404: Not Found)
+- mapping-the-changing-affordability-of-london: http://www.reades.com/wp-content/uploads/2015/06/Poster2-Small.png (HTTP Error 404: Not Found)
+- pint-of-science: http://www.reades.com/wp-content/uploads/2015/06/Pint-of-Science-Tidy-724x1024.png (HTTP Error 404: Not Found)
+- hex-binning-land-registry-data: http://www.reades.com/wp-content/uploads/2015/05/Screen-Shot-2015-05-01-at-16.18.34.png (HTTP Error 404: Not Found)
+- hex-binning-land-registry-data: http://www.reades.com/wp-content/uploads/2015/05/Screen-Shot-2015-05-01-at-16.18.57.png (HTTP Error 404: Not Found)
+- hex-binning-land-registry-data: http://www.reades.com/wp-content/uploads/2015/05/1997-and-2012-2-1024x724.png (HTTP Error 404: Not Found)
+- mapping-the-space-of-flows-the-geography-of-the-london-mega-city-region: http://www.reades.com/wp-content/uploads/2013/09/pdf.png (HTTP Error 404: Not Found)
+- big-data-little-secrets-2: http://www.reades.com/wp-content/uploads/2013/08/Screen-Shot-2013-08-09-at-12.08.25.png (HTTP Error 404: Not Found)
+- big-data-little-secrets-2: http://www.reades.com/wp-content/uploads/2013/08/Screen-Shot-2013-08-09-at-12.12.45.png (HTTP Error 404: Not Found)

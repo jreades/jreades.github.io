@@ -1,0 +1,29 @@
+---
+title: "Local Employment & Public Transit"
+date: 2008-06-23
+categories: ["Built Environment"]
+description: "The Guardian reports that proposals for Britain’s new ‘eco-towns’ were found by a government panel to be ‘inadequate’. The two most oft-cited problems for the ones that weren’t “little more than a typical existing housing scheme” were local"
+wp-url: http://www.reades.com/wp/?p=341
+---
+
+The [Guardian](http://www.guardian.co.uk/environment/2008/jun/23/greenbuilding.greenpolitics?gusrc=rss&feed=networkfront){target="_blank" rel="noopener"} reports that proposals for Britain’s new ‘eco-towns’ were found by a government panel to be ‘inadequate’. The two most oft-cited problems for the ones that *weren’t* “little more than a typical existing housing scheme” were local employment and transport.
+
+Outside of London, public transport here is a bit of a nightmare because of privatisation. Or, if I were being charitable, [poorly-done privatisation](http://www.guardian.co.uk/business/2007/jul/17/politics.localgovernment){target="_blank" rel="noopener"}. The problem is that many small-town and rural services *can’t* operate at a profit without some kind of subsidy. There usually isn’t the density outside of towns to support a frequent or convenient service.
+
+This issue becomes particularly actue when you’re talking about a *new* service in which people are expected to change their existing behaviour — “Oooooh, look at that dear. It’s the new bus service, maybe I’ll take that instead of the car today!” Riiiiight. You don’t quite remember the schedule (which matters because the service only runs once an hour). You are doing the weekly shop (which matters because you’ll have trouble with all of your bags). You are getting older (which matters because the bus stops aren’t where you need them to be to minimise walking). The list goes on.
+
+So now you throw a profit-seeking firm into the mix and what happens? Well, the firm will only run the services on which it can make money. So it takes the *existing* services, axes any that aren’t profitable, and focuses on the remainder. The firm doesn’t even really consider new services because it knows that it’s unlikely to make any money on those. But now there are even *fewer* places that you can get to by bus, so the utility of the bus network has just dropped again. And suddenly people who *used* to take the bus don’t any more because there are a couple of places that they need to go where the bus route no longer takes them.
+
+Result: death spiral. Fewer customers means that more routes are axed. More routes axed means fewer customers. I’m surprised that *any* firm outside of London would touch public transit with a bargepole. Probably the only type of non-governmental organisation that would make sense in this context is a non-profit or [social enterprise](http://www.socialenterprise.org.uk/Page.aspx?SP=1345){target="_blank" rel="noopener"} — where the ‘mission’ extends beyond a single bottom line or return-on-investment.
+
+The problem of public transport then runs smack into the problem of ‘local employment’. As I understand it, one of the central tenets of the New Urbanist movement in the US is the idea that jobs and houses should be located together so that people are less dependent on cars for employment. I’m all for this, but there’s just one small problem: most people work nowhere near where they live, nor do they have any intention of moving to within a non-car-dependent distance of their office.
+
+There are all sorts of reasons for this:
+
+1.  Housing tenure now usually exceeds job tenure by a significant margin — in other words, you are much more likely to own one or two houses for your entire life than you are to hold down one or two jobs for your entire life. Assuming that you don’t hate your house then, rationally, you are either a) going to limit your job search to places that are nearer to where you live, or b) you are going to buy a car and ‘just deal’ with the commuting headaches.
+2.  Most households now have two bread-winners, and the chances that both earners (especially if they are professionals) work in the same town over a long period of time (see ‘1’) is so infinitesimally small that you’d be an idiot to buy your home based on your current working profile. If there’s a chance that I will be working 50mi. to the North and my partner will be working 50mi. to the South, then the most flexible solution is to locate somewhere in between… a place that’s less likely to have public transit than either of the employment centres.
+3.  More complex travel/life/household patterns/plans require more flexibility. Outside of dense conurbations, the car is *the* flexible infrastructure. One of you needs to do the school run to drop off little Timmy. Then there’s Emma’s ballet practice. And the things to collect from the dry cleaner’s. And so on and so on. Unless all of these things are right around the corner, which is unlikely outside of major urban centres, then you *and* your partner are going to want at least one car, and possibly two, just to be able to accomplish all of your tasks for the day. Again, this doesn’t do anything to reduce car travel nor does it have any connection to local employment.
+
+As far as I can tell, unless you’re lucky enough to be an entrepreneur or to have your firm decide to relocate to an eco-town you’re *very* likely to end up relying on car transport to get to and from work. The only other type of work that I see going on *in* eco-towns is the kind of low-skill, part-time work for stay-at-home partners who need the flexibility to be home when the kids are at home or who don’t have the skills for professional jobs that pay enough to be worth commuting 1-2 hours to reach.
+
+So I’m very pessimistic about the future of ‘eco-towns’ in Britain unless we radically rethink the way that public transport is provided.

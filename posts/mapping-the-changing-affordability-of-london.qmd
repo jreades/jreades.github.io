@@ -1,0 +1,39 @@
+---
+title: "Mapping the Changing Affordability of London"
+date: 2015-06-23
+categories: ["Big Data", "Housing", "Mapping", "Research", "Visualisation"]
+description: "Last night I discovered how many of my friends watch C4’s Dispatches since quite a few of them texted me to say that they had seen me talking about property affordability on “The Great British Property Divide”. However, since Dispatches has"
+wp-url: http://www.reades.com/wp/?p=359
+---
+
+Last night I discovered how many of my friends watch C4’s [Dispatches](http://www.channel4.com/programmes/dispatches/episode-guide){target="_blank" rel="noopener"} since quite a few of them texted me to say that they had seen me talking about property affordability on “The Great British Property Divide”. However, since Dispatches has to somehow keep the running time down to just 30 minutes, there’s not much of a chance in the show to really explore the data underpinning my chat with [Morland](http://www.channel4.com/programmes/dispatches/profiles/all/morland-sanders){target="_blank" rel="noopener"}. So with that it mind, below are links to A0-sized static data visualisations.
+
+### 1997 (13MB)
+
+What’s amazing to me about this data is just how affordable London *was* to a family on the median gross household income in 1997. The average household income in London has typically been skewed (up) by high-earners in banking and other highly paid professions, so the median is a better way to get at what the ‘typical’ Londoner earns. Gross household income is, roughly, what a bank would consider when deciding whether or not to make a loan: 3–5x income is thought to be fairly safe, while 10x income and beyond would mean that a household was very highly leveraged and you probably wouldn’t find many banks normally lending at that level anyway.
+
+[![London Affordability 1997](img/Poster-1Up-1997-Alt-Small.png){.aligncenter .wp-image-360 loading="lazy" decoding="async" width="714" height="505"}](http://www.reades.com/pdfs/Poster-1997.png){target="_blank" rel="noopener"}
+
+So each of those dots is an actual transaction from 1997, and green basically means that a household earning the median London income in 1997 could have easily pulled together the financing to buy that property as you’d be looking at less than 4x income. Yellow is getting a little less affordable (4–7x), but still reasonable for a major world city by historical standards. In general, green and yellow dominate in 1997, meaning that across a good deal of London a young family earning a decent income could still hope to get on the ladder. The unaffordable areas are the areas that have *always* been in demand, but even in there you’ll see a mix of yellow (and even the occasional dab of affordable green).
+
+### 2012 (13MB)
+
+Run that picture forwards to 2012 and you can see how much things have changed. Aside from Barking and Dagenham, and a few bits of Newham and Croydon, there’s genuinely precious little left that seems accessible to even a household earning in the 50th percentile! Bluntly, for 50% of Londoners there’s simply not many places left in which the properties coming to market are going for amounts for which they could assemble the financing (without generous help from either the government or the bank of Mum & Dad). The zone of ‘utter unaffordability’ (13x and beyond) has expanded massively, incorporating bits of Southwark, Hackney, Haringey, and nearly all of Camden.
+
+[![London Affordability 2012](img/Poster-1Up-2012-Alt-Small.png){.aligncenter .wp-image-361 loading="lazy" decoding="async" width="735" height="531"}](http://www.reades.com/pdfs/Poster-2012.png){target="_blank" rel="noopener"}
+
+One other thing worth noting is the ongoing impact of the 2007 financial crisis: the volume of transactions still has not recovered to the level set in 2007. There’s no question that unmet demand is a major component of this affordability crisis (see below for a recording of a roundtable discussion on this), and we need to see the ‘Great British Property Divide’ partly through that lens. But as Morland and several of his interviewees point out: in the long run the ultimate consequence of this is a city purged of its diversity. There are, of course, a lot of people who are a long from being millionaires still living in Kensington & Chelsea or Notting Hill, but as they move out, they will not be replaced by families with similar backgrounds, they will be replaced by high-earners or foreign investors and the historical diversity of London – which is the fuel for the fire of its creativity – will fall another notch. For me, this is something that we should all be worried about.
+
+### The Last 20 Years (14MB)
+
+And here is a handy way to see the changing pattern of London prices using 5-year intervals all on one poster.
+
+[![Affordability Poster](img/Poster2-Small.png){.aligncenter .wp-image-362 loading="lazy" decoding="async" width="749" height="566"}](http://www.reades.com/pdfs/London-Affordability-1997-2012.png){target="_blank" rel="noopener"}
+
+### Other Points of Interest
+
+I will post similar maps for Manchester shortly, and the full hex-binned maps for the UK after that. You can click through a talk I gave as part of the Pint of Science festival here: [reades.com/2015/06/01/pint-of-science/](http://www.reades.com/2015/06/01/pint-of-science/).
+
+P.S. To hear a fascinating, robust conversation about London’s housing crisis give the audio track [embedded in the page](http://www.kcl.ac.uk/sspp/departments/geography/research/cities/bubble/index.aspx){target="_blank" rel="noopener"} from our ESRC-funded Big Bubble event a listen: David Lammy (MP), Neal Hudson (Savills), Toby Lloyd (Shelter), David Lunts (GLA), and Christine Whitehead (LSE) hosted by (briefly) yours truly and Chris Hamnett.
+
+###  {#section .h3}

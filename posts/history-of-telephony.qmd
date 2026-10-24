@@ -1,0 +1,37 @@
+---
+title: "History of Telephony: Funded PhD Award with King’s College London, BT and the Science Museum Group"
+date: 2015-06-22
+categories: ["Mapping", "Research"]
+description: "Applications are invited for an AHRC-funded doctoral student to join King’s College London, BT Archives, and the Science Museum Group in late September 2015 or early January 2016 to investigate the impact of the telephone landline network o"
+wp-url: http://www.reades.com/wp/?p=356
+---
+
+Applications are invited for an AHRC-funded doctoral student to join [King’s College London](http://www.kcl.ac.uk/){target="_blank" rel="noopener"}, [BT Archives](http://www.btplc.com/thegroup/btshistory/btgrouparchives/){target="_blank" rel="noopener"}, and the [Science Museum Group](http://www.sciencemuseum.org.uk){target="_blank" rel="noopener"} in late September 2015 or early January 2016 to investigate the impact of the telephone landline network on British society and culture(s).
+
+The project is informed by the rise of the Internet and social media, the interest this has generated in understanding how networks grow and evolve over time, and how this can be connected to wider changes in society. The comprehensive historical and technical archive [managed by BT](http://www.btplc.com/Thegroup/BTsHistory/BTgrouparchives/Significanceofourarchives/index.htm){target="_blank" rel="noopener"} represents a unique resource for researchers, grounding an analysis of ‘impact’ in an understanding of the network as an object materialised through a range of artefacts: from physical cables and switches, to abstract statistics on usage by homes and businesses.
+
+The project objectives are:
+
+- To produce new histories of network development and in so doing, to contribute to contemporary debates about the cultural effects of a network society.
+- To develop an open access data set documenting the evolution of the landline phone network.
+- To use this data as a platform to examine the changing character/characteristics of the network.
+- To explore the (uneven) impact of this connectivity on local communities, identities and cultures through, for instance, the spreading of news and coordination of social movements and organisations.
+- To support the development of interactive online resources for Science Museum Group & BT Archives audiences.
+
+The student is free to specify the sociocultural impact that they wish to study in conjunction with their work on network evolution, aligning the project’s aims with their own interests.
+
+### Entry criteria
+
+*You must meet the eligibility requirements specified by the AHRC*: <http://bit.ly/1Gn8RTc>.
+
+We expect applicants with a background in history, geography, archaeology, science & technology studies, or digital humanities to be particularly suited for this project. Applicants with a demonstrable interest in the use of computers in historical research are strongly encouraged to apply; however, selection will be based on the applicant’s capacity to undertake original research and BT can provide assistance in the design of online interactive resources.
+
+**Applicants should send a single email containing the following attachments** to <lauren.perry@kcl.ac.uk> by 1^st^ August 2015: 1) a full CV; 2) a research proposal of no more than 1,000 words, 3) transcripts of university qualifications; 4) details of two references; 5) a covering letter highlighting key skills/interests and addressing any gaps in education or experience; and 6) if relevant, proof of English language proficiency.
+
+### More information
+
+The project can begin in either September 2015 or January 2016, and we will support the selected candidate in undertaking additional training in digital humanities tools and methods alongside their literature review in order to develop the requisite skills base. Funding is for 3 years at the London-weighted maintenance grant rate of £16,413 p.a.
+
+The dissertation supervisors are [Dr Jonathan Reades](http://www.kcl.ac.uk/sspp/departments/geography/people/academic/reades/index.aspx){target="_blank" rel="noopener"} (Department of Geography, King’s College London), [Dr Mark Hedges](http://www.kcl.ac.uk/innovation/groups/cerch/people/hedges/index.aspx){target="_blank" rel="noopener"} (Department of Digital Humanities, King’s College London), [Mr David Hay](http://home.bt.com/author/david-hay-31363934156990){target="_blank" rel="noopener"} (Head of Heritage & Archives, BT Group), and Mr John Liffen (Curator of Communications, Science Museum).
+
+If you have reviewed the application material and have any queries, or would like to discuss this opportunity before applying, please contact Dr Jonathan Reades.

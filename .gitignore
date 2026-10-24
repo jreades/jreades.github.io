@@ -1,0 +1,9 @@
+_site/
+_generated/
+.quarto/
+.venv/
+.DS_Store
+/.luarc.json
+
+/.quarto/
+**/*.quarto_ipynb

@@ -1,0 +1,88 @@
+---
+title: "Extracting files from Moodle MBZ Archives with Python"
+date: 2012-11-29
+categories: ["Teaching"]
+description: "These days it seems that just about every university is using Moodle, the “open-source community-based tools for learning”, to manage the delivery of course material and handling of deadlines, assignments, etc. Now I’m a fan of the OS commu"
+wp-url: http://www.reades.com/wp/?p=119
+---
+
+These days it seems that just about every university is using Moodle, the “open-source community-based tools for learning”, to manage the delivery of course material and handling of deadlines, assignments, etc. Now I’m a fan of the OS community, but Moodle has… quirks. One of which is that it *seems* to have no easy mechanism for downloading an entire course in a useable format. It could be that this facility exists and is just hard to find, but this post is designed in the hope that it will save other lecturers or TAs a lot of grief when they want to get a handle on a course without downloading each file individually and don’t seem to have permission to take a backup in a standard format.
+
+Step 1.
+
+The first step is to download the backup file from Moodle. As of Moodle 2.x this is a MBZ file which no application on your computer will know how to open. Move the MBZ file to a new folder (e.g. “Moodle” on your desktop) since you don’t want the files to be extracted all over a top-level directory.
+
+Step 2.
+
+It turns out that a MBZ file is just a ZIP file by another name. So now that you’ve downloaded and saved the MBZ file, change the extension from
+
+    .mbz
+
+to
+
+    .zip
+
+and then unpack it into the new directory.
+
+Step 3.
+
+Configure the Python script below with the appropriate parameters:
+
+- destination: path to where you want the Moodle files saved
+- source: path to where the unpacked MBZ file is stored
+- pattern: types of files you want to extract (the ones listed here are fairly comprehensive, and if you need more then you probably know enough to adjust the regex)
+
+Here’s the python script:
+
+    import xml.etree.ElementTree as etree
+    import fnmatch
+    import shutil
+    import os
+    import re
+
+    def locate(pattern, root=os.curdir):
+        '''Locate all files matching supplied filename pattern in and below
+        supplied root directory.'''
+        for path, dirs, files in os.walk(os.path.abspath(root)):
+            for filename in fnmatch.filter(files, pattern):
+                yield os.path.join(path, filename)
+
+    destination = '/Users/foobar/Desktop/Moodle Copy/'
+    source      = '/Users/foobar/Desktop/Moodle Backup/'
+    pattern     = re.compile('^\s*(.+\.(?:pdf|png|zip|rtf|sav|mp3|mht|por|xlsx?|docx?|pptx?))\s*$', flags=re.IGNORECASE)
+
+    tree = etree.parse(source + 'files.xml')
+    root = tree.getroot()
+
+    print "Root: ", root
+
+    for rsrc in root:
+        #print "Child id: ", rsrc.attrib
+        fhash = rsrc.find('contenthash').text
+        fname = rsrc.find('filename').text
+
+        #print "\tHash: '", fhash, "'"
+        #print "\tName: '", fname, "'"
+
+        hit = pattern.search(fname)
+
+        if hit:
+            #print "\tMatch: ", hit.group(1)
+            files = locate(fhash, source)
+            #print "\tFiles: ", files
+            for x in files:
+                print "Copying: ", x
+                shutil.copyfile(x, destination + fname)
+        else: 
+            print "No Match: '", fname, "'"
+
+Step 4.
+
+Run the script and check that you’ve picked up all the content you needed.
+
+Note that there are a few limitations to this script:
+
+1.  It doesn’t preserve any hierarchy from the Moodle archive (so if there are folders and subfolders in the backup you will lose this)
+2.  It doesn’t deal with files that have the *same name* — in this case it will blindly overwrite the first occurrence of a file with the same name using the second file of the same name
+
+These were not issues with my Moodle archive so I didn’t implement them, but it shouldn’t be too hard to add given Python’s legendary user-friendliness (I say this partly in all seriousness and partly ironically). At any rate, I hope this helps anyone landed in a similar situation by saving them a good couple of hours or research.

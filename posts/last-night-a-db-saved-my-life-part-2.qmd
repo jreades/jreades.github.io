@@ -1,0 +1,147 @@
+---
+title: "Last night a DB saved my life (Part 2)"
+date: 2026-01-25
+categories: ["Coding", "Data", "PostGIS", "Research"]
+description: "Following on from my last post about what DuckDB makes possible, here’s a little more detail about how this works in practice… Installing DuckDB There are two ways to use DuckDB: via the Command Line (CLI/Terminal), and via a library for wh"
+image: img/jan-antonin-kolar-lRoX0shwjUQ-unsplash-1-scaled.jpg
+wp-url: http://www.reades.com/wp/?p=426
+---
+
+Following on from my last post about what DuckDB makes possible, here’s a little more detail about how this works in practice…
+
+#### Installing DuckDB {#installing-duckdb .wp-block-heading}
+
+There are two ways to use DuckDB: via the Command Line (CLI/Terminal), and via a library for whatever language you’re programming in. I tend to use the CLI more intensively while working out the *correct* query to access my data or examining the outputs of an operational step for validity/consistency, and to use the (Python) library when I’m operationalising my code.
+
+Installing the CLI is as simple as downloading and running the appropriate installer. Fire up the CLI tool (`duckdb`) and you can query your parquet files with nothing more than `DESCRIBE 'data.parquet'` or `SELECT COUNT(*) from 'data.parquet'`.
+
+Installing the library is also straightforward: on Python it’s `pip install duckdb` or `conda install -c conda-forge duckdb`. Equally straightforward and, if need be, automatable in a `YAML` configuration file. In your Python code you can now execute commands and retrieve the results of queries with `import duckdb` and `duckdb.execute(sql)` or `duckdb.sql(sql).to_df()` to return a Pandas data frame.
+
+Job done, and you can now make full use of DuckDB.
+
+So a slightly humiliating confession: the first time I used DuckDB, this is the point where I then tried to create a virtual machine on which to ‘run’ the server so that I could assemble my data and query it from other machines. Because of my history with fully-fledged database servers, it took me far longer than it really should have to realise that this setup step is pointless because you just execute the query against the data directly. There *is* no server any more and, consequently, no more setup to do.
+
+### What DuckDB+Parquet enable in practice {#what-duckdbparquet-enable-in-practice .wp-block-heading}
+
+To try to give some practical examples, drawn from my own experience, about how you can use these features…
+
+#### Example 1: Incremental Extension {#example-1-incremental-extension .wp-block-heading}
+
+It’s fairly common in long-running research projects to receive updated data: an additional month or year’s worth of log files, for instance. Traditionally, the use case here for a database was obvious, but I’ve often observed that, in Postgres particularly, performance degrades as the index on the table grows. Meanwhile splitting data *row*-wise across tables is… not recommended since it makes your queries massively more complicated.
+
+But with DuckDB and parquet you can just create a new parquet file for the additional data and, so long as it has the same layout, you can treat it as part of the same ‘table’. So simply by following a consistent naming scheme you can add to your database by dropping a new file into the right folder: if your data looks like `2025-01-data.parquet`, `2025-02-data.parquet` then your query looks like this `SELECT x FROM read_parquet(2025-??-data.parquet` and that will search across all of your 2025 data.
+
+An additional benefit here is that you can easily retire ‘old’ data without deleting it from the core table: move `2024-01-data.parquet` to a ‘backup’ location and it silently falls out of the query.
+
+#### Example 2: Organising and Deduplicating {#example-2-organising-and-deduplicating .wp-block-heading}
+
+I have an ongoing project—made possible by Glasgow’s UBDC—using data provided by Zoopla. There is one very large file for each year of Zoopla data, but my initial checks showed that there was overlap between the files. So the 2024 file had data running from some random point in late 2023 to some equally random point in early 2025. Some of those overlaps were duplicates, and some were not.
+
+In Pandas, sorting this out was effectively impossible because of the memory overhead. I had experimented with Dask, which is good, but not really designed for this sort of thing. But in DuckDB, after converting the whole set of source files to Parquet I could query them as if they were in one massive table (see Example 1), sort the data into separate annual files (so now I have `zoopla-2023` containing only 2023 data and `zoopla-2024` containing only 2024 data), and then dedupe them into their final form in a matter of minutes using a windowing function.
+
+#### Example 3: Linking and Aggregating {#example-3-linking-and-aggregating .wp-block-heading}
+
+The other area where Pandas was painful is data linkage: joining two data tables together required loading them both into memory, creating the matching logic, and then waiting… and waiting… and waiting. You *could* express this as a SQL query of sorts in Pandas but you’d still suffer the same performance hit when you actually tried to *do* anything.
+
+DuckDB, run via the Python library, allows you to express this as straightforward SQL and the JOINs and GROUP BYs are blindingly fast. My first attempt at linking Land Registry and Price Paid Data for the UK took something like 12 hours to complete when run entirely in Python+Pandas using Dask to distribute the linkage mechanism across multiple machines. These are not particularly large data sets. Moving to Parquet and Python+DuckDB has reduced this to under 45 minutes on a single machine, and recently I’ve found a nice address matching library that has reduced it further, to under 3 minutes for London.
+
+### How my code has changed {#how-my-code-has-changed .wp-block-heading}
+
+Hopefully by now you’re convinced of the benefits of DuckDB+Python, but most ‘new’ platforms require some work since you need to adjust your code to benefit. Polars is a good example here: while it is *technically* a drop-in replacement for Pandas, you won’t see the benefits of its underlying architecture unless you devote some considerable effort to rewriting your code around ‘lazy’ execution.
+
+Perhaps because I already knew a lot of SQL from back in the day, for me the overhead has been much less: dozens of lines of convoluted attempts to work *around* Pandas are replaced by a single query that transparently says what it does on the tin. My examples below are all in-line examples, but there’s no reason you couldn’t move your queries to a library and just import the ones you need if you prefer to keep your SQL and Python separate.
+
+So here are some concrete examples of how my code has changed…
+
+#### Example 1: Self-Linkage {#example-1-self-linkage .wp-block-heading}
+
+This kind of thing was hard to express in Python and *massively* non-performant, but now it returns in under a second for nearly 4 million rows *on a laptop*.
+
+``` wp-block-preformatted
+ self_link_sql = f"""
+ COPY(
+     SELECT 
+         e.lmk_key AS src_lmk_key,
+         t.lmk_key AS tgt_lmk_key
+     FROM 
+         './data/clean/London-epc.parquet' e,
+         './data/clean/London-epc.parquet' t
+     WHERE
+         CONCAT(e.address1, ' ', e.address2, ' ', e.address3)=
+         CONCAT(t.address1, ' ', t.address2, ' ', t.address3)
+     AND
+         e.postcode=t.postcode
+     ORDER BY tgt_lmk_key, src_lmk_key
+ ) TO 'epc_to_uid.parquet' (FORMAT PARQUET, COMPRESSION ZSTD);
+ """
+ duckdb.execute(self_link_sql)
+```
+
+I’ll not unpack this in any great detail, but the short version is that I’m looking to build a many-to-many lookup table of keys (individual EPC rows from the EPC bulk data set) that refer to the same address and to then copy the output of that query to a new file called `epc_to_uid.parquet`.
+
+#### Example 2: Mixing Python and SQL {#example-2-mixing-python-and-sql .wp-block-heading}
+
+When used inline, you can also simplify *both* your SQL and your Python using f-strings to parameterise the query. So we can create a raw, regex-compatible string in Python (`regex`) and interpolate that into the SQL that we pass to DuckDB. We can then also parameterise the input and output parquet files so that we can either access them elsewhere in the script or manage their location in a more flexible manner (e.g. calling a function to check the path exists before trying to write to it).
+
+``` wp-block-preformatted
+ regex = r'(<some pattern>)'
+ sql = f"""SELECT regexp_extract(<address1>, '{regex}', 1) ..."""
+```
+
+#### Example 3: Pick ‘Best’ Match from Window {#example-3-pick-best-match-from-window .wp-block-heading}
+
+DuckDB also allows us to make use of standard windowing functions like `ROW_NUMBER` with a partition:
+
+``` wp-block-preformatted
+ SELECT 
+     row_number() OVER (ORDER BY p1.attr, p1.date1, p2.date2) as rown, *
+   FROM '<table1>' p1
+   LEFT JOIN '<table2>.' p2
+   ON <join condition>
+   WHERE
+       p1.date1 > date_add(p2.date2, INTERVAL 30 DAY) 
+     AND 
+       p1.date1 < date_add(p2.date2, INTERVAL 10 YEAR)
+```
+
+This is fairly complicated SQL so I’ve taken most of the details out, but the two things here are:
+
+1.  As in the earlier, fuller example we’re joining parquet files together as if they are tables in a database.
+2.  We’re applying a constraint to join that `date1` should be at least 30 days after `date2` *and* that it also can’t be more than 10 years after `date2` either. This is (largely) the ‘business logic’ you’ll find in the EPC regulations applied transparently via a declarative statement.
+3.  We’re creating a row number for each *combination* of attributes and dates specified in the `ORDER BY` clause. With that row number we now have a quick and easy way to pull out only the most recent record for a given `attr` by just asking for the `LAST` row in each group.
+
+#### Example 4: Join and Aggregate {#example-4-join-and-aggregate .wp-block-heading}
+
+And the ultimate goal of all the work I did earlier: calculating a Price Paid per Square Metre value for each transaction in the Land Registry data set. What used to take the better part of a day is now a set of DuckDB operations on parquet files finishing up with just three trivial joins. The entire pipeline for one region can now complete in under 10 minutes.
+
+## ‘Limitations’ {#limitations .wp-block-heading}
+
+I said in the my [previous post](http://www.reades.com/wp/?p=422) that one of the things that I liked about moving a lot of logic to SQL and DuckDB was that it made my workflows more transparent: instead of extended lines of join/drop/concat in Pandas, you could do a good bit of the heavy lifting in a single, clear, declarative statement.
+
+There’s an important limitation to that claim: the nature of data-oriented research is that it’s exploratory and you often examine how the results change when you vary the constraints or parameters, and you want to be able to do this quickly and easily, as well as audibly. Burying your constraints in lines 317–324 of ‘canonicalise.py’ doesn’t help there.
+
+For simpler constraints there’s a nice, easy solution: compose your SQL instead of hard-coding it. Here’s an example:
+
+``` wp-block-code
+constraints = {
+  'valid': '> 30',
+  'date': f"< '{current_date.year}' - INTERVAL '1 month 13 hours'",
+  'price': '> 45'
+}
+
+sql = f"""
+SELECT * 
+FROM <tbl>
+WHERE {" AND ".join([f"{k} {v}" for k,v in constraints.items()])}
+"""
+```
+
+Now you can move your analytical constraints to the top of the Python file and be really clear about what the criteria are for inclusion/exclusion from your pipeline. If you want to change a constraint then just comment out the line in the dictionary, and if you want to add a new one just add it to the dict at the top of the file and re-run your script. You could, of course, even externalise it to a shared library so that the same constraint is consistently used elsewhere without you ever having to do a global search on all your files.
+
+## Wrap-Up {#wrap-up .wp-block-heading}
+
+DuckDB is evolving quickly and spatial data support is now substantial, though I won’t pretend is has reached the level of performance and flexibiliy available in Postgres. But as DuckDB catches up with what’s built in to the world’s leading FOSS server, the number of occasions on which I’ll see *any* need to run a database will fall further still. Quite simply, DuckDB has ‘saved my life’ by allowing me to spend a lot less time working on the data plumbing and a lot more time working on the data analysis.
+
+I’m curious how those of you who’ve moved to Polars *instead of* DuckDB are finding it in practice? My read is that the performance is broadly comparable, but only when you adapt your Pandas code to make the most of Polars’ lazy code evaluation and query optimisation. Thoughts?
+
+Next I’ll try to post a few thoughts on when DuckDB *isn’t* the right answer.

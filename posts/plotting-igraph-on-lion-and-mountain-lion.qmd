@@ -1,0 +1,65 @@
+---
+title: "Plotting & iGraph on Lion and Mountain Lion"
+date: 2013-04-01
+categories: ["Tutorials"]
+description: "Note: this was previously posted at simulacra.info, but I am in the process of (re)organising my technical notes and tutorials. After giving up on Gephi (again, I really should learn), I decided it was time to get to grips with Python and i"
+wp-url: http://www.reades.com/wp/?p=202
+---
+
+*Note: this was previously posted at [simulacra.info](http://simulacra.blogs.casa.ucl.ac.uk/2012/08/plotting-and-igraph-on-lion-and-mountain-lion/){target="_blank" rel="noopener"}, but I am in the process of (re)organising my technical notes and tutorials.*
+
+After giving up on Gephi (again, I really should learn), I decided it was time to get to grips with Python and iGraph since I really need to produce multiple iterations of a graph. The matmos at CASA have, of course, been touting Python for ages, but I’ve just not had the time/incentive to install and, more importantly, actually get around to using it… until now. Of course, like all such migrations, there has been a bit of a learning curve, so I’m documenting this to save you (and me) the trouble later because it turns out that Lion and Mountain Lion aren’t 100% iGraph friendly out of the box.
+
+iGraph itself is easy to install, you can just download and run the installer from [SourceForge](http://igraph.sourceforge.net/download.html) but the supporting libraries to enable plotting have some issues. Below is what I adapted from information provided by the people at  [ffMpeg](http://ffmpeg.org/trac/ffmpeg/wiki/MacOSXCompilationGuide).
+
+You will need to start by grabbing [xz](http://tukaani.org/xz/), which is (yet another) compression/decompression library promising better performance than the venerable gz or bzip:\
+\
+`./configure`\
+`make && sudo make install`\
+
+You need xz so that you can decompress glib, but before you can compile glib, you will also need the latest version of [gettext](ftp://ftp.gnu.org/gnu/gettext/). Furthermore, [per the instructions](http://ffmpeg.org/trac/ffmpeg/wiki/MacOSXCompilationGuide) you will need to manually edit one of the files to get it to compile on Lion or Mountain Lion. Namely, open:
+
+    gettext-tools/gnulib-lib/stpncpy.c
+
+and change it such that you have added a line reading:
+
+    #undef stpncpy
+
+just before the line reading:
+
+    #ifndef weak_alias
+
+From there, it’s your usual:\
+\
+`./configure`\
+`make && sudo make install`\
+
+Now you can finally move on to installing [glib](http://ftp.gnome.org/pub/GNOME/sources/glib/2.33/), which will be need for compiling Cairo properly. Note that this is the point where you have to start passing in more and more command line arguments to configure:\
+\
+`xz -d glib-2.33.10.tar.xz`\
+`tar -xvf glib-2.33.10.tar`\
+`cd glib-2.33.10`\
+`LIBFFI_CFLAGS=-I/usr/include/ffi LIBFFI_LIBS=-lffi ./configure; make && sudo make install`\
+
+Phew, we’re getting there. Now it’s time for [pkg-config](http://pkgconfig.freedesktop.org/releases/):\
+\
+`GLIB_CFLAGS="-I/usr/local/include/glib-2.0 -I/usr/local/lib/glib-2.0/include" GLIB_LIBS="-lglib-2.0 -lgio-2.0" ./configure --with-pc-path="/usr/X11/lib/pkgconfig:/usr/X11/share/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"`\
+`make && sudo make install`\
+
+I was able to skip straight to installing pycairo because I had already installed Cairo as part of my last update to [QGIS](http://www.qgis.org/). The excellent [KyngChaos](http://www.kyngchaos.com/) has a [handy set of installers](http://www.kyngchaos.com/software/unixport) to keep things simple.
+
+And finally it’s time for [pyCairo](http://www.cairographics.org/pycairo/) (you probably want py2cairo since OSX is using Python 2.7):\
+\
+`./waf configure`\
+`./waf build`\
+`sudo ./waf install`
+
+You may also care to add this line to your
+
+    .bash_login
+
+file:\
+\
+`export PYTHONPATH="/usr/lib/python2.7:$PYTHONPATH"`\
+\
+(You may also *not* want to add `python2.6` or `python2.5` to your Python path since this will give you some interesting errors… as I discovered.)

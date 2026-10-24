@@ -1,0 +1,181 @@
+/*-- scss:defaults --*/
+
+// ---- Design tokens: change the look here ---------------------------------
+$paper:   #ECE9E1;
+$ink:     #1B2428;
+$muted:   #4A575C;
+$accent:  #B3402A;      // swap for #2F6F73 (teal), #6B4E9B (violet) or $ink
+$rule:    rgba(27, 36, 40, .35);
+
+$font-text:  'EB Garamond', Georgia, serif;
+$font-label: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+
+$grid-cols:   12;
+$grid-margin: 64px;     // outer margin on wide screens
+$grid-gutter: 24px;
+$grid-max:    1440px;
+$bleed:       .12;      // opacity of the hero landscape leaking into the margins
+// ---------------------------------------------------------------------------
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $ink;
+$link-hover-color: $accent;
+$link-decoration: none;
+$font-family-sans-serif: $font-text;
+$font-size-root: 20px;
+$line-height-base: 1.55;
+$headings-font-family: $font-text;
+$headings-font-weight: 400;
+$navbar-bg: transparent;
+
+/*-- scss:rules --*/
+
+:root {
+  --paper: #{$paper}; --ink: #{$ink}; --muted: #{$muted}; --accent: #{$accent};
+  --rule: #{$rule};
+  --cols: #{$grid-cols}; --margin: #{$grid-margin}; --gutter: #{$grid-gutter};
+  --bleed: #{$bleed};
+  --label: #{$font-label};
+}
+
+body { background: $paper; overflow-x: clip; }
+code { color: $accent; background: none; padding: 0; }
+// The page title is shown by each page's own display heading; keep it for screen readers.
+.page-layout-custom #title-block-header { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+// ---- The grid -------------------------------------------------------------
+.g {
+  display: grid;
+  grid-template-columns: repeat($grid-cols, minmax(0, 1fr));
+  column-gap: $grid-gutter;
+  padding-inline: $grid-margin;
+  max-width: $grid-max;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+.g > * { min-width: 0; }
+.span-all { grid-column: 1 / -1; }
+.hang     { grid-column: 4 / span 9; }       // hanging indent: label | content
+.hang-lab { grid-column: 1 / span 3; }
+
+.lab {
+  font-family: $font-label; font-size: .6rem; font-weight: 400;
+  letter-spacing: .14em; text-transform: uppercase; color: $muted;
+}
+
+// Rows on the parent grid (subgrid keeps every row on the page columns).
+.row12 {
+  grid-column: 1 / -1; display: grid;
+  grid-template-columns: repeat($grid-cols, minmax(0, 1fr));
+  grid-template-columns: subgrid;
+  column-gap: $grid-gutter; align-items: baseline;
+  padding-block: 20px; border-top: 1px solid $rule; margin: 0;
+}
+
+// ---- Hero: a window onto a landscape that leaks into the margins ----------
+.linked { position: relative; }
+.linked a::after { content: ''; position: absolute; inset: 0; }
+.row12.row-hang { grid-column: 4 / span 9; grid-template-columns: repeat(9, minmax(0, 1fr)); grid-template-columns: subgrid; }
+.hero { position: relative; }
+.hero .g { position: relative; }
+.hero .g::before {
+  content: ''; position: absolute; top: 0; left: 50%; width: 100vw; margin-left: -50vw; height: 600px;
+  pointer-events: none; z-index: 0; opacity: var(--bleed);
+  background: url('/img/ridgeline.svg') center top / auto 600px no-repeat;
+}
+.hero-window {
+  position: relative; z-index: 1; height: 600px; overflow: hidden;
+  background: url('/img/ridgeline.svg') center top / auto 600px no-repeat;
+}
+.hero-caption {
+  position: absolute; left: 0; bottom: 0; padding: 24px; color: $paper;
+  font-family: $font-label; font-size: .55rem; letter-spacing: .14em; text-transform: uppercase;
+}
+
+// ---- Navbar ---------------------------------------------------------------
+.navbar { background: transparent !important; border: 0; padding-block: 12px;
+  .navbar-brand, .nav-link {
+    font-family: $font-label; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+    color: $ink !important;
+  }
+  .nav-link:hover, .nav-link.active { color: $accent !important; }
+  .navbar-brand { font-weight: 500; letter-spacing: .18em; }
+  .navbar-container { max-width: $grid-max; padding-inline: $grid-margin; margin-inline: auto; width: 100%; }
+}
+
+// ---- Type -----------------------------------------------------------------
+h1.display { font-size: 4.4rem; line-height: .98; letter-spacing: -.015em; margin: 0; font-weight: 400; }
+h1.display em { color: $accent; }
+.lead-text { font-size: 1.1rem; line-height: 1.5; }
+
+// ---- Icons: SVG masks so one short tag works anywhere ---------------------
+.ico {
+  display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center;
+  color: $muted;
+  &::before { content: ''; width: 20px; height: 20px; background: currentColor;
+    mask: var(--i) center / contain no-repeat; -webkit-mask: var(--i) center / contain no-repeat; }
+  &:hover { color: $accent; }
+}
+.ico-mail     { --i: url('/img/icons/mail.svg'); }
+.ico-linkedin { --i: url('/img/icons/linkedin.svg'); }
+.ico-github   { --i: url('/img/icons/github.svg'); }
+.ico-orcid    { --i: url('/img/icons/orcid.svg'); }
+.ico-scholar  { --i: url('/img/icons/scholar.svg'); }
+.icons { display: flex; margin-left: -12px; }
+
+// ---- Publications ---------------------------------------------------------
+.pubgroup { grid-column: 1 / -1; display: grid; grid-template-columns: repeat($grid-cols, minmax(0, 1fr)); column-gap: $grid-gutter;
+  border-top: 1px solid $rule; padding-block: 20px 40px;
+  h2 { grid-column: 1 / span 3; margin: 6px 0 0; border: 0; padding: 0;
+    .count { margin-left: .8em; color: $accent; } }
+  .publist { grid-column: 4 / span 9; margin: 0; padding: 0; list-style: none;
+    li { padding-block: 0 1em; font-size: .95rem; line-height: 1.5; }
+    .pub-title { color: $ink; }
+    .pub-link { font-family: $font-label; font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
+      color: $accent; margin-left: .4em; } }
+}
+
+// ---- Essays (posts): text on the page grid, hanging from column 4 --------------
+.page-layout-article {
+  display: block !important;
+  #quarto-document-content {
+    display: grid; grid-template-columns: repeat($grid-cols, minmax(0, 1fr)); column-gap: $grid-gutter;
+    padding: 24px $grid-margin 40px; max-width: $grid-max; margin: 0 auto; box-sizing: border-box;
+    > * { grid-column: 4 / span 6; min-width: 0; }
+    > header, > figure, > .cell, > table, > pre, > div.sourceCode { grid-column: 4 / span 9; }
+    > header { margin-bottom: 40px;
+      .title { font-size: 4rem; line-height: .98; letter-spacing: -.015em; font-weight: 400; margin: 0 0 24px; }
+      .quarto-categories { display: flex; gap: 1em; margin-bottom: 16px;
+        .quarto-category { font-family: $font-label; font-size: .6rem; letter-spacing: .14em; text-transform: uppercase;
+          color: $accent; border: 0; padding: 0; background: none; } }
+      .description { font-size: 1.35rem; line-height: 1.45; max-width: 34em; margin-bottom: 20px; }
+      .quarto-title-meta { font-family: $font-label; font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: $muted;
+        .quarto-title-meta-heading { display: none; } .date { margin: 0; } } }
+    h2, h3 { font-weight: 400; border: 0; margin-top: 2.2em; margin-bottom: .6em; }
+    h2 { font-size: 1.8rem; line-height: 1.15; } h3 { font-size: 1.4rem; font-style: italic; }
+    p, li { font-size: 1.05rem; line-height: 1.6; }
+    img { max-width: 100%; height: auto; }
+    a { color: $ink; text-decoration: underline; text-decoration-color: $rule; text-underline-offset: 3px; &:hover { color: $accent; } }
+    blockquote { border-left: 0; padding-left: 0; font-style: italic; color: $muted; }
+  }
+}
+
+// ---- Footer ---------------------------------------------------------------
+.site-foot { border-top: 1px solid $rule; margin-top: 4rem;
+  .g { padding-block: 24px 40px; align-items: center; }
+  .foot-l { grid-column: 1 / span 6; font-family: $font-label; font-size: .65rem; color: $muted; }
+  .foot-r { grid-column: 7 / span 6; display: flex; justify-content: flex-end; margin-right: -12px; }
+}
+
+// ---- Handheld: single column, 20px margins --------------------------------
+@media (max-width: 860px) {
+  .g { padding-inline: 20px; column-gap: 16px; }
+  .page-layout-article #quarto-document-content { padding-inline: 20px; > *, > header { grid-column: 1 / -1; } .title { font-size: 2.4rem; } }
+  .g > *, .row12 > *, .pubgroup > * { grid-column: 1 / -1 !important; }
+  .row12, .pubgroup { grid-template-columns: 1fr; }
+  h1.display { font-size: 2.4rem; }
+  .hero-window, .hero .g::before { height: 300px; background-size: auto 300px; }
+  .navbar .navbar-container { padding-inline: 20px; }
+  .site-foot .foot-r { justify-content: flex-start; margin-left: -12px; }
+}
