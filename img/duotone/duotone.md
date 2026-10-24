@@ -40,5 +40,6 @@ images:
 #    blackpoint: 40
 ---
 
-Notes: keep scene photos in this folder; duotones are written to `img/duotone/`.
-Originals are never modified.
+Notes: put original photos in `img/scenes/` (git-ignored, so they stay on this machine);
+duotones are written next to this file. Originals are never modified. This file lives
+here, not in `img/scenes/`, because it is tracked in Git and the originals are not.

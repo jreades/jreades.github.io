@@ -1,4 +1,4 @@
-"""Duotone the photos in img/scenes/ using the settings in img/scenes/duotone.md.
+"""Duotone the photos in img/scenes/ using the settings in img/duotone/duotone.md.
 
     python scripts/duotone.py                 # redo anything new or changed
     python scripts/duotone.py IMG_3250.jpg    # just these files
@@ -27,7 +27,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageOps
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'img', 'scenes')
 OUT = os.path.join(ROOT, 'img', 'duotone')
-SETTINGS = os.path.join(SRC, 'duotone.md')
+SETTINGS = os.path.join(OUT, 'duotone.md')
 MANIFEST = os.path.join(OUT, '.manifest.json')
 EXTS = ('.jpg', '.jpeg', '.png', '.tif', '.tiff')
 

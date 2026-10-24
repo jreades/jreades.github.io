@@ -6,6 +6,7 @@ project:
     - img/
     - "!img/scenes/"
     - "!img/duotone/_contact.jpg"
+    - "!img/duotone/duotone.md"
   render:
     - "*.qmd"
     - "posts/*.qmd"
