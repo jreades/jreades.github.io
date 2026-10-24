@@ -22,17 +22,14 @@ defaults:
   midpoint: 127     # where `mid` sits between the two (only if mid is set)
   gamma: 1.0        # >1 darkens midtones, <1 lightens them (applied before colouring)
   cutoff: 1         # % of darkest/lightest pixels clipped by auto-contrast; 0 turns it off
-  strength: 0.85    # 1 = pure duotone; lower lets the original colour show through
-  saturation: 0.5   # saturation of the original colour layer under the duotone (0 = grey)
+  strength: 0.7     # 1 = pure duotone; lower lets the original colour show through
+  saturation: 0.7   # saturation of the original colour layer under the duotone (0 = grey)
   width: 2400       # output width in px (never enlarges)
   aspect: null      # optional crop, e.g. "21:9" or "4:5"
   focus: [0.5, 0.5] # crop centre as fractions of width, height
   quality: 85       # JPEG quality
 
-images:
-  IMG_3203.jpg:
-    strength: 0.7
-    saturation: 0.7
+images: {}
 #  IMG_3250.jpg:
 #    blackpoint: 40
 ---
