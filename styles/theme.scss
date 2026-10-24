@@ -64,6 +64,10 @@ code { color: $accent; background: none; padding: 0; }
   letter-spacing: .14em; text-transform: uppercase; color: $muted;
 }
 
+// Inline links inside page content read as links (rows and icons are links too, but not underlined).
+.g a:not(.row12):not(.ico):not(.pub-link) { text-decoration: underline; text-decoration-color: $rule; text-underline-offset: 3px;
+  &:hover { text-decoration-color: $accent; } }
+
 // Rows on the parent grid (subgrid keeps every row on the page columns).
 .row12 {
   grid-column: 1 / -1; display: grid;
