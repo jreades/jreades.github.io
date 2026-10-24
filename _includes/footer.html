@@ -1,0 +1,24 @@
+<footer class="site-foot">
+<div class="g">
+<span class="foot-l">Jon Reades &middot; UCL Centre for Advanced Spatial Analysis</span>
+<span class="foot-r"><a class="ico ico-mail" href="mailto:j.reades@ucl.ac.uk" aria-label="Email"></a><a class="ico ico-linkedin" href="https://www.linkedin.com/in/jonreades/" aria-label="LinkedIn"></a><a class="ico ico-github" href="https://github.com/jreades" aria-label="GitHub"></a><a class="ico ico-orcid" href="https://orcid.org/0000-0002-1443-9263" aria-label="ORCID"></a><a class="ico ico-scholar" href="https://scholar.google.com/citations?user=L_S18IEAAAAJ&amp;hl=en" aria-label="Google Scholar"></a></span>
+</div>
+</footer>
+<script>
+// A random duotone photo for every page's banner; fall back to the drawn ridgeline.
+(function () {
+  var root = document.documentElement;
+  if (!document.querySelector('.hero')) {
+    var slim = document.createElement('div');
+    slim.className = 'hero hero-slim';
+    slim.innerHTML = '<div class="g"><div class="hero-window" style="grid-column:1 / -1" role="img" aria-label="Landscape photograph"></div></div>';
+    var c = document.getElementById('quarto-content');
+    c.parentNode.insertBefore(slim, c);
+  }
+  function set(url) { root.style.setProperty('--hero', 'url(' + url + ')'); }
+  fetch('/img/duotone/images.json')
+    .then(function (r) { return r.json(); })
+    .then(function (l) { set('/img/duotone/' + l[Math.floor(Math.random() * l.length)].file); })
+    .catch(function () { set('/img/ridgeline.svg'); });
+})();
+</script>

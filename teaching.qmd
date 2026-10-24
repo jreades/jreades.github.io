@@ -1,0 +1,71 @@
+---
+title: "Teaching"
+pagetitle: "Teaching — Jon Reades"
+---
+
+::: {.g style="padding-top:40px;padding-bottom:72px"}
+::: {.hang-lab}
+<div class="lab">02 &middot; Teaching</div>
+:::
+::: {.hang}
+# Materials for learning spatial data science. {.display}
+:::
+
+:::: {.row12 style="margin-top:56px"}
+::: {.lab style="grid-column:1 / span 3"}
+Course
+:::
+::: {style="grid-column:4 / span 4;font-size:1.5rem;line-height:1.1"}
+Foundations of Spatial Data Science (CASA0013)
+:::
+::: {style="grid-column:8 / span 5"}
+An evolution of the work I developed in the Department of Geography at King's College London. Built entirely in Quarto, including the practical notebooks, and published to GitHub Pages. [FSDS micro-site](https://jreades.github.io/fsds/).
+:::
+::::
+:::: {.row12}
+::: {.lab style="grid-column:1 / span 3"}
+Resource
+:::
+::: {style="grid-column:4 / span 4;font-size:1.5rem;line-height:1.1"}
+Code Camp
+:::
+::: {style="grid-column:8 / span 5"}
+Helps students acquire the basics of coding in Python, up to the point of using functions, so they are less overwhelmed in the first weeks of term. Python runs in the browser. [Code Camp micro-site](https://jreades.github.io/code-camp/).
+:::
+::::
+:::: {.row12}
+::: {.lab style="grid-column:1 / span 3"}
+Environment
+:::
+::: {style="grid-column:4 / span 4;font-size:1.5rem;line-height:1.1"}
+Spatial Data Science computing environment
+:::
+::: {style="grid-column:8 / span 5"}
+The information needed to build a Docker image for CASA0013 and other CASA modules: a custom Anaconda environment with Quarto and fonts so students have choices about how their reports look. [SDS Environment micro-site](https://jreades.github.io/sds_env/).
+:::
+::::
+:::: {.row12}
+::: {.lab style="grid-column:1 / span 3"}
+Tooling
+:::
+::: {style="grid-column:4 / span 4;font-size:1.5rem;line-height:1.1"}
+Flip
+:::
+::: {style="grid-column:8 / span 5"}
+Not yet public: scripts for maintaining open-source teaching resources for a flipped format. [Repository](https://github.com/jreades/flip/).
+:::
+::::
+:::: {.row12}
+::: {.lab style="grid-column:1 / span 3"}
+Plugin
+:::
+::: {style="grid-column:4 / span 4;font-size:1.5rem;line-height:1.1"}
+Q&A
+:::
+::: {style="grid-column:8 / span 5"}
+A Quarto plugin that lets you write a question and answer code block side by side, passing only one through on render: the question to the notebook, the answer to the PDF. [Documentation](https://github.com/jreades/qna).
+:::
+::::
+
+<div class="span-all" style="border-top:1px solid var(--rule)"></div>
+:::

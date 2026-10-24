@@ -1,0 +1,20 @@
+---
+title: "CV and publications"
+pagetitle: "CV and publications — Jon Reades"
+---
+
+::: {.g style="padding-top:40px;padding-bottom:40px"}
+::: {.hang-lab}
+<div class="lab">Curriculum vitae</div>
+:::
+::: {.hang}
+# Publications, by type of output {.display}
+:::
+::: {style="grid-column:4 / span 6;padding-top:24px"}
+<p class="lead-text">Journal articles, books, chapters, reports, theses and talks, newest first within each type.</p>
+:::
+:::
+
+::: {.g style="padding-bottom:40px"}
+{{< include _generated/publications.html >}}
+:::

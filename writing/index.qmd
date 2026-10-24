@@ -1,0 +1,24 @@
+---
+title: "Writing"
+pagetitle: "Writing — Jon Reades"
+listing:
+  id: writing-list
+  contents: ../posts/*.qmd
+  sort: "date desc"
+  template: ../styles/listing.ejs
+  date-format: "MMM YYYY"
+  page-size: 100
+  fields: [date, title, description, categories]
+---
+
+::: {.g style="padding-top:40px;padding-bottom:48px"}
+::: {.hang-lab}
+<div class="lab">03 &middot; Writing</div>
+:::
+::: {.hang}
+# Longer thoughts, and fifteen years of posts. {.display}
+:::
+:::
+
+::: {#writing-list}
+:::

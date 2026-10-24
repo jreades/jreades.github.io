@@ -1,0 +1,48 @@
+---
+title: "Finding my voice with Claude?"
+date: 2026-06-12
+categories: ["AI", "Coding", "Technology"]
+description: "I wondered: can Claude speak for me? Reader, it can’t. But it can tell me quite a bit about how I speak."
+image: img/noaa-HFYczZkqCoE-unsplash-scaled.jpg
+wp-url: http://www.reades.com/wp/?p=458
+---
+
+I like writing. I also don’t seem to have much time to do it since, as HoD at [The Bartlett Centre for Advanced Spatial Analysis](https://www.ucl.ac.uk/bartlett/casa), I have a *lot* of meetings. So I wondered: can Claude speak *for* me? Reader, it can’t. But it can tell me quite a bit about *how* I speak.
+
+Weirdly, it’s quite helpful to have ‘someone’ point out (amongst many other things) that my talks use/follow:
+
+- **British register, formal-on-slide / colloquial-in-notes.** Slide bodies are short and grammatically formal; notes are warm, first-person, and frank. The asymmetry is the voice.
+- **The long-view scepticism.** Refusing “this time it’s different” claims is a recurring intellectual move.
+- **Pop-cultural and literary anchoring.** Strangelove, “One more thing…”, xkcd, Jill Lepore, Alfred Weber. Cultural references are load-bearing, not decorative.
+- **The “yes, X, but also Y” construction.** Nothing is presented as uncomplicated. Comfortable conclusions are interrupted, then qualified, then committed to anyway.
+
+Apparently, somewhere in the past 20 years I became British!
+
+## Motivation {#motivation .wp-block-heading}
+
+For me, the driver of all this is that I’m a much faster and better editor than I am a writer, but I know that ‘out of the box’ Claude has a fairly anodyne style, so I’ve been curious about what it could do if trained on some of my own ‘source material’. And since I primarily work with open source presentation frameworks when speaking to academics or teaching my [Foundations of Spatial Data Science module](https://jreades.github.io/fsds/), I figured it would have a fairly easy time parsing them and looking for patterns because the structure and style would be more evident than in a PowerPoint.
+
+I had a strong suspicion it would spot the patterns but really struggle to replicate them. And I was right. Claude really dropped some clangers when asked to write a talk using my ‘voice’. Clearly, I’m not [Scott Cunningham](https://causalinf.substack.com/s/claude-code) live-coding an econometrics talk, and without having his level of Claude-fu, it seems to me that for formulaic writing it’s probably just about passable if you don’t honestly care about the details. But I’m a lit grad, so that was a non-starter for me.
+
+So the *second* thing I was interested in is whether it could help me to edit my work. To me, the answer to that question was more interesting: Claude was good at identifying patterns, and so it could spot when I deviated from them. And that prompted me to think about what I was trying to achieve with my presentational tics. It also turned out to be good at picking up on slides/slide sequences that I knew didn’t quite work but couldn’t quite figure out *why*; it didn’t often come with the ‘right’ suggestion for fixing those issues, but it nearly always helped me to figure it out on my own.
+
+To put it another way: since no colleague, however great, is ever going to review all of my talks, having an ‘editor’ on tap has been really useful.
+
+## Developing the Prompt {#developing-the-prompt .wp-block-heading}
+
+My first, naive approach fed in an assortment of Reveal.js talks that I’ve given over the past few years and the output threw everything Claude found into a single file that liberally mixed the ‘mechanics’ of the presentation framework with the ‘substance’ of how I approach a presentation. In its first iteration Claude failed to distinguish between these, so it treated “You often use a question in this way” as equivalent to “You used a picture from the British Library in several talks so that must be a preference”. So the prompt now splits these into discrete recommendations, allowing Claude to make suggestions for PowerPoint that are different from Reveal.js, for example.
+
+And, of course, I don’t just have one presentationtal approach: how I ‘present’ to my colleagues is quite different from how I speak to other academics, professionals, or to students. To make Claude’s feedback more useful, the analysis suggested by the prompt now distinguishes between them. In my case there are now internal/external audience reports and I should add one for student lectures too.
+
+As a final step, I also asked Claude to offer suggestions for improvement based on well-regarded academic presenters with whom it was familiar. I was quite specific about *not* wanting TED-X style feedback since I suspect that looms large in its training material. So it suggested people like Mary Beard, which was nice.
+
+Across these iterations Claude continued to do well in terms of picking up the patterns in my approach to public speaking… which is pretty much what you’d expect from the most powerful pattern-recognition algorithm we’ve yet developed!
+
+## The Prompt {#the-prompt .wp-block-heading}
+
+Rather than paste in the prompt, I’ve made it available here: [PROMPT.md](http://reades.com/fun/PROMPT.md). It’s a plain Markdown document that will prompt Claude (or, presumably, your LLM of choice) to conduct a four-phase interview with you in order to develop a set of per-audience guidance that you can load whenever you’re editing a talk.
+
+#### Credits {#credits .wp-block-heading}
+
+- Photo by [NOAA](https://unsplash.com/@noaa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/grayscale-photography-of-man-using-machine-HFYczZkqCoE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+- Two rounds of feedback from Claude using the uploaded Prompt.

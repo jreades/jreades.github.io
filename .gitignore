@@ -1,0 +1,16 @@
+_site/
+_generated/
+.quarto/
+.venv/
+.DS_Store
+/.luarc.json
+
+/.quarto/
+**/*.quarto_ipynb
+
+/_*.local
+img/duotone/.manifest.json
+img/duotone/_contact.jpg
+img/scenes/*.jpg
+img/scenes/*.jpeg
+img/scenes/*.png

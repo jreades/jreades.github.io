@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: _site
+  pre-render: scripts/build_pubs.py
+  resources:
+    - img/
+    - "!img/scenes/"
+    - "!img/duotone/_contact.jpg"
+    - "!img/duotone/duotone.md"
+  render:
+    - "*.qmd"
+    - "posts/*.qmd"
+    - "!README.md"
+
+website:
+  title: "Jon Reades"
+  site-url: https://jreades.github.io
+  favicon: img/favicon.svg
+  navbar:
+    background: transparent
+    pinned: false
+    right:
+      - text: Research
+        href: research.qmd
+      - text: Teaching
+        href: teaching.qmd
+      - text: Writing
+        href: writing/index.qmd
+      - text: Field notes
+        href: field-notes/index.qmd
+      - text: CV
+        href: publications.qmd
+
+format:
+  html:
+    theme: styles/theme.scss
+    toc: false
+    page-layout: custom
+    include-in-header: _includes/head.html
+    include-after-body: _includes/footer.html
+    link-external-icon: false
+    link-external-newwindow: false

@@ -1,0 +1,16 @@
+---
+title: "Field notes"
+pagetitle: "Field notes — Jon Reades"
+---
+
+::: {.g style="padding-top:40px;padding-bottom:72px"}
+::: {.hang-lab}
+<div class="lab">04 &middot; Field notes</div>
+:::
+::: {.hang}
+# Gardening, mountain biking and other things. {.display}
+:::
+::: {style="grid-column:4 / span 5;padding-top:36px"}
+<p class="lead-text">Posts will appear here. Nothing yet.</p>
+:::
+:::

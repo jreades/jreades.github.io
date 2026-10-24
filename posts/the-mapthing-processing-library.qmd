@@ -1,0 +1,30 @@
+---
+title: "The MapThing Processing Library"
+date: 2013-04-01
+categories: ["Tutorials", "Visualisation"]
+description: "MapThing allows you to perform a range of useful mapping (in the geographical sense) functions within Processing and offers a collection of classes for reading ESRI-compliant Shape files (a.k.a. shapefiles), CSV point data, and GPX files, a"
+wp-url: http://www.reades.com/wp/?p=205
+---
+
+MapThing allows you to perform a range of useful mapping (in the geographical sense) functions within Processing and offers a collection of classes for reading ESRI-compliant Shape files (a.k.a. shapefiles), CSV point data, and GPX files, and then displaying them as part of a sketch. My objective here was not to implement a fully-fledged GIS system, but to make it as easy as possible to take a set of geographically coded files and do *something* with them inside Processing without needing to think about how to map the coordinate spaces or how to read a shapefile and extract useful information from it.
+
+There are four main classes with which you want to concern yourself:
+
+1.  BoundingBox is how you define the geographic envelope within which the sketch is displayed and, in effect, it maps the geographic space on to the viewable space of the sketch as best it can;
+2.  Lines is used to read and display line-type data;
+3.  Points is used to read and display point-type data; and
+4.  Polygons is used to read and display polygon-type data (currently only from shapefiles).
+
+The included PDE sample file offers a working example of most of what is discussed above.
+
+The latest officially released build of the library is available for download here: [reades.com/MapThing.zip](http://www.reades.com/MapThing.zip){target="_blank" rel="noopener"}
+
+The latest copy of the online documentation is available from: [reades.com/MapThing/](http://www.reades.com/MapThing/){target="_blank" rel="noopener"}
+
+The development codebase and builds are now available from GitHub: [github.com/jreades/MapThing](https://github.com/jreades/MapThing){target="_blank" rel="noopener"}
+
+Detailed feedback or suggestions are always welcome.
+
+### Background
+
+This code was originally developed under the auspices of the [COSMIC](http://simulacra.info/){target="_blank" rel="noopener"} project, an objective of which was to “extend our current techniques of visualising complex spatial systems… \[to\] enable a wide range of stakeholders to be involved both in understanding such complexity and using it in policy analysis.” Normally, this type of task would mean identifying a set of existing tools and producing some alternative visualisations of the same data to see what works and what doesn’t; however, as seems to be common with this type of work, I soon found that there *weren’t* any tools to do rapid visualisation and exploration of geodata (bar City’s excellent, but not entirely relevant to what I was trying to do, [giCentre Utilities](http://www.gicentre.org/utils/ "giCentre Utilities"){target="_blank" rel="noopener"}).

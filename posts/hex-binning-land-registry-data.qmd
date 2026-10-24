@@ -1,0 +1,105 @@
+---
+title: "Hex Binning Land Registry Data"
+date: 2015-05-01
+categories: ["Economic Geography", "Mapping", "PostGIS", "Visualisation"]
+description: "One of the known problems with choropleth maps is that small zones, even if they contain very significant values, tend to get lost in amongst much larger zones. A current example is that the ridings in London are much smaller than those out"
+wp-url: http://www.reades.com/wp/?p=342
+---
+
+One of the known problems with choropleth maps is that small zones, even if they contain very significant values, tend to get lost in amongst much larger zones. A current example is that the ridings in London are much smaller than those outside of London, so it can be hard to tell what’s happening in the capital if you are looking at a map of the entire UK. One solution to this is the hexagonal bin.
+
+The idea behind spatial ‘binning’ (*i.e.* grouping things together into ‘buckets’ or ‘bins’) is that, rather than try to show everything at once, you impose a regular grid on top of your map and calculate a useful metric to summarise whatever fell within. This way, every zone on your map is the same size and it’s easier to see the overall pattern. My former colleague, Duncan Smith of UCL, has done a very nice job with hexagonal bins on the [Luminocity3D](http://luminocity3d.org/index.html#population_density_2011/10/51.4489/-0.1284){target="_blank" rel="noopener"} web site.
+
+[![Luminocity3D](img/Screen-Shot-2015-05-01-at-16.18.34.png){.aligncenter .size-full .wp-image-344 loading="lazy" decoding="async" width="483" height="339"}](http://www.reades.com/wp-content/uploads/2015/05/Screen-Shot-2015-05-01-at-16.18.34.png)
+
+Of course, this isn’t a perfect solution since we still haven’t resolved the problem that a large zone might cover several hexagons and so *still* look much more important than the single hexagon containing, for example, the City of London and the West End. [The Guardian](http://www.theguardian.com/politics/ng-interactive/2015/apr/20/election-2015-constituency-map){target="_blank" rel="noopener"} has a particularly neat solution in the context of the election since they’ve combined it with a cartogram, in which zones are scaled according to some property.
+
+![Guardian Cartogram](img/Screen-Shot-2015-05-01-at-16.18.57.png){.aligncenter .size-full .wp-image-343 loading="lazy" decoding="async" width="383" height="570"}
+
+So I’ve been wanting to experiment with this approach for a while… below are the results for property affordability in 1997 and 2012 using postcode-level data and 2,500m hexagons. Production details below.
+
+[![Affordability Changes](img/1997-and-2012-2-1024x724.png){.aligncenter .size-large .wp-image-345 loading="lazy" decoding="async" width="560" height="396"}](http://www.reades.com/wp-content/uploads/2015/05/1997-and-2012-2.png)
+
+### Production Info
+
+These maps were produced using a mix of QGIS, Python, and Postgres/PostGIS.
+
+#### Overlay Grid
+
+Using the MMQGIS plug-in for QGIS select “Create” then “Create Grid Lines Layer”. Since I’m working with the Ordnance Survey’s British National Grid I could specify my Left X and Bottom Y as 0, and the width and height to the entire UK (roughly: 667500 and 1224000). Then set the H Spacing to your desired ‘bin size’ in metres.
+
+You can then clip the bins to the UK shoreline by doing a spatial join (an intersection) either directly within QGIS or within the Postgres database. The latter is much, much faster. For these maps I used 2,500m bins. I am currently trying to clip a 750m bin that would give me higher resolution but that doesn’t seem to have completed as of 4 hours ago.
+
+#### Adding Pricing Data
+
+Although the Land Registry provides unit address-level data, the easiest resolution to work with is the postcode (*e.g.* WC2R 2LS). The Ordnance Survey now provides a [Code-Point Open](https://www.ordnancesurvey.co.uk/business-and-government/products/code-point-open.html){target="_blank" rel="noopener"} data set that contains postcode centroids which is rather useful for this task. We will ‘map’ every transaction to a postcode centroid, and then calculate a median for all transactions falling within each hexagonal bin. This isn’t perfect, but it’s the only computationally feasible one.
+
+I suppose that, if you were a very patient person, you could do this step within QGIS as well but I am simply not *that* patient. I’m still working on documenting and releasing some ETL code to process LandReg data, but for now that’s beyond the scope of this post so I’ll just assume that you’ve managed to load the data in such a way as to preserve the columns and can now query and group your data by postcode and year.
+
+#### Affordability
+
+The measure of affordability I’m using is derived from Median Gross Household Income for the entire UK. This is a reasonable measure since it’s closest to what the banks are looking at when they’re thinking about what to lend to a household in order to purchase a property. Historically, 3 times gross income was considered a fairly safe bet, but more recently these ratios have climbed rather steeply.
+
+The 1997 and 2012 incomes have to be inflation-adjusted since the Land Registry doesn’t inflation-adjust the price paid. I wrote a function to do this for me directly within Postgres:
+
+\[code\]
+
+CREATE OR REPLACE FUNCTION RPIConversion (\
+i_price float8,\
+i integer,\
+j integer\
+)\
+RETURNS numeric\
+AS \$\$\
+DECLARE\
+adjusted numeric := 0; — total area\
+BEGIN\
+SELECT i_price \* (SELECT rpi_idx FROM inflation.rpi_fct WHERE yr=j)/(SELECT rpi_idx FROM inflation.rpi_fct WHERE yr=i) INTO adjusted;\
+RETURN ROUND(adjusted::numeric,2);\
+END;\
+\$\$ LANGUAGE plpgsql;\
+ALTER FUNCTION RPIConversion(float8, integer, integer) OWNER TO postgres;\
+\[/code\]
+
+Note that this version of the function assumes that your database has an *inflation* schema with a RPI (`rpi_fct`) table with the following layout:
+
+\[code\]
+
+yr (smallint)
+
+rpi_idx (numeric)
+
+\[/code\]
+
+#### Materialised Views
+
+They’re not often used, but materialised views are a rather handy feature of good databases – the look and act like real tables, but they are dynamically created using a SQL statement instead of the full CREATE TABLE command. The principal difference between Materialised and Non-Materialised (Immaterialised?) Views is that the latter are slower but update dynamically. In other words, if you add more data to one of the underlying tables involved in a Non-Materialised View then the view is also updated.
+
+Anyway, these play nicely with QGIS’ Postgres tools, and the results can be added as layers that are as quick to work with as a local shape file. I’ve parameterised the query below so that I can create annual views for the entire data set by simply running a Python script (*i.e.* all ‘{}’ are substituted with the ‘current’ year’): to process all 20 years’ worth of data took approximately 10 minutes and the results can be added to QGIS in seconds.
+
+\[code\]\
+CREATE MATERIALIZED VIEW viz.hex{} AS\
+SELECT\
+row_number() OVER() as id,\
+extract(year from pp.completion_dt) as yr,\
+quantile(pp.price_int, 0.5) as median_price,\
+RPIConversion(lf.income_amt\*52::numeric, 2012, {}) AS median_income,\
+round(quantile(pp.price_int, 0.5)::numeric / RPIConversion(lf.income_amt\*52::numeric, 2012, {}), 2) AS affordability,\
+h.gid,\
+h.geom\
+FROM\
+landreg.price_paid_fct pp,\
+inflation.hh_income_fct lf,\
+osopen.hex_mapping_dim hd,\
+osopen.hex_2500m h\
+WHERE extract(year from pp.completion_dt) = {}\
+AND lf.year = {}\
+AND lf.metric_nm::text = ‘Median’::text\
+AND lf.region_nm::text = ‘All households’::text\
+AND pp.pc = hd.pc\
+AND hd.h2500m = h.gid\
+GROUP BY yr, h.gid, lf.income_amt;
+
+\[/code\]
+
+In the worst tradition of university lecturers: I’ll leave the remainder of the workflow as an exercise for the reader.

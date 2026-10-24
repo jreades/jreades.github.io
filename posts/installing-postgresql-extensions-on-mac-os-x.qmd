@@ -1,0 +1,48 @@
+---
+title: "Installing PostgreSQL Extensions on Mac OS X"
+date: 2015-12-11
+categories: ["PostGIS"]
+description: "I’ve been making a lot of use of PostgreSQL and PostGIS for working with geo-data over the past year and, having finally gotten over my hatred of the non-standard administrative commands, I am seriously impressed with what this setup makes "
+wp-url: http://www.reades.com/wp/?p=390
+---
+
+I’ve been making a lot of use of PostgreSQL and PostGIS for working with geo-data over the past year and, having finally gotten over my hatred of the non-standard administrative commands, I am seriously impressed with what this setup makes possible. Even on a MacBook Air with just 8GB of RAM! However, one area where I’ve run into problems is the use of extensions on OS X so this post is intended as a handy reference for how to install them.
+
+### The Quantile Extension
+
+One particularly useful extension is the quantile function that allows Postgres to work out arbitrary quantiles (including, of course, the median) as part of a `SELECT` call.
+
+You can get more information about the extension from [pgxn.org](http://pgxn.org/dist/quantile){target="_blank" rel="noopener"}.
+
+And, of course, there are a host of other extensions available from pgxn. *Note:* you don’t need to download the extension as the extension manager should determine and download the right version automatically.
+
+#### Install pgxn
+
+PGXN’s client is installed via Python’s `easy_install` process:
+
+    sudo easy_install pgxnclient
+
+#### Configure Xcode
+
+You will also, alas, need to have some part of Xcode installed (probably the [Command Line tools](http://stackoverflow.com/questions/32893412/command-line-tools-not-working-os-x-el-capitan){target="_blank" rel="noopener"}), and as far as I can tell, the set of ‘activities’ below is only necessary because of something in Postgres that insists on a particular version of the Xcode SDK when compiling extensions.
+
+It is *possible* that you won’t need to worry about this step, but if you try to install the extension and get an error about `stdio.h` not being found then look closely at the Xcode error to determine exactly what you need to change in the symbolic linking command below:
+
+    cd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
+    sudo ln -s MacOSX10.9.sdk MacOSX10.6.sdk
+
+In this case, I had 10.9 installed on my computer and the process reported that it couldn’t find the 10.6 SDK. Update the OSX version numbers as necessary.
+
+#### Install the extension
+
+And to get the extension installed:
+
+    sudo pgxn install quantile
+    pgxn load -d XXX -U YYY -p ZZZ quantile
+
+Where XXX is the database in which you want the extension available, YYY is the username, and ZZZ is the port on which postgres is running. Depending on how you’ve set things up you may not need to specify any of this.
+
+If all has gone well then after some compilation messages you should see some output like:
+
+    INFO: best version: quantile 1.1.5
+    CREATE EXTENSION
