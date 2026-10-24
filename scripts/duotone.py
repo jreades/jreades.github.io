@@ -2,6 +2,11 @@
 
     python scripts/duotone.py                 # redo anything new or changed
     python scripts/duotone.py IMG_3250.jpg    # just these files
+
+Outputs share one aspect ratio (`aspect`), cropped around `focus`, or around an exact
+`crop: [x0, y0, x1, y1]` in pixels of the (upright) original. `skip: true` drops an image.
+images.json in the output folder lists the finished files for the site.
+
     python scripts/duotone.py --force --sheet # redo all and write a contact sheet
 
 Each image is turned into a greyscale, mapped onto a shadow-to-highlight colour ramp
@@ -63,6 +68,9 @@ def crop_to_aspect(img, aspect, focus):
 
 def duotone(img, s, palette):
     img = ImageOps.exif_transpose(img).convert('RGB')
+    if s.get('crop'):
+        x0, y0, x1, y1 = s['crop']
+        img = img.crop((x0, y0, x1, y1))
     if s.get('aspect'):
         img = crop_to_aspect(img, s['aspect'], s['focus'])
     if img.width > s['width']:
@@ -89,19 +97,35 @@ def fingerprint(path, settings):
     return hashlib.sha1(blob.encode()).hexdigest()
 
 
+def write_index():
+    """List every duotone with its size so the site can pick one at random."""
+    items = []
+    for f in sorted(os.listdir(OUT)):
+        if f.lower().endswith('.jpg') and not f.startswith('_'):
+            with Image.open(os.path.join(OUT, f)) as im:
+                items.append({'file': f, 'width': im.width, 'height': im.height})
+    with open(os.path.join(OUT, 'images.json'), 'w') as fh:
+        json.dump(items, fh, indent=1)
+        fh.write('\n')
+
+
 def contact_sheet(paths, dest, cols=4, thumb=360):
     thumbs = []
     for p in paths:
         im = Image.open(p)
         im.thumbnail((thumb, thumb))
         thumbs.append((os.path.basename(p), im))
-    rows = -(-len(thumbs) // cols)
-    sheet = Image.new('RGB', (cols * (thumb + 12) + 12, rows * (thumb + 34) + 12), '#ECE9E1')
+    rows = [thumbs[i:i + cols] for i in range(0, len(thumbs), cols)]
+    heights = [max(im.height for _, im in r) + 34 for r in rows]
+    sheet = Image.new('RGB', (cols * (thumb + 12) + 12, sum(heights) + 12), '#ECE9E1')
     draw = ImageDraw.Draw(sheet)
-    for i, (name, im) in enumerate(thumbs):
-        x, y = 12 + (i % cols) * (thumb + 12), 12 + (i // cols) * (thumb + 34)
-        sheet.paste(im, (x, y))
-        draw.text((x, y + im.height + 6), name, fill='#1B2428')
+    y = 12
+    for r, h in zip(rows, heights):
+        for c, (name, im) in enumerate(r):
+            x = 12 + c * (thumb + 12)
+            sheet.paste(im, (x, y))
+            draw.text((x, y + im.height + 6), name, fill='#1B2428')
+        y += h
     sheet.save(dest, quality=88)
 
 
@@ -129,8 +153,13 @@ def main():
             sys.exit(f'{name}: unknown setting(s) {sorted(unknown)}')
         s = {**cfg['defaults'], **(cfg['images'].get(name) or {})}
         dest = os.path.join(OUT, os.path.splitext(name)[0] + '.jpg')
-        fp = fingerprint(src, [s, cfg['palette']])
+        if s['skip']:
+            if os.path.exists(dest):
+                os.remove(dest)
+            manifest.pop(name, None)
+            continue
         outputs.append(dest)
+        fp = fingerprint(src, [s, cfg['palette']])
         if not args.force and manifest.get(name) == fp and os.path.exists(dest):
             skipped += 1
             continue
@@ -138,7 +167,14 @@ def main():
         manifest[name] = fp
         done += 1
         print(f'  {name} -> {os.path.relpath(dest, ROOT)}')
+    if not args.files:  # full run: drop outputs whose source is gone or skipped
+        keep = {os.path.basename(o) for o in outputs}
+        for f in os.listdir(OUT):
+            if f.lower().endswith('.jpg') and not f.startswith('_') and f not in keep:
+                os.remove(os.path.join(OUT, f))
+                print(f'  removed stale {f}')
     json.dump(manifest, open(MANIFEST, 'w'), indent=1, sort_keys=True)
+    write_index()
     if args.sheet:
         contact_sheet([o for o in outputs if os.path.exists(o)], os.path.join(OUT, '_contact.jpg'))
     print(f'duotone: {done} made, {skipped} unchanged')

@@ -25,11 +25,17 @@ defaults:
   strength: 0.7     # 1 = pure duotone; lower lets the original colour show through
   saturation: 0.7   # saturation of the original colour layer under the duotone (0 = grey)
   width: 2400       # output width in px (never enlarges)
-  aspect: null      # optional crop, e.g. "21:9" or "4:5"
-  focus: [0.5, 0.5] # crop centre as fractions of width, height
+  aspect: "13:6"    # every output gets this shape (the hero window is 1312 x 600); null = keep shape
+  focus: [0.5, 0.5] # crop centre as fractions of width, height (0,0 = top-left)
+  crop: null        # exact [x0, y0, x1, y1] in pixels of the upright original; applied before aspect
+  skip: false       # true = not processed, and not offered to the site
   quality: 85       # JPEG quality
 
-images: {}
+images:
+  IMG_3221.jpg: {focus: [0.5, 0.2]}      # keep the snow-capped peak
+  IMG_3203.jpg: {focus: [0.55, 0.66]}     # rider's whole bike in frame
+  IMG_3479.jpg: {focus: [0.5, 0.6]}
+  IMG_3480.jpg: {focus: [0.5, 0.62]}
 #  IMG_3250.jpg:
 #    blackpoint: 40
 ---

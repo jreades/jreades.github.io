@@ -5,6 +5,7 @@ project:
   resources:
     - img/
     - "!img/scenes/"
+    - "!img/duotone/_contact.jpg"
   render:
     - "*.qmd"
     - "posts/*.qmd"

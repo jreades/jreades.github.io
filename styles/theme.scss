@@ -88,11 +88,11 @@ code { color: $accent; background: none; padding: 0; }
 .hero .g::before {
   content: ''; position: absolute; top: 0; left: 50%; width: 100vw; margin-left: -50vw; height: 600px;
   pointer-events: none; z-index: 0; opacity: var(--bleed);
-  background: url('/img/ridgeline.svg') center top / auto 600px no-repeat;
+  background: var(--hero, none) center / cover no-repeat;
 }
 .hero-window {
-  position: relative; z-index: 1; height: 600px; overflow: hidden;
-  background: url('/img/ridgeline.svg') center top / auto 600px no-repeat;
+  position: relative; z-index: 1; height: 600px; overflow: hidden; background-color: #D9DDD8;
+  background: var(--hero, none) center / cover no-repeat #D9DDD8;
 }
 .hero-caption {
   position: absolute; left: 0; bottom: 0; padding: 24px; color: $paper;
@@ -181,7 +181,7 @@ h1.display em { color: $accent; }
   .g > *, .row12 > *, .pubgroup > * { grid-column: 1 / -1 !important; }
   .row12, .pubgroup { grid-template-columns: 1fr; }
   h1.display { font-size: 2.4rem; }
-  .hero-window, .hero .g::before { height: 300px; background-size: auto 300px; }
+  .hero-window, .hero .g::before { height: 300px; }
   .navbar .navbar-container { padding-inline: 20px; }
   .site-foot .foot-r { justify-content: flex-start; margin-left: -12px; }
 }

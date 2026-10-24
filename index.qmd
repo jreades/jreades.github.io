@@ -13,9 +13,7 @@ listing:
 
 ::: {.hero}
 ::: {.g}
-<div class="span-all hero-window" role="img" aria-label="Placeholder landscape">
-<div class="hero-caption">[Photo: Scottish coast / Icelandic highland]</div>
-</div>
+<div class="span-all hero-window" role="img" aria-label="Landscape photograph"></div>
 :::
 :::
 
@@ -51,3 +49,15 @@ listing:
 
 ::: {#recent}
 :::
+
+<script>
+// Pick a different duotone photo on each visit; fall back to the drawn ridgeline.
+(function () {
+  var hero = document.querySelector('.hero');
+  function set(url) { hero.style.setProperty('--hero', 'url(' + url + ')'); }
+  fetch('/img/duotone/images.json')
+    .then(function (r) { return r.json(); })
+    .then(function (l) { set('/img/duotone/' + l[Math.floor(Math.random() * l.length)].file); })
+    .catch(function () { set('/img/ridgeline.svg'); });
+})();
+</script>
