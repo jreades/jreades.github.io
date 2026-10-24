@@ -99,6 +99,10 @@ code { color: $accent; background: none; padding: 0; }
   font-family: $font-label; font-size: .55rem; letter-spacing: .14em; text-transform: uppercase;
 }
 
+// Slim version of the hero, added by the footer script to every page that has no full hero.
+.hero-slim .hero-window, .hero-slim .g::before { height: 220px; }
+.hero-slim { margin-top: 14px; margin-bottom: 8px; }
+
 // ---- Navbar ---------------------------------------------------------------
 .navbar { background: transparent !important; border: 0; padding-block: 12px;
   .navbar-brand, .nav-link {
@@ -182,6 +186,7 @@ h1.display em { color: $accent; }
   .row12, .pubgroup { grid-template-columns: 1fr; }
   h1.display { font-size: 2.4rem; }
   .hero-window, .hero .g::before { height: 300px; }
+  .hero-slim .hero-window, .hero-slim .g::before { height: 140px; }
   .navbar .navbar-container { padding-inline: 20px; }
   .site-foot .foot-r { justify-content: flex-start; margin-left: -12px; }
 }

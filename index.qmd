@@ -49,15 +49,3 @@ listing:
 
 ::: {#recent}
 :::
-
-<script>
-// Pick a different duotone photo on each visit; fall back to the drawn ridgeline.
-(function () {
-  var hero = document.querySelector('.hero');
-  function set(url) { hero.style.setProperty('--hero', 'url(' + url + ')'); }
-  fetch('/img/duotone/images.json')
-    .then(function (r) { return r.json(); })
-    .then(function (l) { set('/img/duotone/' + l[Math.floor(Math.random() * l.length)].file); })
-    .catch(function () { set('/img/ridgeline.svg'); });
-})();
-</script>
