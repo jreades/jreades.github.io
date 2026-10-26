@@ -1,8 +1,8 @@
 ---
 title: "Companies rushed into AI..."
 date: 2026-10-13
-categories: ["Coding", "AI"]
-description: "Buying a Claude Pro subscription has felt like adding a second post-doc to my ESRC project, but it *also* does not remotely replace what my IRL post-doc brings to the project."
+categories: ["AI"]
+description: "&lquot;Companies rushed in on AI. Now some are pulling back. Rapid AI adoption left workers cleaning up a flood of errors and low-quality work.&rquot;"
 image: img/campaign-creators-e6n7uoEnYbA-unsplash.jpg
 ---
 

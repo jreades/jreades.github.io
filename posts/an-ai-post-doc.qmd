@@ -1,7 +1,7 @@
 ---
 title: "An AI post-doc?"
 date: 2026-05-15
-categories: ["Coding", "Teaching", "Technology"]
+categories: ["AI", "Research"]
 description: "Buying a Claude Pro subscription has felt like adding a second post-doc to my ESRC project, but it *also* does not remotely replace what my IRL post-doc brings to the project."
 image: img/Yeehaw-scaled.png
 ---
