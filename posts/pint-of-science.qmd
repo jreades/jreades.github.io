@@ -2,20 +2,19 @@
 title: "Pint of Science: Curious About the Housing Crisis?"
 date: 2015-06-01
 categories: ["Economic Geography", "Mapping", "Visualisation"]
-description: "As a follow-on to my earlier piece on Hex-Binning Land Registry Data, here’s a talk I gave on the housing crisis as part of the Pint of Science Festival a couple of weeks back."
-wp-url: http://www.reades.com/wp/?p=351
+description: "As a follow-on to my earlier piece on Hex-Binning Land Registry Data, here's a talk I gave on the housing crisis as part of the Pint of Science Festival a couple of weeks back."
 ---
 
-As a follow-on to my earlier piece on [Hex-Binning Land Registry Data](http://www.reades.com/2015/05/01/hex-binning-land-registry-data/), here’s a talk I gave on the housing crisis as part of the [Pint of Science Festival](https://pintofscience.com){target="_blank" rel="noopener"} a couple of weeks back.
+As a follow-on to my earlier piece on [Hex-Binning Land Registry Data](http://www.reades.com/2015/05/01/hex-binning-land-registry-data/), here's a talk I gave on the housing crisis as part of the [Pint of Science Festival](https://pintofscience.com){target="_blank" rel="noopener"} a couple of weeks back.
 
 And, credit where credit is due: this builds on an idea I got from Mark Ruddy at UCL, who wanted to look at pricing change in London and used a hex-binning approach to mitigate the problem of very small postcodes.
 
 [![Median price as multiple of regional income (full version is 20MB)](img/Pint-of-Science-Tidy-724x1024.png){.size-large .wp-image-385 loading="lazy" decoding="async" width="560" height="792"}](http://www.reades.com/pdfs/Pint%20of%20Science-Tidy.png)
 
-What I’ve done here is to scale that process up to all of England & Wales (Scotland, sadly, does not appear to have this type of transaction data). The regional maps included in this talk are each coloured according to *regional* gross median income, which I obtained as part of a FOI request ([2014-3226](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/343369/foi-2014-3226.pdf){target="_blank" rel="noopener"}, since you ask).
+What I've done here is to scale that process up to all of England & Wales (Scotland, sadly, does not appear to have this type of transaction data). The regional maps included in this talk are each coloured according to *regional* gross median income, which I obtained as part of a FOI request ([2014-3226](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/343369/foi-2014-3226.pdf){target="_blank" rel="noopener"}, since you ask).
 
-If you want to generate the same bins, then you’ll need the MMQGIS plug-in to generate a grid with the following properties: Left X=0; Bottom Y=0; Width=663,000; Height=1,230,000; H Spacing=750. That should give you a fairly nice layout and it’s quite handy that OSGB is measured from 0,0 so you don’t have to try to figure this all out in Lat/Long.
+If you want to generate the same bins, then you'll need the MMQGIS plug-in to generate a grid with the following properties: Left X=0; Bottom Y=0; Width=663,000; Height=1,230,000; H Spacing=750. That should give you a fairly nice layout and it's quite handy that OSGB is measured from 0,0 so you don't have to try to figure this all out in Lat/Long.
 
-Anyway, here’s the talk:
+Anyway, here's the talk:
 
 http://www.slideshare.net/jreades/pint-of-science-48830055

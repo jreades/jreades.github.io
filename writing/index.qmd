@@ -1,6 +1,6 @@
 ---
 title: "Writing"
-pagetitle: "Writing — Jon Reades"
+pagetitle: "Writing --- Jon Reades"
 listing:
   id: writing-list
   contents: ../posts/*.qmd

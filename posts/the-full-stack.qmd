@@ -2,55 +2,54 @@
 title: "The Full Stack: Tools & Processes for Urban Data Scientists"
 date: 2016-10-14
 categories: ["Big Data", "Coding", "Mapping", "Research", "Teaching", "Technology", "Tutorials"]
-description: "Recently, I was asked to give talks at both UCL’s CASA and the ETH Future Cities Lab in Singapore for students and staff new to ‘urban data science’ and the sorts of workflows involved in collecting, processing, analysing, and reporting on "
-wp-url: http://www.reades.com/wp/?p=409
+description: "Recently, I was asked to give talks at both UCL's CASA and the ETH Future Cities Lab in Singapore for students and staff new to 'urban data science' and the sorts of workflows involved in collecting, processing, analysing, and reporting on urban geo-data."
 ---
 
-Recently, I was asked to give talks at both [UCL’s CASA](http://casa.ucl.ac.uk/) and the [ETH Future Cities Lab](http://www.fcl.ethz.ch) in Singapore for students and staff new to ‘urban data science’ and the sorts of workflows involved in collecting, processing, analysing, and reporting on urban geo-data. Developing the talk proved to be a rather enjoyable opportunity to reflect on more than a decade in commercial data mining and academic research – not only did I realise how far *I* had come, I realised how far the *domain* had come in that time.
+Recently, I was asked to give talks at both [UCL's CASA](http://casa.ucl.ac.uk/) and the [ETH Future Cities Lab](http://www.fcl.ethz.ch) in Singapore for students and staff new to 'urban data science' and the sorts of workflows involved in collecting, processing, analysing, and reporting on urban geo-data. Developing the talk proved to be a rather enjoyable opportunity to reflect on more than a decade in commercial data mining and academic research -- not only did I realise how far *I* had come, I realised how far the *domain* had come in that time.
 
 You can view the presentation on Slideshare:
 
 http://www.slideshare.net/JonReades/the-full-stack
 
-However, that doesn’t give you my notes, so I’ve reproduced those below so that you have a fuller context for what I talked about.
+However, that doesn't give you my notes, so I've reproduced those below so that you have a fuller context for what I talked about.
 
 ### Objective
 
-Generally, I can talk about the majority of these tools at any level of detail you like, but I’ve tried to focus on the big picture and to group them into categories so that you can think about the wide range of things that go into developing good research and supporting long-term development.
+Generally, I can talk about the majority of these tools at any level of detail you like, but I've tried to focus on the big picture and to group them into categories so that you can think about the wide range of things that go into developing good research and supporting long-term development.
 
 ### My Background
 
-You’ll notice that I have a very pragmatic, practical focus here. The really big thing to take from this is that I’ve: a) used more tools that I’d care to remember while doing my job; b) I don’t have any particular axe to grind. I prefer to use things that work, regardless of where they come from.
+You'll notice that I have a very pragmatic, practical focus here. The really big thing to take from this is that I've: a) used more tools that I'd care to remember while doing my job; b) I don't have any particular axe to grind. I prefer to use things that work, regardless of where they come from.
 
 ### Not This
 
-I don’t want to get into a flame war on which tool is best. This talk will draw on my experience of professional software development and research hacking to offer **one** perspective on tools and workflows that help get things done, and that help you to recover when things (inevitably) break in the course of your work.
+I don't want to get into a flame war on which tool is best. This talk will draw on my experience of professional software development and research hacking to offer **one** perspective on tools and workflows that help get things done, and that help you to recover when things (inevitably) break in the course of your work.
 
-### How Does ‘Big Data Work’ Work?
+### How Does 'Big Data Work' Work?
 
-Does someone give me data and ask me to find a question? Or do I have a question and go looking for data? Mix of both? Basically, it’s everything under the sun from curiosity-driven exploration to going looking for a particular data set.
+Does someone give me data and ask me to find a question? Or do I have a question and go looking for data? Mix of both? Basically, it's everything under the sun from curiosity-driven exploration to going looking for a particular data set.
 
-This cycle operates at many scales – the biggest mistake that you can make is to think that a piece of analysis is done when it’s sent off to the reviewer. Or even when it appears in print. These works take on a life all their own over time. Many ‘snippets’ somehow escalate into core operational applications by some insane evolutionary process.
+This cycle operates at many scales -- the biggest mistake that you can make is to think that a piece of analysis is done when it's sent off to the reviewer. Or even when it appears in print. These works take on a life all their own over time. Many 'snippets' somehow escalate into core operational applications by some insane evolutionary process.
 
 ### Big Data Work on a Practical Level
 
-Figure 2 is why good ‘hygiene’ practices are so important – they can make or break your research.
+Figure 2 is why good 'hygiene' practices are so important -- they can make or break your research.
 
 Big data is deep enough that you can drown in it, so you need to be careful.
 
 ### My Expectations
 
-No tool every does everything well, but making it easy for you to do the ‘right thing’ (e.g. backing up regularly) is vastly underrated. TimeMachine is not the most robust system, but it’s better than trying to manage and verify the backups on a tape drive written using an inscrutable command-line tool!
+No tool every does everything well, but making it easy for you to do the 'right thing' (e.g. backing up regularly) is vastly underrated. TimeMachine is not the most robust system, but it's better than trying to manage and verify the backups on a tape drive written using an inscrutable command-line tool!
 
 ### Where Do We Go from Here?
 
-I’ve organised my thinking into categories, some of which will be well-known to you, others of which are areas long-neglected by most Comp Sci or Data Analytics courses. Some of it’s very un-sexy but very, very important.
+I've organised my thinking into categories, some of which will be well-known to you, others of which are areas long-neglected by most Comp Sci or Data Analytics courses. Some of it's very un-sexy but very, very important.
 
 ### Programming Languages
 
-Even MATLAB can make maps, but at the moment the decision really comes down to R and Python. Neither ticks every box, but obvious convergence occurring: the Rodeo IDE is pretty shamelessly ripping off RStudio, then there’s the arrival of feather, which is a file format that is readable directly by both languages. Actually, the importance of a good IDE is vastly underrated: R without RStudio is a mess, with RStudio (and its various project features and version control integration) it’s one of the best ways to just *get research done* around.
+Even MATLAB can make maps, but at the moment the decision really comes down to R and Python. Neither ticks every box, but obvious convergence occurring: the Rodeo IDE is pretty shamelessly ripping off RStudio, then there's the arrival of feather, which is a file format that is readable directly by both languages. Actually, the importance of a good IDE is vastly underrated: R without RStudio is a mess, with RStudio (and its various project features and version control integration) it's one of the best ways to just *get research done* around.
 
-I know someone will come up to me after my talk and say “But what about d3/Haskell/Julia?” or some other framework, but my simple question is this: if you are convinced that the rest of the world is wrong, fine, but you’ve got to work it and be helpful to others, not just tell us we’re wrong.
+I know someone will come up to me after my talk and say "But what about d3/Haskell/Julia?" or some other framework, but my simple question is this: if you are convinced that the rest of the world is wrong, fine, but you've got to work it and be helpful to others, not just tell us we're wrong.
 
 ### Data Storage & Management
 
@@ -63,7 +62,7 @@ There are a lot of choices out there:
 
 I remain sceptical of the long-term utility of in-memory dos (i.e. Mongo).
 
-I love Postgres because of its spatial features – they save me hours of work in either a GIS or in Python/R. But one thing that I *always* forget to do is log the queries that generate derived tables, or the steps by which I created linking tables between separate ‘areas’ of the schema. Imagine losing all of your derived data in one go, how easy would it be for you to just checkout the code from Git and hit ‘run’ to rebuild your analytical ‘data warehouse’?
+I love Postgres because of its spatial features -- they save me hours of work in either a GIS or in Python/R. But one thing that I *always* forget to do is log the queries that generate derived tables, or the steps by which I created linking tables between separate 'areas' of the schema. Imagine losing all of your derived data in one go, how easy would it be for you to just checkout the code from Git and hit 'run' to rebuild your analytical 'data warehouse'?
 
 ### Geo-Data Visualisation
 
@@ -74,26 +73,26 @@ Again, many choices:
 - Python
 - R
 
-To be blunt: aside from the spatial analyst toolbox, why would anyone use ArcMap now? R for research scriptability and ‘simple’ mapping (but see: sketchy maps, very exciting). QGIS for ‘proper’ mapping. Down the rabbit hole with Python!
+To be blunt: aside from the spatial analyst toolbox, why would anyone use ArcMap now? R for research scriptability and 'simple' mapping (but see: sketchy maps, very exciting). QGIS for 'proper' mapping. Down the rabbit hole with Python!
 
-QGIS is advancing by leaps and bounds, and planned integration with PySAL will give it analytics features surpassing the ArcGIS toolbox; however, in quite a few ways it is still ‘Photoshop for maps’ – it can make them look prettier, faster than ArcMap. Integration with Postgres gives you very nice features for manipulating and visualising large data sets.
+QGIS is advancing by leaps and bounds, and planned integration with PySAL will give it analytics features surpassing the ArcGIS toolbox; however, in quite a few ways it is still 'Photoshop for maps' -- it can make them look prettier, faster than ArcMap. Integration with Postgres gives you very nice features for manipulating and visualising large data sets.
 
 ### Version Control & Recovery
 
 - Git
 - SVN/CVS
 
-Still have some doubts about git with large binary outputs instead of just code, but now that I finally understand how Git works (mostly) I can appreciate what it offers… notably, the ability to do all of your version control tasks while not even online!
+Still have some doubts about git with large binary outputs instead of just code, but now that I finally understand how Git works (mostly) I can appreciate what it offers... notably, the ability to do all of your version control tasks while not even online!
 
 ### Writing
 
-No one pays enough attention to writing, but it’s the essential part of research! Word can still be useful for some types of collaboration (with people who get nervous without buttons to click) but there are much more powerful options out there:
+No one pays enough attention to writing, but it's the essential part of research! Word can still be useful for some types of collaboration (with people who get nervous without buttons to click) but there are much more powerful options out there:
 
 - LaTeX (Tufte LaTeX!)
 - Markdown (lightweight, simple syntax means less time playing and easy version control)
 - Google Docs (multiple simultaneous editors)
 
-No right answer here, but interesting range of apps to help writers. Please learn Word’s Styles feature (should be easy for LaTeX or web developers). Have seen some interesting apps recently: Texts. Scrivener.
+No right answer here, but interesting range of apps to help writers. Please learn Word's Styles feature (should be easy for LaTeX or web developers). Have seen some interesting apps recently: Texts. Scrivener.
 
 ### Backup & Replication
 
@@ -102,34 +101,34 @@ No right answer here, but interesting range of apps to help writers. Please lear
 - rsync/scp
 - Backblaze, CrashPlan, etc.
 
-You should assume that it will take at least 3 weeks to recover 2 weeks’ work.
+You should assume that it will take at least 3 weeks to recover 2 weeks' work.
 
-Postgres has one major flaw as far as I’m concerned, and that’s replicating the database across machines. As far as I can tell this tends to involve dumping individual tables in their entirety and then restoring on the other machine. The synchronisation methods I’ve seen assume a very different type of system. Virtualisation could work, I guess.
+Postgres has one major flaw as far as I'm concerned, and that's replicating the database across machines. As far as I can tell this tends to involve dumping individual tables in their entirety and then restoring on the other machine. The synchronisation methods I've seen assume a very different type of system. Virtualisation could work, I guess.
 
 ### Compliance & Data Security
 
-This is not optional even though it’s deathly dull.
+This is not optional even though it's deathly dull.
 
 You should regularly audit who has access to what.
 
-What kind of call will you have to make if your computer is stolen…
+What kind of call will you have to make if your computer is stolen...
 
 ### Replicable Research
 
-rctrack and YAML seem to be trying to solve aspects of this, but our attempts at replicating the Goddard work on taxi flows suggest it’s going to be hard to really do this long-term — what we are doing now will be just as dated as mainframe work from 50 years ago!
+rctrack and YAML seem to be trying to solve aspects of this, but our attempts at replicating the Goddard work on taxi flows suggest it's going to be hard to really do this long-term --- what we are doing now will be just as dated as mainframe work from 50 years ago!
 
-### What’s Missing?
+### What's Missing?
 
-I would really like to see institutions and research councils value good code and good data – they’re so focussed on innovation that they don’t see the work that goes into developing and maintaining a tool that’s used by thousands of other researchers as particularly important, or in maintaining and documenting a data set that’s seems as the gold standard as being a contribution to research. We should be advocating loudly for this to change.
+I would really like to see institutions and research councils value good code and good data -- they're so focussed on innovation that they don't see the work that goes into developing and maintaining a tool that's used by thousands of other researchers as particularly important, or in maintaining and documenting a data set that's seems as the gold standard as being a contribution to research. We should be advocating loudly for this to change.
 
 ### The Big Picture
 
-Quite an interesting contrast: a lot of the stuff on the left-hand side is now obsolete, but more importantly a lot of the stuff on the left-hand side was proprietary and expensive. Now it’s open and free.
+Quite an interesting contrast: a lot of the stuff on the left-hand side is now obsolete, but more importantly a lot of the stuff on the left-hand side was proprietary and expensive. Now it's open and free.
 
 ### The Big Picture (2)
 
-Hardware is both more, and less, of a problem than you think – to see real performance boosts you need to spend a *lot* of money, otherwise you can get by on a lot less than you think.
+Hardware is both more, and less, of a problem than you think -- to see real performance boosts you need to spend a *lot* of money, otherwise you can get by on a lot less than you think.
 
 ### Final Thought
 
-I got an email more than 10 years after leaving a company to thank me for writing three or four pages of documentation and explanation (rationale about the design and the workflow it supported) about a tool that was supposed to have been retired around the time I left. It was still in use. This is what I mean about expecting your code to take on a life all its own: perhaps *you* are the one who’ll be revisiting the code several years later and wondering why you made the choices you did, or perhaps some poor RA or Masters student will be the one, but either way that documentation could be the difference between *getting work done* and spending days reinventing the wheel.
+I got an email more than 10 years after leaving a company to thank me for writing three or four pages of documentation and explanation (rationale about the design and the workflow it supported) about a tool that was supposed to have been retired around the time I left. It was still in use. This is what I mean about expecting your code to take on a life all its own: perhaps *you* are the one who'll be revisiting the code several years later and wondering why you made the choices you did, or perhaps some poor RA or Masters student will be the one, but either way that documentation could be the difference between *getting work done* and spending days reinventing the wheel.

@@ -2,16 +2,15 @@
 title: "Last night a DB saved my life (Part 1)"
 date: 2026-01-25
 categories: ["Coding", "Data", "Research", "Technology"]
-description: "Every so often, a technology comes along that is magical in how well it works, and transformative in terms of its impact on your work. Wifi was one of those: I *still* remember the first time I used it and the computer that I used it on. Th"
+description: "Every so often, a technology comes along that is magical in how well it works, and transformative in terms of its impact on your work. Wifi was one of those: I *still* remember the first time I used it and the computer that I used it on. DuckDB has that same magical feeling."
 image: img/jan-antonin-kolar-lRoX0shwjUQ-unsplash-1-scaled.jpg
-wp-url: http://www.reades.com/wp/?p=422
 ---
 
-Every so often, a technology comes along that is magical in how well it works, and transformative in terms of its impact on your work. Wifi was one of those: I *still* remember the first time I used it and the computer that I used it on. There was no going back to cat-5 at my desk. Using DuckDB for the first time had that same magical feeling: which is why, over the past 12–18 months, DuckDB + Parquet has replaced Pandas, Dask *and* ad-hoc Postgres instances in most of my research workflow.
+Every so often, a technology comes along that is magical in how well it works, and transformative in terms of its impact on your work. Wifi was one of those: I *still* remember the first time I used it and the computer that I used it on. There was no going back to cat-5 at my desk. Using DuckDB for the first time had that same magical feeling: which is why, over the past 12--18 months, DuckDB + Parquet has replaced Pandas, Dask *and* ad-hoc Postgres instances in most of my research workflow.
 
-> DuckDB has revolutionised my workflow in the ‘in-between’ area where most of us spend most of our time: getting the data into a format where it’s useful.
+> DuckDB has revolutionised my workflow in the 'in-between' area where most of us spend most of our time: getting the data into a format where it's useful.
 
-For me, DuckDB deals with a class of really important but really annoying research data processing tasks that previously required either: a) the patience of a saint; or b) the massive overhead of setting up a database. In other words, DuckDB has revolutionised my workflow in that ‘in-between’ area where most of us actually spend most of our time: getting the data into a format where it’s useful. To be clear, this is written from a research perspective: it’s for exploratory work, ‘large-but-not-big’ data, reproducibility, and minimal infrastructure overhead.
+For me, DuckDB deals with a class of really important but really annoying research data processing tasks that previously required either: a) the patience of a saint; or b) the massive overhead of setting up a database. In other words, DuckDB has revolutionised my workflow in that 'in-between' area where most of us actually spend most of our time: getting the data into a format where it's useful. To be clear, this is written from a research perspective: it's for exploratory work, 'large-but-not-big' data, reproducibility, and minimal infrastructure overhead.
 
 **TL;DR**
 
@@ -25,18 +24,18 @@ DuckDB:
 
 What makes DuckDB so special? Two things: 1) there is no long-running server since queries execute either fully in-memory or directly over the specified files; and 2) it uses Parquet files natively^\[1\]^. Together, these allow you do the work of a fully-fledged database server without the need to ever set one up.
 
-\[1\]. *You can create native DuckDB database files, but for my research workflows querying Parquet directly increases shareability and removes a layer of overhead that I don’t need.*
+\[1\]. *You can create native DuckDB database files, but for my research workflows querying Parquet directly increases shareability and removes a layer of overhead that I don't need.*
 
 #### The Benefits of Parquet {#the-benefits-of-parquet .wp-block-heading}
 
-Parquet files (technically, Parquet+Arrow) have three major advantages over anything I’ve used before:
+Parquet files (technically, Parquet+Arrow) have three major advantages over anything I've used before:
 
 1.  They are columnar: you only retrieve the columns that use. A CSV file requires you to scan row-by-row even if you only want to read a couple of the *columns*. With parquet, can read in the 1st, 21st, and 195th columns of the file directly *as if* they are the only attributes in your data set. So your data loads and can be accessed much more quickly.
-2.  They are compressed: your data is compressed and stored with rich column-level metadata so that it occupies the minimum amount possible in your computer’s memory. Things that might have previously maxed out the RAM on my laptop now barely register. This is a real boon when you’re using virtual machines (e.g. Docker, Podman) on a laptop.
-3.  Each parquet file can be treated as a table in a database: if you want to give someone access to one of your ‘tables’, just send them the parquet file. If you want to give them a copy of your database, stick all of the parquet files on a network share (as we did) and everyone now has access.
+2.  They are compressed: your data is compressed and stored with rich column-level metadata so that it occupies the minimum amount possible in your computer's memory. Things that might have previously maxed out the RAM on my laptop now barely register. This is a real boon when you're using virtual machines (e.g. Docker, Podman) on a laptop.
+3.  Each parquet file can be treated as a table in a database: if you want to give someone access to one of your 'tables', just send them the parquet file. If you want to give them a copy of your database, stick all of the parquet files on a network share (as we did) and everyone now has access.
 4.  Parquet files that share the same format can be treated as a single table: I think this is less well-known, but so long as the layout of the files are the same, you can query multiple parquet files as if they were part of the same table.
 
 From this some other pretty amazing things follow:
 
 5.  You can replace complex and time-consuming load+link steps in Pandas/Python with a single SQL statement using LEFT/RIGHT/INNER JOIN commands.
-6.  So long as you embed the SQL workflow in your Python using the `duckdb` library, you’ll never be left wondering how you generated a particular table or view since you can see each step directly in your repository workflow.
+6.  So long as you embed the SQL workflow in your Python using the `duckdb` library, you'll never be left wondering how you generated a particular table or view since you can see each step directly in your repository workflow.

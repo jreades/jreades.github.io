@@ -2,13 +2,12 @@
 title: "Robot Wars: Android Off-line Mapping Face-Off"
 date: 2011-04-04
 categories: ["Mapping", "Technology"]
-description: "I’ve got a few trips coming up to places where either: a) I don’t want to use data because it will be expensive (i.e. America), or b) I won’t be able to use data because I will have no reception (i.e. Skye). However, in both cases I would l"
-wp-url: http://www.reades.com/wp/?p=57
+description: "I've got a few trips coming up to places where either: a) I don't want to use data because it will be expensive (i.e. America), or b) I won't be able to use data because I will have no reception (i.e. Skye)."
 ---
 
-I’ve got a few trips coming up to places where either: a) I don’t want to use data because it will be expensive (i.e. America), or b) I won’t be able to use data because I will have no reception (i.e. Skye). However, in both cases I would like to be able to use my HTC Desire’s GPS chip and mapping features so that I can find my way around.
+I've got a few trips coming up to places where either: a) I don't want to use data because it will be expensive (i.e. America), or b) I won't be able to use data because I will have no reception (i.e. Skye). However, in both cases I would like to be able to use my HTC Desire's GPS chip and mapping features so that I can find my way around.
 
-So it seemed like a good time to look into the ‘state of the art’ with off-line mobile maps on Android. Is Google Maps really all there is? In short, no. After poking around online I found three apps that were consistently recommended by users:
+So it seemed like a good time to look into the 'state of the art' with off-line mobile maps on Android. Is Google Maps really all there is? In short, no. After poking around online I found three apps that were consistently recommended by users:
 
 1.  MapDroyd
 2.  OsmAnd
@@ -16,17 +15,17 @@ So it seemed like a good time to look into the ‘state of the art’ with off-l
 
 ### Summary for the Impatient
 
-The quick answer to ‘which is the best app’ is that it depends on what you want to do and how much effort you want to put into doing it. Based on my very limited experiments and personal opinion here’s how the face-off turns out:
+The quick answer to 'which is the best app' is that it depends on what you want to do and how much effort you want to put into doing it. Based on my very limited experiments and personal opinion here's how the face-off turns out:
 
-- MapDroyd: simplest app for selecting and downloading maps for off-line usage, but not as useful if you want POIs (points-of-interest) or smaller features (e.g. hiking trails). Best for city breaks and car navigation, although it doesn’t seem to do voice or route-finding.
-- OsmAnd: greatest flexibility for rendering data on the fly, but liable to drain your battery if you’re not careful. Probably best for the OSM geek in you, though I should do some more research before concluding it’s not for me.
+- MapDroyd: simplest app for selecting and downloading maps for off-line usage, but not as useful if you want POIs (points-of-interest) or smaller features (e.g. hiking trails). Best for city breaks and car navigation, although it doesn't seem to do voice or route-finding.
+- OsmAnd: greatest flexibility for rendering data on the fly, but liable to drain your battery if you're not careful. Probably best for the OSM geek in you, though I should do some more research before concluding it's not for me.
 - RMaps: interesting trade-offs between MapDroyd and OsmAnd, but requires a separate (and not particularly friendly) app to create custom maps. Some of the limitations of each side but also some of the benefits thanks to custom tile sets.
 
-If that hasn’t narrowed it down for you then you’ll need to read on.
+If that hasn't narrowed it down for you then you'll need to read on.
 
 ### MapDroyd
 
-This app gets the most mentions online, and it’s easy to see why: the user-interface is friendly and well thought-out, and it’s easy to find and download maps for off-line usage.
+This app gets the most mentions online, and it's easy to see why: the user-interface is friendly and well thought-out, and it's easy to find and download maps for off-line usage.
 
 #### Pros
 
@@ -40,13 +39,13 @@ This app gets the most mentions online, and it’s easy to see why: the user-int
 - Inability to search for features on maps
 - Available maps exclude lesser features (e.g. hiking trails, POIs)
 
-#### When’s It Right?
+#### When's It Right?
 
-I’d recommend MapDroyd for getting around town and for foreign city breaks when you aren’t going to be going off the beaten path. So if you just need to know either where you are right now and won’t be trying to search for a particular point-of-interest then is the app for you. The way it’s designed also makes it easy to know that you’ve got the map downloaded and ready to use on your phone before you walk out the door.
+I'd recommend MapDroyd for getting around town and for foreign city breaks when you aren't going to be going off the beaten path. So if you just need to know either where you are right now and won't be trying to search for a particular point-of-interest then is the app for you. The way it's designed also makes it easy to know that you've got the map downloaded and ready to use on your phone before you walk out the door.
 
 ### OsmAnd
 
-This has more of the design that I’d expect from an Open/Source effort: there are a lot of choices, some strange glitches, and the feeling that it could be very powerful… if you can figure out how to make it do what you want.
+This has more of the design that I'd expect from an Open/Source effort: there are a lot of choices, some strange glitches, and the feeling that it could be very powerful... if you can figure out how to make it do what you want.
 
 #### Pros
 
@@ -57,15 +56,15 @@ This has more of the design that I’d expect from an Open/Source effort: there 
 #### Cons
 
 - Rendering glitches make for some odd delays in positioning compared with other apps and can lead to sudden jumps in the map view a few minutes later
-- Doesn’t seem particularly smart in the way that it handles vector data in that it seems to constantly re-render the data on-the-fly which is CPU intensive and rather slow
+- Doesn't seem particularly smart in the way that it handles vector data in that it seems to constantly re-render the data on-the-fly which is CPU intensive and rather slow
 
-#### When’s It Right?
+#### When's It Right?
 
-I’d recommend OsmAnd for those who want a highly customisable map and the ability to flexibly filter out different types of data. Plus, the ability to use the vector format means that you can zoom in and out indefinitely without suddenly encountering a blank screen.
+I'd recommend OsmAnd for those who want a highly customisable map and the ability to flexibly filter out different types of data. Plus, the ability to use the vector format means that you can zoom in and out indefinitely without suddenly encountering a blank screen.
 
 ### RMaps
 
-At first I was rather flummoxed by this app since it didn’t seem to offer anything that the other ones didn’t and I found the interface less appealing. However, once I had downloaded the [Mobile Atlas Creator](http://mobac.sourceforge.net/ "Mobile Atlas Creator") and the required [SqliteJDBC](http://www.zentus.com/sqlitejdbc/ "SqliteJDBC") (hint: move the jar file into the Mobile Atlas Creator folder or add it your classpath) *then* I began to get the hang of what RMaps can offer. Overall, it offers a nice set of tradeoffs for particular mapping contexts.
+At first I was rather flummoxed by this app since it didn't seem to offer anything that the other ones didn't and I found the interface less appealing. However, once I had downloaded the [Mobile Atlas Creator](http://mobac.sourceforge.net/ "Mobile Atlas Creator") and the required [SqliteJDBC](http://www.zentus.com/sqlitejdbc/ "SqliteJDBC") (hint: move the jar file into the Mobile Atlas Creator folder or add it your classpath) *then* I began to get the hang of what RMaps can offer. Overall, it offers a nice set of tradeoffs for particular mapping contexts.
 
 #### Pros
 
@@ -76,17 +75,17 @@ At first I was rather flummoxed by this app since it didn’t seem to offer anyt
 #### Cons
 
 - Awkwardness of having to use Mobile Atlas Creator and its user interface
-- Periodic ‘freak outs’ when using online maps where tiles are constantly loading even though the view isn’t changing
-- Lack of finer control and most useful options are nested several levels down in the app preferences (seems to make life difficult if you don’t output every zoom level between the min/max range you’re interested in)
+- Periodic 'freak outs' when using online maps where tiles are constantly loading even though the view isn't changing
+- Lack of finer control and most useful options are nested several levels down in the app preferences (seems to make life difficult if you don't output every zoom level between the min/max range you're interested in)
 
-#### When’s It Right?
+#### When's It Right?
 
-This is almost certainly the app that I’ll be using on Skye since it has all of the detail that I want and none of the performance hits of OsmAnd rendering from vector data.
+This is almost certainly the app that I'll be using on Skye since it has all of the detail that I want and none of the performance hits of OsmAnd rendering from vector data.
 
 ### Conclusions
 
-RMaps took the most work to get my head around, but now that I have I really like it. Using Mobile Map Creator I created a multi-layered view of Scotland using high-level OSM data for roads and towns (i.e. general way-finding) and low-level Ordnance Survey data for Skye and Lewis/Harris that shows me all of the terrain features (e.g. trails, ravines, cliffs, contours) that will matter to me as a hiker. This is a case of the extra effort yielding me a set of maps that are customised to exactly what I need and therefore aren’t missing data or using up my phone’s entire SD card.
+RMaps took the most work to get my head around, but now that I have I really like it. Using Mobile Map Creator I created a multi-layered view of Scotland using high-level OSM data for roads and towns (i.e. general way-finding) and low-level Ordnance Survey data for Skye and Lewis/Harris that shows me all of the terrain features (e.g. trails, ravines, cliffs, contours) that will matter to me as a hiker. This is a case of the extra effort yielding me a set of maps that are customised to exactly what I need and therefore aren't missing data or using up my phone's entire SD card.
 
-In contrast, if I were just popping over to Paris for the weekend then I’d probably grab the entire ‘France’ file via MapDroyd’s easy-to-use interface and head out the door, confident that I’d be able to use it to get around the city with no muss and no fuss. For my trip to San Francisco this is the app that I’ll rely on to get me around as I can’t be bothered to spend the time in Mobile Map Creator required to generate a custom map.
+In contrast, if I were just popping over to Paris for the weekend then I'd probably grab the entire 'France' file via MapDroyd's easy-to-use interface and head out the door, confident that I'd be able to use it to get around the city with no muss and no fuss. For my trip to San Francisco this is the app that I'll rely on to get me around as I can't be bothered to spend the time in Mobile Map Creator required to generate a custom map.
 
-For now, OsmAnd is going on the back-burner until I have more time to look into it in detail. I suspect that, under the right circumstances, it could be the most powerful offline mapping app of the three but right now I can’t figure out how to use it effectively and am worried about it’s impact on my phone’s battery life if I have to use it extensively. I’ll keep the Scotland vector data on the phone ‘*just in case*‘ I need to search for an address, but I’ll use RMaps for getting around.
+For now, OsmAnd is going on the back-burner until I have more time to look into it in detail. I suspect that, under the right circumstances, it could be the most powerful offline mapping app of the three but right now I can't figure out how to use it effectively and am worried about it's impact on my phone's battery life if I have to use it extensively. I'll keep the Scotland vector data on the phone '*just in case*' I need to search for an address, but I'll use RMaps for getting around.

@@ -2,29 +2,28 @@
 title: "An AI post-doc?"
 date: 2026-05-15
 categories: ["Coding", "Teaching", "Technology"]
-description: "Claude Pro is like hiring a post-doc I still can’t quite believe I’m writing this, but buying a Claude Pro subscription has felt like adding a second post-doc to my ESRC project. But let me also say up-front that Claude Pro does not remotel"
+description: "Buying a Claude Pro subscription has felt like adding a second post-doc to my ESRC project, but it *also* does not remotely replace what my IRL post-doc brings to the project."
 image: img/Yeehaw-scaled.png
-wp-url: http://www.reades.com/wp/?p=453
 ---
 
 # Claude Pro is like hiring a post-doc {#claude-pro-is-like-hiring-a-post-doc .wp-block-heading}
 
-I still can’t quite believe I’m writing this, but buying a Claude Pro subscription has felt like adding a second post-doc to my ESRC project.
+I still can't quite believe I'm writing this, but buying a Claude Pro subscription has felt like adding a second post-doc to my ESRC project.
 
 But let me *also* say up-front that Claude Pro does not remotely replace the first post-doc because she brings *so* much *more* to the project. New ideas. Reflection. Deep understanding. A distinct set of skills. The ability to take on things that I hate/suck at (thank you for organising that RGS session!).
 
-I mean, I was excited enough about DuckDB, but finally getting stuck into Claude Code has been a revelation. Or, perhaps given the claims swirling around our discussions about AI, it’s “Revelation” with a dash of the Apocalypse thrown in. I, personally, am sceptical of the worst-case scenarios: I still instinctively feel that AI primarily *feels* so threatening because it’s the first time ‘white-collar’ workers have been exposed to industrialisation. I’ve got a whole book on *Why Face-to-Face Still Matters* (Bristol University Press) if you’d like to read a good deal more about why “This time it’s different” rarely plays out that way.
+I mean, I was excited enough about DuckDB, but finally getting stuck into Claude Code has been a revelation. Or, perhaps given the claims swirling around our discussions about AI, it's "Revelation" with a dash of the Apocalypse thrown in. I, personally, am sceptical of the worst-case scenarios: I still instinctively feel that AI primarily *feels* so threatening because it's the first time 'white-collar' workers have been exposed to industrialisation. I've got a whole book on *Why Face-to-Face Still Matters* (Bristol University Press) if you'd like to read a good deal more about why "This time it's different" rarely plays out that way.
 
-But back to Claude Pro. I’m excited because I have learned *enough* about coding over the years that I can use `/skills` and `/agents` shared by others to do all the things that I always knew I should be doing but never actually did because I didn’t have the time or the good habits.
+But back to Claude Pro. I'm excited because I have learned *enough* about coding over the years that I can use `/skills` and `/agents` shared by others to do all the things that I always knew I should be doing but never actually did because I didn't have the time or the good habits.
 
-In the past three weeks, my part of the project codebase has gained a full suite of test cases to ensure I’m not triggering regressions, a new parser to replace an increasingly Byzantine set of regexes (though I’m still proud of those!), and proper use of Git/GitHub via fully commented Pull Requests and integration tests. Even if those terms don’t mean much to you, suffice to say that these are things that previously took me a long time to do (if I did them at all) and Claude Code added them in days and performs them in minutes.
+In the past three weeks, my part of the project codebase has gained a full suite of test cases to ensure I'm not triggering regressions, a new parser to replace an increasingly Byzantine set of regexes (though I'm still proud of those!), and proper use of Git/GitHub via fully commented Pull Requests and integration tests. Even if those terms don't mean much to you, suffice to say that these are things that previously took me a long time to do (if I did them at all) and Claude Code added them in days and performs them in minutes.
 
-But. Big but. It did those things only because I already knew that they were possible, desirable even. Claude wouldn’t have offered to write test cases for me. It wouldn’t have suggested using parquet. It wouldn’t have suggested that I use PRs. I had to ask for them.
+But. Big but. It did those things only because I already knew that they were possible, desirable even. Claude wouldn't have offered to write test cases for me. It wouldn't have suggested using parquet. It wouldn't have suggested that I use PRs. I had to ask for them.
 
-And in reviewing Claude’s code I spotted a tendency to hard-code things that didn’t need hard-coding. To miss opportunities to fold things together where there’s similarity but not exact duplication. To slightly change its advice every time I probed its ‘understanding’ of what it had done. I strongly suspect, but have trouble proving, that it’s better at surface-level compliance than it is at generalising to problems.
+And in reviewing Claude's code I spotted a tendency to hard-code things that didn't need hard-coding. To miss opportunities to fold things together where there's similarity but not exact duplication. To slightly change its advice every time I probed its 'understanding' of what it had done. I strongly suspect, but have trouble proving, that it's better at surface-level compliance than it is at generalising to problems.
 
-I have to keep pushing Claude to evaluate its own work in order to track down inefficiencies. I can now see why adversarial behaviours are big in agent-driven AI: you prompt Claude to be an ornery critic of its own work in order to avoid falling into the trap of thinking it’s ‘right’ despite the claimed confidence. Interestingly, I’ve found Co-Pilot (which apparently also started checking my GitHub commits automatically) picks up on different things that Claude, so the two together are rather more robust than either in isolation.
+I have to keep pushing Claude to evaluate its own work in order to track down inefficiencies. I can now see why adversarial behaviours are big in agent-driven AI: you prompt Claude to be an ornery critic of its own work in order to avoid falling into the trap of thinking it's 'right' despite the claimed confidence. Interestingly, I've found Co-Pilot (which apparently also started checking my GitHub commits automatically) picks up on different things that Claude, so the two together are rather more robust than either in isolation.
 
-But those very significant limitations aside, between my teaching and admin responsibilities, research was always getting pinched and the progress of the project was impacted by my other obligations. That constraint has been removed: I can ask Claude Code to tackle a problem just before heading into a meeting, and by the time I’m out it has a recommendation, an implementation plan, and a set of tasks it proposes to complete if I give it the go-ahead.
+But those very significant limitations aside, between my teaching and admin responsibilities, research was always getting pinched and the progress of the project was impacted by my other obligations. That constraint has been removed: I can ask Claude Code to tackle a problem just before heading into a meeting, and by the time I'm out it has a recommendation, an implementation plan, and a set of tasks it proposes to complete if I give it the go-ahead.
 
-I’ve also had fun trying to teach it how to give me useful feedback on my presentations. I’ll cover that in another post.
+I've also had fun trying to teach it how to give me useful feedback on my presentations. I'll cover that in another post.

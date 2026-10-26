@@ -1,6 +1,6 @@
 ---
 title: "CV and publications"
-pagetitle: "CV and publications — Jon Reades"
+pagetitle: "CV and publications --- Jon Reades"
 ---
 
 ::: {.g style="padding-top:40px;padding-bottom:40px"}

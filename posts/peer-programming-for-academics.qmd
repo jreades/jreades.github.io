@@ -1,10 +1,9 @@
 ---
 title: "Peer Programming for Academics"
 date: 2015-08-19
-description: "I recently wrote up some thoughts on the value of peer programming as a tool for academic use in course planning and administration. The short answer: really useful but, like all things, best used in moderation. Read more at: Peer Programmi"
-wp-url: http://www.reades.com/wp/?p=377
+description: "I recently wrote up some thoughts on the value of peer programming as a tool for academic use in course planning and administration. The short answer: really useful but, like all things, best used in moderation."
 ---
 
-I recently wrote up some thoughts on the value of peer programming as a tool for academic use in course planning and administration. The short answer: really useful but, like all things, best used in moderation.
+I recently wrote up some thoughts on the value of peer programming as a tool for academic use in course planning and administration. The short answer: really useful but, like all things, best used in moderation.
 
 Read more at: *[Peer Programming for Academics](http://kingsgeocomputation.org/2015/08/18/peer-programming-for-academics/)*

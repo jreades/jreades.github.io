@@ -1,6 +1,6 @@
 ---
 title: "Teaching"
-pagetitle: "Teaching — Jon Reades"
+pagetitle: "Teaching --- Jon Reades"
 ---
 
 ::: {.g style="padding-top:40px;padding-bottom:72px"}

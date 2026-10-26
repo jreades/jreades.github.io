@@ -1,1 +1,5 @@
 bibtexparser<2
+jupyter
+numpy
+pandas
+seaborn

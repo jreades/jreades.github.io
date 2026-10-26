@@ -2,22 +2,21 @@
 title: "Multiple MySQL Servers on a Single Machine"
 date: 2013-04-01
 categories: ["Big Data", "Tutorials"]
-description: "Note: this was previously posted at simulacra.info, but I am in the process of (re)organising my technical notes and tutorials. A bit of a dry post here, but I thought I’d share my experience of trying to get two instances of MySQL (and two"
-wp-url: http://www.reades.com/wp/?p=216
+description: "Note: this was previously posted at simulacra.info, but I am in the process of (re)organising my technical notes and tutorials. A bit of a dry post here, but I thought I'd share my experience of trying to get two instances of MySQL (and two different versions, to boot) running on a single piece of hardware."
 ---
 
-*Note: this was previously posted at [simulacra.info](http://simulacra.blogs.casa.ucl.ac.uk/2011/05/configuring-multiple-mysql-servers-on-a-single-machine/){target="_blank" rel="noopener"}, but I am in the process of (re)organising my technical notes and tutorials.*
+*Note: this was previously posted at [simulacra.info](http://simulacra.blogs.casa.ucl.ac.uk/2011/05/configuring-multiple-mysql-servers-on-a-single-machine/){target="_blank" rel="noopener"}, but I am in the process of (re)organising my technical notes and tutorials.*
 
-A bit of a dry post here, but I thought I’d share my experience of trying to get two instances of MySQL (and two different versions, to boot) running simultaneously on a single piece of hardware as I’ve spent the past two days tearing my hear out and swearing profusely (mostly) under my breath.
+A bit of a dry post here, but I thought I'd share my experience of trying to get two instances of MySQL (and two different versions, to boot) running simultaneously on a single piece of hardware as I've spent the past two days tearing my hear out and swearing profusely (mostly) under my breath.
 
-So the background for this post is that we’ve recently received a new toy server for data crunching in short, sharp bursts. The idea is that when we’re working with sensitive data that can’t be stored ‘in the cloud’ we can use this machine, with its 32GB of RAM, to whiz through aggregation and querying. However, because we’ve got multiple users of the system and some of us need different levels of security *as well as* different versions of the software, there really was no alternative to installing two sets of binaries with two very different configurations.
+So the background for this post is that we've recently received a new toy server for data crunching in short, sharp bursts. The idea is that when we're working with sensitive data that can't be stored 'in the cloud' we can use this machine, with its 32GB of RAM, to whiz through aggregation and querying. However, because we've got multiple users of the system and some of us need different levels of security *as well as* different versions of the software, there really was no alternative to installing two sets of binaries with two very different configurations.
 
-We installed the first using Ubuntu’s handy `apt-get` utility, but the second one proved the problem. First, it needs to be installed somewhere else, and because it’s Ubuntu we can’t install from RPM. So custom configuration here we come… which is where the fun begins because it turns out that the configuration process has changed *utterly* since I last did anything like this.
+We installed the first using Ubuntu's handy `apt-get` utility, but the second one proved the problem. First, it needs to be installed somewhere else, and because it's Ubuntu we can't install from RPM. So custom configuration here we come... which is where the fun begins because it turns out that the configuration process has changed *utterly* since I last did anything like this.
 
-Apparently, `cmake` has now replaced `./configure` as the ‘right way’ to do these things, and after a great deal of huffing and puffing this got me a configurable system:
+Apparently, `cmake` has now replaced `./configure` as the 'right way' to do these things, and after a great deal of huffing and puffing this got me a configurable system:
 
 \
-`cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql-secure -DMYSQL_DATADIR=/var/mysql-secure/ -DWITH_SSL=yes -DCURSES_LIBRARY=/usr/lib/libncurses.a -DWITH_DEBUG=OFF -DMYSQL_MAINTAINER_MODE=OFF -DENABLED_PROFILING=ON -DINSTALL_LAYOUT=STANDALONE`\
+`cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql-secure -DMYSQL_DATADIR=/var/mysql-secure/ -DWITH_SSL=yes -DCURSES_LIBRARY=/usr/lib/libncurses.a -DWITH_DEBUG=OFF -DMYSQL_MAINTAINER_MODE=OFF -DENABLED_PROFILING=ON -DINSTALL_LAYOUT=STANDALONE`\
 
 Now you go back to the old habit of:
 
@@ -25,19 +24,19 @@ Now you go back to the old habit of:
 `make`\
 `sudo make install`\
 
-If you’re very, very lucky then this will have compiled smoothly. If you’re not then, in all probability you don’t have curses or libaio1 installed and will have to `make clean` before you can reach this point without an error.
+If you're very, very lucky then this will have compiled smoothly. If you're not then, in all probability you don't have curses or libaio1 installed and will have to `make clean` before you can reach this point without an error.
 
-You’re now ready to finish the installation, so head on over to your base directory for the install:
+You're now ready to finish the installation, so head on over to your base directory for the install:
 
 \
 `cd /usr/local/mysql-secure/`\
 
-I’m assuming here that you still want to *run* MySQL as the `mysql` user (who should have their login shell set to `/dev/null`), but you could quite easily run it as another user if you want:
+I'm assuming here that you still want to *run* MySQL as the `mysql` user (who should have their login shell set to `/dev/null`), but you could quite easily run it as another user if you want:
 
 \
 `sudo ./scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql-secure/ --datadir=/var/lib/mysql-secure`\
 
-You should then go through the normal steps to set up a `root` password and generally lock down MySQL as best you can. You will also want to set up a separate configuration file for your ‘secure’ MySQL installation because, at the very least, you need it to run on a different port (here specified as `XXXX`) and with a different socket. Something like this:
+You should then go through the normal steps to set up a `root` password and generally lock down MySQL as best you can. You will also want to set up a separate configuration file for your 'secure' MySQL installation because, at the very least, you need it to run on a different port (here specified as `XXXX`) and with a different socket. Something like this:
 
 \
 `[client]`\
@@ -51,15 +50,15 @@ basedir = /usr/local/mysql-secure\
 datadir = /var/lib/mysql-secure\
 tmpdir = /tmp
 
-You’re nearly there, and from here on out the server can be started by simply running:
+You're nearly there, and from here on out the server can be started by simply running:
 
 \
 `sudo ./bin/mysqld_safe --defaults-file=/etc/mysql/secure.cnf --user=mysql &`\
 
-I’m still trying to figure out what isn’t *quite* right about the configuration, but here’s how to connect locally and remotely to a database called `db` on the *second* instance of MySQL server listening on port XXX:
+I'm still trying to figure out what isn't *quite* right about the configuration, but here's how to connect locally and remotely to a database called `db` on the *second* instance of MySQL server listening on port XXX:
 
 \
-`mysql --socket=/var/run/mysqld/mysqld-secure.sock -P XXX -u root -p db`\
+`mysql --socket=/var/run/mysqld/mysqld-secure.sock -P XXX -u root -p db`\
 `mysql -P XXX -u foo -p db`\
 
 Hope this helps anyone trying to do anything similar.
@@ -68,9 +67,9 @@ Next up: figuring out how to configure SSL with MySQL for additional security.
 
 ### Configuring a Third Server
 
-As with all things computer related, you can always have more. In this case, I wanted access to the OpenQuery Graph engine for MySQL/MariaDB. Well, it turns out that MySQL isn’t so keen on the engine and MariaDB (a drop-in replacement for MySQL) is the only way to go. So for posterity’s sake here’s how I got a third database up and running on the *same* machine.
+As with all things computer related, you can always have more. In this case, I wanted access to the OpenQuery Graph engine for MySQL/MariaDB. Well, it turns out that MySQL isn't so keen on the engine and MariaDB (a drop-in replacement for MySQL) is the only way to go. So for posterity's sake here's how I got a third database up and running on the *same* machine.
 
-I grabbed the source distribution for MariaDB (this is version 5.3, by the time you’re reading this you might want to check for a 5.x) from here: <http://downloads.askmonty.org/mariadb/5.3/#file_type=source>\
+I grabbed the source distribution for MariaDB (this is version 5.3, by the time you're reading this you might want to check for a 5.x) from here: <http://downloads.askmonty.org/mariadb/5.3/#file_type=source>\
 `tar -xzvf maria...`\
 `cd ./maria...`\
 `./configure --prefix=/usr/local/mariadb-5.3 --datadir=/cosmic/...`\
@@ -78,7 +77,7 @@ I grabbed the source distribution for MariaDB (this is version 5.3, by the time 
 `sudo chown -R XXX /cosmic/...`\
 `cd /usr/local/mariadb-5.3`\
 `sudo ./bin/mysql_install_db --user=XXX --defaults-file=/etc/my-openquery.cnf --datadir=/cosmic/...`\
-That last command obviously relies on you having created a configuration file for the OpenQuery-enabled MariaDB installation. Here’s a minimal working copy:
+That last command obviously relies on you having created a configuration file for the OpenQuery-enabled MariaDB installation. Here's a minimal working copy:
 
 \
 `[client]`\
@@ -87,13 +86,13 @@ That last command obviously relies on you having created a configuration file fo
 
 \[mysql.server\]\
 user=mysql\
-basedir=/mnt/cosmic/…
+basedir=/mnt/cosmic/...
 
 \[mysqld\]\
 user = XXX\
 port = XXX\
 socket = /tmp/mariadb-secure.sock\
-datadir=/mnt/cosmic/…\
+datadir=/mnt/cosmic/...\
 skip-external-locking\
 key_buffer = 16M\
 max_allowed_packet = 1M\
@@ -104,13 +103,13 @@ read_buffer_size = 256K\
 read_rnd_buffer_size = 512K\
 myisam_sort_buffer_size = 8M
 
-… \[There’s more in here, but a basic MySQL.cnf file will give you all you need\] …
+... \[There's more in here, but a basic MySQL.cnf file will give you all you need\] ...
 
 Starting up is as simple as:\
 \
 `sudo /usr/local/mariadb-5.3/bin/mysqld_safe --defaults-file=/etc/mysql/my-opengraph.cnf --user=mysql &`\
 
-But to enable the graph plug-in engine for Maria there’s one last step — you need to connect to the database an issue the following command (as root):
+But to enable the graph plug-in engine for Maria there's one last step --- you need to connect to the database an issue the following command (as root):
 
 \
 `INSTALL PLUGIN oqgraph SONAME 'ha_oqgraph.so';`\

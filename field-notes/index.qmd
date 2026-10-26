@@ -1,6 +1,6 @@
 ---
 title: "Field notes"
-pagetitle: "Field notes — Jon Reades"
+pagetitle: "Field notes --- Jon Reades"
 ---
 
 ::: {.g style="padding-top:40px;padding-bottom:72px"}
