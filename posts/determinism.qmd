@@ -1,0 +1,28 @@
+---
+title: "Determinism in Social (Data) Science"
+date: 2026-08-11
+categories: ["Coding", "AI"]
+description: "A slightly painful, but mostly tedious, rediscovery of how the pursuit of better performance on large-ish analytics pipelines can the undermine reproducibility of the results."
+image: img/campaign-creators-e6n7uoEnYbA-unsplash.jpg
+---
+
+Last Monday I set out on what I thought was a fairly straightforward attempt to compare the accuracy of a lightweight Natural Language Processing parser that I designed/wrote in collaboration with with Claude for the 'No Space Like Home?' project against the published benchmark data set created through a mix of hand-coding, open linkage platforms, and unique id matching across data sets. 
+
+But the deeper I got into the reconciliation process the more confusing the answers I was getting from the tests I'd implemented became: on every re-run the share that matched between the two data sets would appear to shift between buckets. Match rate in 'Group B certificate' links was 70%. No, that was a miscount, it was 40%. Actually, that was a mistake too, it was 65%. Every time, Claude was insistent that it had corrected the previous assumptions. And every time I forced the test suite to run the answers changed. Again.
+
+I finally managed to trace everything back to one issue: determinism. None of my code was changing but the answers were, so something that seemed stable couldn't be! And, ultimately, it was the optimisations that made sense when I wanted to maximise the throughput on my machine that came back to bite when I unconsciously still assumed that something was happening in a sequential/linear manner. 
+
+Here are the places where I got bit:
+
+- **Parallelised reads**: DuckDB and similar tools parallelise reads to ensure high-performance. However, if you are generating any kind of unique id (`uid`) on top of the loaded data then every read will change the uid attached to any given row because they arrive in a quasi-random order! So the thing that you assume is invariant because it's unique isn't and everything that stems from that is no longer valid.
+- **MODE / MIN / MAX in SQL**: the problem lies in how they handle ties. If you're relying on these to pick a row from a table then, wherever there is a tie, you may get a different row from one run to the next. So while MIN, MAX, and MODE are fast, the values underlying the following stages can vary even though the code is the same. Sometimes you'd get Row A, other times Row B: because the read-order varied, the 'lowest' value in a tie could vary.
+- **ANY / ARBITRARY in SQL**: a similar problem to #2 but mostly because of how they handle NULLs. Again, I was using this to try to speed up the processing of the data but I was thinking about it wrong: in my head this was "all of these records are for the same address to just pick ANY or an ARBITRARY value as that's fastest" but DuckDB was picking ANY or ARBITRARY value that wasn't NULL and that's not the same thing. I was trying to match addresses, and because of human input error these addresses could vary in form from one record to the next, so if the address formats varied then you could duplicate or triplicate attribute values based on where the NULLs fell.
+
+I've now rewritten the pipeline so that every step that requires reproducibility (hint: it's all of them) enforces this with a hard checks: structs for addresses (so NULLs aren't visible to the sorting engine), a provably unique id that is validated at the start of every full re-run, and custom functions that enforce sorting on the UID as a tie-breaking step so we always get the same output. And I have re-run every step in the pipeline (1.5hrs each) three times to check that each step outputs the same values every time regardless of the load on my laptop, the available disk space, etc., etc. Squelching all of these bugs took nearly a full day as they were so embedded in the workflow that each find tended to reveal other, deeper linear assumptions. Three weeks later and I'm *still* finding places where this assumption was inadvertently baked in.
+
+Ultimately, these problems come down to errors in/assumptions about data integrity when you:
+
+- Mix sequential and parallelised thinking;
+- Mix column- and row-based thinking.
+
+That's one week of my life lost but, I suppose, a valuable lesson (re)learned about using the wrong mental models. Shared in the hopes that no one else has to go through it.

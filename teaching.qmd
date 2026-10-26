@@ -41,7 +41,7 @@ Environment
 Spatial Data Science computing environment
 :::
 ::: {style="grid-column:8 / span 5"}
-The information needed to build a Docker image for CASA0013 and other CASA modules: a custom Anaconda environment with Quarto and fonts so students have choices about how their reports look. [SDS Environment micro-site](https://jreades.github.io/sds_env/).
+The information needed to build a Podman/Docker image for CASA0013 and other CASA modules: a modular image with Quarto and fonts 'compiled in' dynamically. [SDS Environment micro-site](https://ucl-casa.github.io/sds/).
 :::
 ::::
 :::: {.row12}
@@ -52,7 +52,7 @@ Tooling
 Flip
 :::
 ::: {style="grid-column:8 / span 5"}
-Not yet public: scripts for maintaining open-source teaching resources for a flipped format. [Repository](https://github.com/jreades/flip/).
+Scripts for maintaining open-source teaching resources in a flipped format. I'm pretty proud of this, though the start-up overhead is high. [Repository](https://github.com/jreades/flip/).
 :::
 ::::
 :::: {.row12}
@@ -64,6 +64,17 @@ Q&A
 :::
 ::: {style="grid-column:8 / span 5"}
 A Quarto plugin that lets you write a question and answer code block side by side, passing only one through on render: the question to the notebook, the answer to the PDF. [Documentation](https://github.com/jreades/qna).
+:::
+::::
+:::: {.row12}
+::: {.lab style="grid-column:1 / span 3"}
+Course
+:::
+::: {style="grid-column:4 / span 4;font-size:1.5rem;line-height:1.1"}
+Jaipur
+:::
+::: {style="grid-column:8 / span 5"}
+A short introduction to spatial data science that I ran, with varying degrees of success, for planning students in Jaipur. [Documentation](https://github.com/jaipur).
 :::
 ::::
 

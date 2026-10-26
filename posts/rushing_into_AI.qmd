@@ -1,0 +1,23 @@
+---
+title: "Companies rushed into AI..."
+date: 2026-10-13
+categories: ["Coding", "AI"]
+description: "Buying a Claude Pro subscription has felt like adding a second post-doc to my ESRC project, but it *also* does not remotely replace what my IRL post-doc brings to the project."
+image: img/campaign-creators-e6n7uoEnYbA-unsplash.jpg
+---
+
+# Companies rushed in on AI. Now some are pulling back. Rapid AI adoption left workers cleaning up a flood of errors and low-quality work.  {#companies-rush-in-on-ai .wp-block-heading}
+
+As someone who finds Claude Code useful -- possibly even transformative -- in *some* areas of my day-to-day work can I also say that not one single 'Oh yeah, we forgot that AI can't substitute for $x$' line in [this article](https://www.theguardian.com/technology/2026/oct/13/ai-companies-rushed-workers-fallout) is remotely surprising. The most telling moment is the circular 'economy' pointed to by an executive VP at MS:
+
+> At Microsoft, which rolled out AI widely internally, executive vice-president Ryan Roslansky recently publicly lamented the prevalence of AI slop in his day-to-day work. After receiving "what was clearly an AI-generated doc" from a co-worker, he used his AI to summarize it and came away with no new thinking about the idea, he said. He warned his followers against falling into this potential "doom loop", where AI does the reading and writing and leaves behind an "ocean of sameness".
+
+There's plenty of other great ammunition to be found for anyone who feels like AI is a really, really bad idea. But, in my opinion at least, it boils down to the simple reality that AI doesn't *substitute* for people unless your employees were effectively considered brainless machines to begin with.
+
+Against this, I'd like to note that, thanks to Claude, I am finally: using Git correctly; writing the test cases I always should have written; refactoring more code; pushing ideas around on the 'page' until they are in a shape that I can better see the bigger picture; and using it in developing my teaching because it helps me to identify unintended consequences of moving content between modules and checking sequencing of ideas.
+
+All of those processes -- often ones that I kind of sucked at or, at least, did't have enough knowledge to do well -- have been measurably improved through my use of AI. And not *one* of those was learned in a single random webinar by a CEO who was looking to fire me at the earliest opportunity. They were gained through having the motivation and time to do some research, try some things out, and see what worked. My dean didn't say "You have to use AI", but she did approve my request to expense a sub.  
+
+So my rather anodyne idea is that if you give people security, support, agency, and time then you might start to see some benefits... but what that happens it (gasp) turns out it's just a tool and not some magic wand for money/'headcount'/productivity.
+
+A friend who is an actual leader of a small firm (and not an opinionated academic) gave all their staff AI accounts and said only "give yourself a few hours a week to play with it and see what you can come up with". They report that it's the non-technical staff who have gone furthest in working out how to do creative things with AI. People knew their job wasn't riding on it came up with better ways to track leads/find prospects, organise monthly reporting, plan their week. They worked on the stuff that mattered to them, so big surprise it went somewhere.

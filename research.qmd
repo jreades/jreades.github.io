@@ -11,6 +11,9 @@ pagetitle: "Research --- Jon Reades"
 # Housing, data and the geography of London. {.display}
 :::
 
+<!-- Add atlas of 'small homes' work -->
+<!-- Add https://github.com/jreades/patstat -->
+
 :::: {.row12 style="margin-top:56px"}
 ::: {.lab style="grid-column:1 / span 3"}
 Code
