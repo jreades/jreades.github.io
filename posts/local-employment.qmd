@@ -2,7 +2,7 @@
 title: "Local Employment & Public Transit"
 date: 2008-06-23
 categories: ["Built Environment"]
-description: "The Guardian reports that proposals for Britain's new 'eco-towns' were found by a government panel to be 'inadequate'. The two most oft-cited problems for the ones that weren't &lquot;little more than a typical existing housing scheme&rquot; were local employment and transport."
+description: "The Guardian reports that proposals for Britain's new 'eco-towns' were found by a government panel to be 'inadequate'. The two most oft-cited problems for the ones that weren't &ldquo;little more than a typical existing housing scheme&rdquo; were local employment and transport."
 ---
 
 The [Guardian](http://www.guardian.co.uk/environment/2008/jun/23/greenbuilding.greenpolitics?gusrc=rss&feed=networkfront){target="_blank" rel="noopener"} reports that proposals for Britain's new 'eco-towns' were found by a government panel to be 'inadequate'. The two most oft-cited problems for the ones that *weren't* "little more than a typical existing housing scheme" were local employment and transport.

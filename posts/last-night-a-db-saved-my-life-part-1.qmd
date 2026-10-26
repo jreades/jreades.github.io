@@ -22,9 +22,7 @@ DuckDB:
 
 ### How DuckDB changes workflow {#how-duckdb-changes-workflow .wp-block-heading}
 
-What makes DuckDB so special? Two things: 1) there is no long-running server since queries execute either fully in-memory or directly over the specified files; and 2) it uses Parquet files natively^\[1\]^. Together, these allow you do the work of a fully-fledged database server without the need to ever set one up.
-
-\[1\]. *You can create native DuckDB database files, but for my research workflows querying Parquet directly increases shareability and removes a layer of overhead that I don't need.*
+What makes DuckDB so special? Two things: 1) there is no long-running server since queries execute either fully in-memory or directly over the specified files; and 2) it uses Parquet files natively^[You can create native DuckDB database files, but for my research workflows querying Parquet directly increases shareability and removes a layer of overhead that I don't need.]. Together, these allow you do the work of a fully-fledged database server without the need to ever set one up.
 
 #### The Benefits of Parquet {#the-benefits-of-parquet .wp-block-heading}
 

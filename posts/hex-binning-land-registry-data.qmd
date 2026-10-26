@@ -41,34 +41,31 @@ The measure of affordability I'm using is derived from Median Gross Household In
 
 The 1997 and 2012 incomes have to be inflation-adjusted since the Land Registry doesn't inflation-adjust the price paid. I wrote a function to do this for me directly within Postgres:
 
-\[code\]
+```sql
 
-CREATE OR REPLACE FUNCTION RPIConversion (\
-i_price float8,\
-i integer,\
-j integer\
-)\
-RETURNS numeric\
-AS \$\$\
-DECLARE\
-adjusted numeric := 0; --- total area\
-BEGIN\
-SELECT i_price \* (SELECT rpi_idx FROM inflation.rpi_fct WHERE yr=j)/(SELECT rpi_idx FROM inflation.rpi_fct WHERE yr=i) INTO adjusted;\
-RETURN ROUND(adjusted::numeric,2);\
-END;\
-\$\$ LANGUAGE plpgsql;\
-ALTER FUNCTION RPIConversion(float8, integer, integer) OWNER TO postgres;\
-\[/code\]
+CREATE OR REPLACE FUNCTION RPIConversion (
+i_price float8,
+i integer,
+j integer
+)
+RETURNS numeric
+AS $$
+DECLARE
+adjusted numeric := 0; --- total area
+BEGIN
+SELECT i_price * (SELECT rpi_idx FROM inflation.rpi_fct WHERE yr=j)/(SELECT rpi_idx FROM inflation.rpi_fct WHERE yr=i) INTO adjusted;
+RETURN ROUND(adjusted::numeric,2);
+END;
+$$ LANGUAGE plpgsql;
+ALTER FUNCTION RPIConversion(float8, integer, integer) OWNER TO postgres;
+```
 
 Note that this version of the function assumes that your database has an *inflation* schema with a RPI (`rpi_fct`) table with the following layout:
 
-\[code\]
-
+```sql
 yr (smallint)
-
 rpi_idx (numeric)
-
-\[/code\]
+```
 
 #### Materialised Views
 
@@ -76,29 +73,28 @@ They're not often used, but materialised views are a rather handy feature of goo
 
 Anyway, these play nicely with QGIS' Postgres tools, and the results can be added as layers that are as quick to work with as a local shape file. I've parameterised the query below so that I can create annual views for the entire data set by simply running a Python script (*i.e.* all '{}' are substituted with the 'current' year'): to process all 20 years' worth of data took approximately 10 minutes and the results can be added to QGIS in seconds.
 
-\[code\]\
-CREATE MATERIALIZED VIEW viz.hex{} AS\
-SELECT\
-row_number() OVER() as id,\
-extract(year from pp.completion_dt) as yr,\
-quantile(pp.price_int, 0.5) as median_price,\
-RPIConversion(lf.income_amt\*52::numeric, 2012, {}) AS median_income,\
-round(quantile(pp.price_int, 0.5)::numeric / RPIConversion(lf.income_amt\*52::numeric, 2012, {}), 2) AS affordability,\
-h.gid,\
-h.geom\
-FROM\
-landreg.price_paid_fct pp,\
-inflation.hh_income_fct lf,\
-osopen.hex_mapping_dim hd,\
-osopen.hex_2500m h\
-WHERE extract(year from pp.completion_dt) = {}\
-AND lf.year = {}\
-AND lf.metric_nm::text = 'Median'::text\
-AND lf.region_nm::text = 'All households'::text\
-AND pp.pc = hd.pc\
-AND hd.h2500m = h.gid\
+```sql
+CREATE MATERIALIZED VIEW viz.hex{} AS
+SELECT
+    row_number() OVER() as id,
+    extract(year from pp.completion_dt) as yr,
+    quantile(pp.price_int, 0.5) as median_price,
+    RPIConversion(lf.income_amt*52::numeric, 2012, {}) AS median_income,
+    round(quantile(pp.price_int, 0.5)::numeric / RPIConversion(lf.income_amt*52::numeric, 2012, {}), 2) AS affordability,
+    h.gid,
+    h.geom
+FROM
+    landreg.price_paid_fct pp,
+    inflation.hh_income_fct lf,
+    osopen.hex_mapping_dim hd,
+    osopen.hex_2500m h
+WHERE extract(year from pp.completion_dt) = {}
+AND lf.year = {}
+AND lf.metric_nm::text = 'Median'::text
+AND lf.region_nm::text = 'All households'::text
+AND pp.pc = hd.pc
+AND hd.h2500m = h.gid
 GROUP BY yr, h.gid, lf.income_amt;
-
-\[/code\]
+```
 
 In the worst tradition of university lecturers: I'll leave the remainder of the workflow as an exercise for the reader.

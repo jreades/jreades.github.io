@@ -56,24 +56,24 @@ So here are some concrete examples of how my code has changed...
 
 This kind of thing was hard to express in Python and *massively* non-performant, but now it returns in under a second for nearly 4 million rows *on a laptop*.
 
-``` wp-block-preformatted
- self_link_sql = f"""
- COPY(
-     SELECT 
-         e.lmk_key AS src_lmk_key,
-         t.lmk_key AS tgt_lmk_key
-     FROM 
-         './data/clean/London-epc.parquet' e,
-         './data/clean/London-epc.parquet' t
-     WHERE
-         CONCAT(e.address1, ' ', e.address2, ' ', e.address3)=
-         CONCAT(t.address1, ' ', t.address2, ' ', t.address3)
-     AND
-         e.postcode=t.postcode
-     ORDER BY tgt_lmk_key, src_lmk_key
- ) TO 'epc_to_uid.parquet' (FORMAT PARQUET, COMPRESSION ZSTD);
- """
- duckdb.execute(self_link_sql)
+```python
+self_link_sql = f"""
+COPY(
+    SELECT 
+        e.lmk_key AS src_lmk_key,
+        t.lmk_key AS tgt_lmk_key
+    FROM 
+        './data/clean/London-epc.parquet' e,
+        './data/clean/London-epc.parquet' t
+    WHERE
+        CONCAT(e.address1, ' ', e.address2, ' ', e.address3)=
+        CONCAT(t.address1, ' ', t.address2, ' ', t.address3)
+    AND
+        e.postcode=t.postcode
+    ORDER BY tgt_lmk_key, src_lmk_key
+) TO 'epc_to_uid.parquet' (FORMAT PARQUET, COMPRESSION ZSTD);
+"""
+duckdb.execute(self_link_sql)
 ```
 
 I'll not unpack this in any great detail, but the short version is that I'm looking to build a many-to-many lookup table of keys (individual EPC rows from the EPC bulk data set) that refer to the same address and to then copy the output of that query to a new file called `epc_to_uid.parquet`.
@@ -82,25 +82,25 @@ I'll not unpack this in any great detail, but the short version is that I'm look
 
 When used inline, you can also simplify *both* your SQL and your Python using f-strings to parameterise the query. So we can create a raw, regex-compatible string in Python (`regex`) and interpolate that into the SQL that we pass to DuckDB. We can then also parameterise the input and output parquet files so that we can either access them elsewhere in the script or manage their location in a more flexible manner (e.g. calling a function to check the path exists before trying to write to it).
 
-``` wp-block-preformatted
- regex = r'(<some pattern>)'
- sql = f"""SELECT regexp_extract(<address1>, '{regex}', 1) ..."""
+```python
+regex = r'(<some pattern>)'
+sql = f"""SELECT regexp_extract(<address1>, '{regex}', 1) ..."""
 ```
 
 #### Example 3: Pick 'Best' Match from Window {#example-3-pick-best-match-from-window .wp-block-heading}
 
 DuckDB also allows us to make use of standard windowing functions like `ROW_NUMBER` with a partition:
 
-``` wp-block-preformatted
- SELECT 
-     row_number() OVER (ORDER BY p1.attr, p1.date1, p2.date2) as rown, *
-   FROM '<table1>' p1
-   LEFT JOIN '<table2>.' p2
-   ON <join condition>
-   WHERE
-       p1.date1 > date_add(p2.date2, INTERVAL 30 DAY) 
-     AND 
-       p1.date1 < date_add(p2.date2, INTERVAL 10 YEAR)
+```sql
+SELECT 
+    row_number() OVER (ORDER BY p1.attr, p1.date1, p2.date2) as rown, *
+FROM '<table1>' p1
+LEFT JOIN '<table2>.' p2
+ON <join condition>
+WHERE
+    p1.date1 > date_add(p2.date2, INTERVAL 30 DAY) 
+    AND 
+    p1.date1 < date_add(p2.date2, INTERVAL 10 YEAR)
 ```
 
 This is fairly complicated SQL so I've taken most of the details out, but the two things here are:
@@ -115,13 +115,13 @@ And the ultimate goal of all the work I did earlier: calculating a Price Paid pe
 
 ## 'Limitations' {#limitations .wp-block-heading}
 
-I said in the my [previous post](http://www.reades.com/wp/?p=422) that one of the things that I liked about moving a lot of logic to SQL and DuckDB was that it made my workflows more transparent: instead of extended lines of join/drop/concat in Pandas, you could do a good bit of the heavy lifting in a single, clear, declarative statement.
+I said in the my [previous post](./last-night-a-db-saved-my-life-part-1.qmd) that one of the things that I liked about moving a lot of logic to SQL and DuckDB was that it made my workflows more transparent: instead of extended lines of join/drop/concat in Pandas, you could do a good bit of the heavy lifting in a single, clear, declarative statement.
 
 There's an important limitation to that claim: the nature of data-oriented research is that it's exploratory and you often examine how the results change when you vary the constraints or parameters, and you want to be able to do this quickly and easily, as well as audibly. Burying your constraints in lines 317--324 of 'canonicalise.py' doesn't help there.
 
 For simpler constraints there's a nice, easy solution: compose your SQL instead of hard-coding it. Here's an example:
 
-``` wp-block-code
+```python
 constraints = {
   'valid': '> 30',
   'date': f"< '{current_date.year}' - INTERVAL '1 month 13 hours'",

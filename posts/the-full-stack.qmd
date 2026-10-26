@@ -7,9 +7,7 @@ description: "Recently, I was asked to give talks at both UCL's CASA and the ETH
 
 Recently, I was asked to give talks at both [UCL's CASA](http://casa.ucl.ac.uk/) and the [ETH Future Cities Lab](http://www.fcl.ethz.ch) in Singapore for students and staff new to 'urban data science' and the sorts of workflows involved in collecting, processing, analysing, and reporting on urban geo-data. Developing the talk proved to be a rather enjoyable opportunity to reflect on more than a decade in commercial data mining and academic research -- not only did I realise how far *I* had come, I realised how far the *domain* had come in that time.
 
-You can view the presentation on Slideshare:
-
-http://www.slideshare.net/JonReades/the-full-stack
+You can view the presentation [on Slideshare](http://www.slideshare.net/JonReades/the-full-stack).
 
 However, that doesn't give you my notes, so I've reproduced those below so that you have a fuller context for what I talked about.
 

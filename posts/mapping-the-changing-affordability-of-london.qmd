@@ -2,7 +2,7 @@
 title: "Mapping the Changing Affordability of London"
 date: 2015-06-23
 categories: ["Big Data", "Housing", "Mapping", "Research", "Visualisation"]
-description: "Last night I discovered how many of my friends watch C4's Dispatches since quite a few of them texted me to say that they had seen me talking about property affordability on &lquot;The Great British Property Divide&rquot;."
+description: "Last night I discovered how many of my friends watch C4's Dispatches since quite a few of them texted me to say that they had seen me talking about property affordability on &ldquo;The Great British Property Divide&rdquo;."
 ---
 
 Last night I discovered how many of my friends watch C4's [Dispatches](http://www.channel4.com/programmes/dispatches/episode-guide){target="_blank" rel="noopener"} since quite a few of them texted me to say that they had seen me talking about property affordability on "The Great British Property Divide". However, since Dispatches has to somehow keep the running time down to just 30 minutes, there's not much of a chance in the show to really explore the data underpinning my chat with [Morland](http://www.channel4.com/programmes/dispatches/profiles/all/morland-sanders){target="_blank" rel="noopener"}. So with that it mind, below are links to A0-sized static data visualisations.

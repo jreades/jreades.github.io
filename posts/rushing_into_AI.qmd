@@ -2,13 +2,13 @@
 title: "Companies rushed into AI..."
 date: 2026-10-13
 categories: ["AI"]
-description: "&lquot;Companies rushed in on AI. Now some are pulling back. Rapid AI adoption left workers cleaning up a flood of errors and low-quality work.&rquot;"
+description: "&ldquo;Companies rushed in on AI. Now some are pulling back. Rapid AI adoption left workers cleaning up a flood of errors and low-quality work.&rdquo;"
 image: img/campaign-creators-e6n7uoEnYbA-unsplash.jpg
 ---
 
-# Companies rushed in on AI. Now some are pulling back. Rapid AI adoption left workers cleaning up a flood of errors and low-quality work.  {#companies-rush-in-on-ai .wp-block-heading}
+# As someone who finds Claude Code useful -- possibly even transformative -- in *some* areas of my day-to-day work can I also say that not one single 'Oh yeah, we forgot that AI can't substitute for $x$' line in [this article](https://www.theguardian.com/technology/2026/oct/13/ai-companies-rushed-workers-fallout) is remotely surprising. {#companies-rush-in-on-ai .wp-block-heading}
 
-As someone who finds Claude Code useful -- possibly even transformative -- in *some* areas of my day-to-day work can I also say that not one single 'Oh yeah, we forgot that AI can't substitute for $x$' line in [this article](https://www.theguardian.com/technology/2026/oct/13/ai-companies-rushed-workers-fallout) is remotely surprising. The most telling moment is the circular 'economy' pointed to by an executive VP at MS:
+The most telling moment is the circular 'economy' pointed to by an executive VP at MS:
 
 > At Microsoft, which rolled out AI widely internally, executive vice-president Ryan Roslansky recently publicly lamented the prevalence of AI slop in his day-to-day work. After receiving "what was clearly an AI-generated doc" from a co-worker, he used his AI to summarize it and came away with no new thinking about the idea, he said. He warned his followers against falling into this potential "doom loop", where AI does the reading and writing and leaves behind an "ocean of sameness".
 
