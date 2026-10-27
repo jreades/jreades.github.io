@@ -27,6 +27,10 @@ GROUPS = [
     ('report', 'Reports'),
     ('white-paper', 'White papers'),
     ('thesis', 'Theses'),
+    ('conference-paper', 'Conference papers'),
+    ('software', 'Software'),
+    ('book-review', 'Book reviews'),
+    ('other', 'Other outputs'),
     ('talk', 'Talks'),
 ]
 FALLBACK = {
