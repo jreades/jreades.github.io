@@ -1,0 +1,84 @@
+# Hand-maintained roles, education, service and memberships; the source of truth.
+# scripts/build_career.py overlays data/orcid-career.json: ORCID entries that match one
+# here (same organisation and role) are dropped and any date/role differences reported;
+# complete ORCID entries with no match are added. Omit `end` for a current post.
+# `org` is matched against ORCID's organisation name, so use the full name.
+
+employment:
+  - {role: "Professor (Geographic Data Science)", org: University College London, dept: Centre for Advanced Spatial Analysis, start: 2024}
+  - {role: "Associate Professor (Spatial Data Science)", org: University College London, dept: Centre for Advanced Spatial Analysis, start: 2020, end: 2024}
+  - {role: "Senior Lecturer (Quantitative Human Geography)", org: King's College London, dept: Department of Geography, start: 2018, end: 2020}
+  - {role: "Lecturer (Quantitative Human Geography)", org: King's College London, dept: Department of Geography, start: 2013, end: 2018}
+  - role: Research Associate
+    org: University College London
+    dept: Centre for Advanced Spatial Analysis
+    start: 2010
+    end: 2012
+    note: EU-funded study of multi-scalar urban flows using novel transport and communications data.
+  - role: Affiliate Researcher
+    org: Massachusetts Institute of Technology
+    dept: SENSEable City Laboratory
+    start: 2006
+    end: 2009
+    note: Exhibitions, data management, research and knowledge sharing.
+  - role: Technical Project Manager
+    org: Fulcrum Analytics
+    sector: industry
+    start: 2002
+    end: 2005
+    note: Managed a four-person team on award-winning database-mining projects for clients including Orange and Comic Relief.
+  - {role: "Business Software Engineer", org: Fulcrum Analytics, sector: industry, start: 2001, end: 2002}
+  - {role: "Software Developer", org: Cyber Dialogue, sector: industry, start: 1999, end: 2001}
+  - {role: "Webmaster/Publisher", org: Cyber Dialogue, sector: industry, start: 1997, end: 1999}
+  - {role: "Freelance web design and programming", sector: industry, start: 1996, end: 2011}
+
+education:
+  - role: PhD in Town Planning
+    org: University College London
+    start: 2005
+    end: 2010
+    note: "Thesis: The Place of Telecommunications: Spatial Decision-Making by Firms in the Age of Global Communications. Supervisors: Sir Peter Hall and Michael Batty."
+  - {role: "BA in Comparative Literature", org: Princeton University, start: 1993, end: 1997}
+  - {role: "Continuing education", org: New York University, start: 1997, end: 2002}
+  - {role: "Continuing education", org: School of Visual Arts, start: 1997, end: 2002}
+
+service:
+  - {role: "Head of Department", org: Centre for Advanced Spatial Analysis, start: 2023}
+  - {role: "AI in Teaching and Learning Working Group", org: University College London, start: 2026, end: 2026}
+  - {role: "Editorial Board Member", org: Canadian Geographies/Géographies canadiennes, start: 2025}
+  - {role: "Interdisciplinary Assessment College", org: UKRI, start: 2023, end: 2025}
+  - {role: "Member, Bartlett Ethics Advisory Group", org: University College London, start: 2021, end: 2025}
+  - {role: "Deputy Chair/Acting Chair for Ethics", org: Centre for Advanced Spatial Analysis, start: 2021, end: 2025}
+  - {role: "Member, Bartlett EDI Group", org: University College London, start: 2021, end: 2024}
+  - {role: "Editorial Board Member", org: International Journal of GIScience, start: 2019}
+  - {role: "Seminar Series Organiser", org: Centre for Advanced Spatial Analysis, start: 2021, end: 2023}
+  - {role: "Chair, Geocomputation Research Domain", org: King's College London, start: 2019, end: 2020}
+  - {role: "Deputy Director for Education", org: CUSP London, start: 2017, end: 2020}
+  - {role: "Member, College Research Ethics Committee", org: King's College London, start: 2017, end: 2020}
+  - {role: "Member, 'Big Data' Steering Group", org: King's College London, start: 2014, end: 2020}
+  - {role: "Chair, Geography, Global Affairs, Social Science, Health and Medicine Research Ethics Panel", org: King's College London, start: 2013, end: 2017}
+  - {role: "Member, Town and Country Planning Association", start: 2007}
+  - {role: "Member, Regional Studies Association", start: 2008}
+
+peer_review:
+  - Cities
+  - Environment and Planning A
+  - Environment and Planning B
+  - Journal of Urban Technology
+  - IEEE Pervasive and Mobile Computing
+  - Entropy
+  - Geoforum
+  - Geographical Analysis
+  - Geography Compass
+  - Habitat International
+  - International Journal of Urban Science
+  - International Journal of Geographical Information Science
+  - International Journal of Housing Markets and Analysis
+  - Progress in Human Geography
+  - Regional Studies
+  - Sensors
+  - Telecommunications Policy
+  - Transactions of the Institute of British Geographers
+  - Urban Science
+  - Urban Studies
+  - World Wide Web Journal

@@ -1,7 +1,9 @@
 project:
   type: website
   output-dir: _site
-  pre-render: scripts/build_pubs.py
+  pre-render:
+    - scripts/build_pubs.py
+    - scripts/build_career.py
   resources:
     - img/
     - "!img/scenes/"
