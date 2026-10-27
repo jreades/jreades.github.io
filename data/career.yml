@@ -42,8 +42,69 @@ education:
   - {role: "Continuing education", org: New York University, start: 1997, end: 2002}
   - {role: "Continuing education", org: School of Visual Arts, start: 1997, end: 2002}
 
-# Grants awarded: role = title, org = funder. ORCID's fundings are added automatically.
-funding: []
+# Grants awarded (role = title, org = funder); ORCID's fundings are added automatically.
+funding:
+  - role: "Data Science and AI Scholarships"
+    org: Office for Students
+    start: 2022
+    note: Co-authored bid for 50 scholarships across 2 years. £500,000.
+  - {role: "Code Camp: Rebooted", org: University College London, start: 2022, end: 2022, note: "UCL Changemakers. PI, in partnership with students. £822."}
+  - role: "GREP: Gendering the Research Pipeline"
+    org: Economic and Social Research Council
+    start: 2020
+    end: 2024
+    note: CASE studentship (LISS DTP) with the British Library and the Alan Turing Institute as second supervisor. PI. £64,000.
+  - role: "MODS: Mapping knowledge with data science"
+    org: Economic and Social Research Council
+    start: 2018
+    end: 2025
+    note: CASE studentship (LISS DTP) with the British Library and the Alan Turing Institute as second supervisor. PI. £64,000.
+  - {role: "Conjuring", org: King's College London, start: 2019, end: 2019, note: "Faculty Education Fund. PI. Prototype of a portable, low-power, self-contained Jupyter Hub teaching platform using containerisation. £6,200."}
+  - {role: "Predicting neighbourhood change using big data and machine learning", org: Urban Studies Foundation, start: 2019, end: 2019, note: "Seminar series. Named Co-I with UC Berkeley and the University of Sydney. £20,000."}
+  - {role: "Planning smart, healthy and accessible cities", org: PLuS Alliance, start: 2018, end: 2018, note: "Accelerator funding. Co-I, with researchers at UNSW and ASU. £60,000."}
+  - {role: "Seed Funding Project", org: KCL-LSHTM, start: 2018, end: 2018, note: "Co-I. Synthetic population generation and agent-based models of the shift to active travel in a London borough, with Informatics and Public Health. £9,200."}
+  - {role: "Geopyter", org: Royal Geographical Society, start: 2017, end: 2017, note: "Ray Y. Gildea Jr. Award for open source Geopyter development, with Prof. Sergio Rey. £1,000."}
+  - {role: "Informed Urbanism", org: PLuS Alliance, start: 2017, end: 2017, note: "Seed funding for smart-cities data analysis linking King's, UNSW and ASU. AUS$53,000, of which £10,000 to King's."}
+  - {role: "Socioeconomic Impacts of Doctoral Training", org: King's College London, start: 2016, end: 2016, note: "Faculty Research Fund. PI. £6,000."}
+  - {role: "Code Camp", org: King's College London, start: 2016, end: 2016, note: "College Teaching Fund. Co-I. Online introductory programming material for undergraduates. £6,000."}
+  - {role: "PhD with BT Archives and the Science Museum", org: Arts and Humanities Research Council, start: 2015, end: 2015, note: "Collaborative Doctoral Partnership award. PI. £64,000."}
+  - {role: "Professor Sir Richard Trainor Doctoral Scholarship", org: King's College London, start: 2015, end: 2018, note: "PI. Competitively allocated funding for doctoral research. £45,000."}
+  - {role: "Professor Sir Richard Trainor Doctoral Scholarship", org: King's College London, start: 2015, end: 2018, note: "PI. A second scholarship, £45,000."}
+  - {role: "GeoCUP: Linux-on-USB key platform for Geocomputation", start: 2015, end: 2015, note: "PI. Open source platform for undergraduate Geocomputation and Spatial Analysis. £4,000."}
+  - {role: "Big Data Sandpit", org: University College London, start: 2012, end: 2012, note: "Co-I. Prototype location-aware mobile healthcare application. £15,000."}
+  - {role: "Doctoral research funding", org: International Balzan Prize Foundation, start: 2007, end: 2010, note: "Studentship in support of doctoral research. £88,000."}
+
+teaching:
+  - {role: "Foundations of Spatial Data Science", org: University College London, start: 2020, note: "Module lead. Shifted module focus from 'intro to programming' towards critical engagement with the spatial data analytics pipeline. Docker and Jupyter used to teach EDA, ESDA and basic NLP."}
+  - {role: "Curriculum review: Urban Spatial Science", org: University College London, start: 2021, end: 2021, note: "Audited CASA's teaching portfolio and, through consultation with all academic staff, helped restructure programmes and modules to reduce overlap and give students greater flexibility."}
+  - role: "Geocomputation and Spatial Analysis pathway"
+    org: King's College London
+    start: 2013
+    end: 2020
+    note: Curriculum design and development. Developed and launched a geocomputation pathway for undergraduates, three modules plus an optional Code Camp, to address skills gaps in geography.
+  - {role: "Geographical Research Skills", org: King's College London, start: 2014, end: 2020, note: "Module co-ordinator. The main methods module for 160+ second-year BA/BSc Geography students; commended by external examiners."}
+  - {role: "Advanced Quantitative and Spatial Methods in Human Geography", org: King's College London, start: 2013, end: 2020, note: "Module lead (MSc Geography) and lecturer on visualisation, statistics and spatial analysis (also MSc Creative Cities). Twice nominated for King's Teaching Award."}
+  - {role: "Geocomputation", org: King's College London, start: 2015, end: 2020, note: "Joint lecturer on statistics and programming (BA/BSc Geography)."}
+  - {role: "Applied Geocomputation", org: King's College London, start: 2016, end: 2020, note: "Joint lecturer on clustering methods (BA/BSc Geography)."}
+  - {role: "Current Research / Geography in Action", org: King's College London, start: 2013, end: 2020, note: "Joint lecturer on 'big data', bias and privacy (BA/BSc Geography)."}
+  - {role: "San Francisco Field Trip", org: King's College London, start: 2013, end: 2020, note: "Joint supervisor. Organised project-based activities for up to 45 BA Geography students."}
+  - {role: "Spatial Analysis", org: King's College London, start: 2015, end: 2017, note: "Joint lecturer on advanced spatial statistics and programming (BA/BSc Geography)."}
+  - {role: "Urban Geography", org: King's College London, start: 2014, end: 2017, note: "Joint lecturer on cities, regions, innovation and location (BA Geography)."}
+  - {role: "Practicing Geographical Inquiry", org: King's College London, start: 2013, end: 2016, note: "Joint lecturer on translating theory into data collection and survey design, working with London food market managers (BA/BSc Geography)."}
+
+supervised:
+  - {role: "Michele Ferretti", note: "Geographies of Code: Decompiling the 'Smart City' through the study of software engineering practices"}
+  - {role: "Paulina Hubner", note: "Drones in the Civilian Domain of German: A contestation of visual, legal and socio-spatial verticality"}
+  - {role: "Dit Maneepitak", note: "Potential Economic and Social Impact of Land and Building Tax: An Evaluation of the Property Assessment System in Bangkok"}
+  - {role: "Laura Sheppard", note: "Gendering the research pipeline: A quantitative feminist geographical approach"}
+  - {role: "Persis Taraporevala", note: "'Homegrown' Smart Cities: empowering or deregulating Indian municipal government?"}
+  - {role: "Jennie Williams", note: "From Knowledge to Innovation: Using NLP to identify innovative activity"}
+
+examined:
+  - {role: "Boyana Buyuklieva", org: University College London, note: "London's Demographic Metabolism: Using Computational Social Science Methods to Map Mobility in Populations and Places"}
+  - {role: "Jennie Gray", org: University of Leeds, note: "Identifying and Predicting Neighbourhood Level Gentrification: A Data Primitive Approach"}
+  - {role: "Alfie Long", org: University College London, note: "Accessibility and Mobility: Enriching and Transforming Existing Big Datasets for Public Transport Analysis"}
+  - {role: "Giulia Occhini", org: University of Bristol, note: "Who, What and Where: Myth-Busting the Digital Economy with Web Data"}
 
 service:
   - {role: "Head of Department", org: Centre for Advanced Spatial Analysis, start: 2023}

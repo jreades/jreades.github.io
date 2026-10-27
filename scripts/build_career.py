@@ -35,6 +35,9 @@ SECTIONS = [
     ('industry', 'Industry experience'),
     ('education', 'Education'),
     ('funding', 'Grants'),
+    ('teaching', 'Teaching'),
+    ('supervised', 'PhDs supervised'),
+    ('examined', 'PhDs examined'),
     ('service', 'Service and memberships'),
 ]
 
@@ -43,7 +46,7 @@ def load_manual():
     with open(MANUAL, encoding='utf-8') as f:
         data = yaml.safe_load(f)
     items = []
-    for section in ('employment', 'education', 'funding', 'service'):
+    for section in ('employment', 'education', 'funding', 'teaching', 'supervised', 'examined', 'service'):
         for i in data.get(section, []):
             items.append({**i, 'section': section, 'source': 'manual'})
     return items, data.get('peer_review', [])
@@ -151,6 +154,9 @@ def main():
         'industry': [i for i in merged if i.get('sector') == 'industry'],
         'education': [i for i in merged if i['section'] == 'education'],
         'funding': [i for i in merged if i['section'] == 'funding'],
+        'teaching': [i for i in merged if i['section'] == 'teaching'],
+        'supervised': [i for i in merged if i['section'] == 'supervised'],
+        'examined': [i for i in merged if i['section'] == 'examined'],
         'service': [i for i in merged if i['section'] == 'service'],
     }
     sections = []
