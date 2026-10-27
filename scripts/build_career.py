@@ -27,12 +27,14 @@ SECTION_OF_KIND = {
     'employment': 'employment', 'invited-position': 'employment',
     'education': 'education', 'qualification': 'education',
     'service': 'service', 'membership': 'service', 'distinction': 'service',
+    'funding': 'funding',
 }
 # (key, heading) in display order
 SECTIONS = [
     ('academic', 'Academic roles'),
     ('industry', 'Industry experience'),
     ('education', 'Education'),
+    ('funding', 'Grants'),
     ('service', 'Service and memberships'),
 ]
 
@@ -41,7 +43,7 @@ def load_manual():
     with open(MANUAL, encoding='utf-8') as f:
         data = yaml.safe_load(f)
     items = []
-    for section in ('employment', 'education', 'service'):
+    for section in ('employment', 'education', 'funding', 'service'):
         for i in data.get(section, []):
             items.append({**i, 'section': section, 'source': 'manual'})
     return items, data.get('peer_review', [])
@@ -148,6 +150,7 @@ def main():
         'academic': [i for i in merged if i['section'] == 'employment' and i.get('sector') != 'industry'],
         'industry': [i for i in merged if i.get('sector') == 'industry'],
         'education': [i for i in merged if i['section'] == 'education'],
+        'funding': [i for i in merged if i['section'] == 'funding'],
         'service': [i for i in merged if i['section'] == 'service'],
     }
     sections = []

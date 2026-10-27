@@ -20,6 +20,7 @@ ENDPOINTS = {
     'services': 'service',
     'memberships': 'membership',
     'distinctions': 'distinction',
+    'fundings': 'funding',
 }
 
 
@@ -29,19 +30,21 @@ def year(date):
 
 
 def items(endpoint, kind):
-    for group in get('/' + endpoint).get('affiliation-group') or []:
-        for summary in group['summaries']:
-            for key, s in summary.items():
-                if key.endswith('-summary'):
-                    yield {
-                        'kind': kind,
-                        'put_code': s['put-code'],
-                        'role': (s.get('role-title') or '').strip(),
-                        'org': ((s.get('organization') or {}).get('name') or '').strip(),
-                        'dept': (s.get('department-name') or '').strip(),
-                        'start': year(s.get('start-date')),
-                        'end': year(s.get('end-date')),
-                    }
+    data = get('/' + endpoint)
+    for group in data.get('affiliation-group') or data.get('group') or []:
+        summaries = [s for sm in group.get('summaries', []) for k, s in sm.items() if k.endswith('-summary')]
+        summaries += group.get('funding-summary', [])
+        for s in summaries:
+            title = ((s.get('title') or {}).get('title') or {}).get('value') or s.get('role-title')
+            yield {
+                'kind': kind,
+                'put_code': s['put-code'],
+                'role': (title or '').strip(),  # a grant's title goes in `role`, its funder in `org`
+                'org': ((s.get('organization') or {}).get('name') or '').strip(),
+                'dept': (s.get('department-name') or '').strip(),
+                'start': year(s.get('start-date')),
+                'end': year(s.get('end-date')),
+            }
 
 
 def main():

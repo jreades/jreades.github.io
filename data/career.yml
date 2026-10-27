@@ -12,8 +12,8 @@ employment:
   - role: Research Associate
     org: University College London
     dept: Centre for Advanced Spatial Analysis
-    start: 2010
-    end: 2012
+    start: 2011
+    end: 2013
     note: EU-funded study of multi-scalar urban flows using novel transport and communications data.
   - role: Affiliate Researcher
     org: Massachusetts Institute of Technology
@@ -35,22 +35,26 @@ employment:
 education:
   - role: PhD in Town Planning
     org: University College London
-    start: 2005
-    end: 2010
+    start: 2006
+    end: 2011
     note: "Thesis: The Place of Telecommunications: Spatial Decision-Making by Firms in the Age of Global Communications. Supervisors: Sir Peter Hall and Michael Batty."
   - {role: "BA in Comparative Literature", org: Princeton University, start: 1993, end: 1997}
   - {role: "Continuing education", org: New York University, start: 1997, end: 2002}
   - {role: "Continuing education", org: School of Visual Arts, start: 1997, end: 2002}
 
+# Grants awarded: role = title, org = funder. ORCID's fundings are added automatically.
+funding: []
+
 service:
   - {role: "Head of Department", org: Centre for Advanced Spatial Analysis, start: 2023}
+  - {role: "AI Education Programme Steering Committee", org: University College London, start: 2026}
   - {role: "AI in Teaching and Learning Working Group", org: University College London, start: 2026, end: 2026}
   - {role: "Editorial Board Member", org: Canadian Geographies/Géographies canadiennes, start: 2025}
   - {role: "Interdisciplinary Assessment College", org: UKRI, start: 2023, end: 2025}
   - {role: "Member, Bartlett Ethics Advisory Group", org: University College London, start: 2021, end: 2025}
   - {role: "Deputy Chair/Acting Chair for Ethics", org: Centre for Advanced Spatial Analysis, start: 2021, end: 2025}
   - {role: "Member, Bartlett EDI Group", org: University College London, start: 2021, end: 2024}
-  - {role: "Editorial Board Member", org: International Journal of GIScience, start: 2019}
+  - {role: "Editorial Board Member", org: International Journal of GIScience (IJGIS), start: 2019}
   - {role: "Seminar Series Organiser", org: Centre for Advanced Spatial Analysis, start: 2021, end: 2023}
   - {role: "Chair, Geocomputation Research Domain", org: King's College London, start: 2019, end: 2020}
   - {role: "Deputy Director for Education", org: CUSP London, start: 2017, end: 2020}
@@ -72,7 +76,7 @@ peer_review:
   - Geography Compass
   - Habitat International
   - International Journal of Urban Science
-  - International Journal of Geographical Information Science
+  - International Journal of Geographical Information Science (IJGIS)
   - International Journal of Housing Markets and Analysis
   - Progress in Human Geography
   - Regional Studies

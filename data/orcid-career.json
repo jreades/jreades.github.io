@@ -54,6 +54,24 @@
   "end": 2020
  },
  {
+  "kind": "funding",
+  "put_code": 2656105,
+  "role": "Diversity and UK Firm Performance",
+  "org": "UK Research and Innovation",
+  "dept": "",
+  "start": 2022,
+  "end": 2026
+ },
+ {
+  "kind": "funding",
+  "put_code": 2656106,
+  "role": "No space like home? Small domestic properties, compensatory urbanism and housing futures in English cities",
+  "org": "Economic and Social Research Council",
+  "dept": "",
+  "start": 2024,
+  "end": 2027
+ },
+ {
   "kind": "invited-position",
   "put_code": 15939661,
   "role": "Visiting Researcher",
