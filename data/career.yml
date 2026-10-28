@@ -44,10 +44,15 @@ education:
 
 # Grants awarded (role = title, org = funder); ORCID's fundings are added automatically.
 funding:
+  - role: "AI-Supported Research Sandpit"
+    org: Economic and Social Research Council
+    start: 2026
+    end: 2026
   - role: "Data Science and AI Scholarships"
     org: Office for Students
     start: 2022
-    note: Co-authored bid for 50 scholarships across 2 years. £500,000.
+    end: 2026
+    note: Co-authored bid for 50 scholarships across 2 years. £500,000 to department.
   - {role: "Code Camp: Rebooted", org: University College London, start: 2022, end: 2022, note: "UCL Changemakers. PI, in partnership with students. £822."}
   - role: "GREP: Gendering the Research Pipeline"
     org: Economic and Social Research Council
