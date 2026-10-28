@@ -4,6 +4,7 @@ project:
   pre-render:
     - scripts/build_pubs.py
     - scripts/build_career.py
+    - scripts/build_cv_index.py
   resources:
     - img/
     - "!img/scenes/"

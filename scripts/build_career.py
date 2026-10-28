@@ -128,6 +128,8 @@ def merge():
 
 
 def sort_key(i):
+    if i.get('start') is None and i.get('end') is None:
+        return (False, 0, 0)  # undated (supervision lists) keep their order, after dated items
     return (i.get('end') is None, i.get('end') or 0, i.get('start') or 0)
 
 
@@ -140,7 +142,7 @@ def item_html(i):
 
 
 def section_html(key, heading, body):
-    return (f'<section class="pubgroup" id="{key}">\n<h2 class="lab">{heading}</h2>\n'
+    return (f'<section class="pubgroup" id="{key}">\n<h2 class="lab">{heading}<a class="to-top title-link" href="#">Top ↑</a></h2>\n'
             f'<ul class="publist career">\n{body}\n</ul>\n</section>')
 
 
