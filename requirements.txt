@@ -1,4 +1,5 @@
 bibtexparser<2
+pyyaml
 jupyter
 numpy
 pandas
