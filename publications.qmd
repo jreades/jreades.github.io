@@ -8,11 +8,15 @@ pagetitle: "CV and publications --- Jon Reades"
 <div class="lab">Curriculum vitae</div>
 :::
 ::: {.hang}
-# Publications, by type of output {.display}
+# Roles and publications {.display}
 :::
 ::: {style="grid-column:4 / span 6;padding-top:24px"}
-<p class="lead-text">Journal articles, books, chapters, reports, theses and talks, newest first within each type.</p>
+<p class="lead-text">Roles, education and service, then journal articles, books, chapters, reports, theses and talks, newest first within each type.</p>
 :::
+:::
+
+::: {.g style="padding-bottom:40px"}
+{{< include _generated/career.html >}}
 :::
 
 ::: {.g style="padding-bottom:40px"}

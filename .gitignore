@@ -13,3 +13,4 @@ img/duotone/_contact.jpg
 img/scenes/*.jpg
 img/scenes/*.jpeg
 img/scenes/*.png
+__pycache__/

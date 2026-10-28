@@ -1,0 +1,83 @@
+[
+ {
+  "kind": "education",
+  "put_code": 2295399,
+  "role": "PhD",
+  "org": "University College London",
+  "dept": "Bartlett School of Planning",
+  "start": null,
+  "end": 2011
+ },
+ {
+  "kind": "employment",
+  "put_code": 766920,
+  "role": "Lecturer in Quantitative Human Geography",
+  "org": "King's College London",
+  "dept": "Geography",
+  "start": 2013,
+  "end": 2018
+ },
+ {
+  "kind": "employment",
+  "put_code": 766925,
+  "role": "Research Associate",
+  "org": "University College London",
+  "dept": "Centre for Advanced Spatial Analysis",
+  "start": 2011,
+  "end": 2013
+ },
+ {
+  "kind": "employment",
+  "put_code": 6548799,
+  "role": "Senior Lecturer in Quantitative Human Geography",
+  "org": "King's College London",
+  "dept": "Geography",
+  "start": 2018,
+  "end": 2020
+ },
+ {
+  "kind": "employment",
+  "put_code": 12574219,
+  "role": "",
+  "org": "University College London",
+  "dept": "",
+  "start": null,
+  "end": null
+ },
+ {
+  "kind": "employment",
+  "put_code": 15640684,
+  "role": "",
+  "org": "King's College London",
+  "dept": "",
+  "start": null,
+  "end": 2020
+ },
+ {
+  "kind": "funding",
+  "put_code": 2656105,
+  "role": "Diversity and UK Firm Performance",
+  "org": "UK Research and Innovation",
+  "dept": "",
+  "start": 2022,
+  "end": 2026
+ },
+ {
+  "kind": "funding",
+  "put_code": 2656106,
+  "role": "No space like home? Small domestic properties, compensatory urbanism and housing futures in English cities",
+  "org": "Economic and Social Research Council",
+  "dept": "",
+  "start": 2024,
+  "end": 2027
+ },
+ {
+  "kind": "invited-position",
+  "put_code": 15939661,
+  "role": "Visiting Researcher",
+  "org": "Massachusetts Institute of Technology Senseable City Lab",
+  "dept": "",
+  "start": 2006,
+  "end": 2009
+ }
+]
