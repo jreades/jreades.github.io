@@ -128,6 +128,8 @@ def merge():
 
 
 def sort_key(i):
+    if i.get('start') is None and i.get('end') is None:
+        return (False, 0, 0)  # undated (supervision lists) keep their order, after dated items
     return (i.get('end') is None, i.get('end') or 0, i.get('start') or 0)
 
 

@@ -101,6 +101,7 @@ supervised:
   - {role: "Jennie Williams", note: "From Knowledge to Innovation: Using NLP to identify innovative activity"}
 
 examined:
+  - {role: "Tianyuan Wang", org: University of Cambridge, start: 2026, end: 2026, note: "Does planning strategy matter? Policy identification, vertical policy alignment and the implications for fiscal transfer and local economic development in China"}
   - {role: "Boyana Buyuklieva", org: University College London, note: "London's Demographic Metabolism: Using Computational Social Science Methods to Map Mobility in Populations and Places"}
   - {role: "Jennie Gray", org: University of Leeds, note: "Identifying and Predicting Neighbourhood Level Gentrification: A Data Primitive Approach"}
   - {role: "Alfie Long", org: University College London, note: "Accessibility and Mobility: Enriching and Transforming Existing Big Datasets for Public Transport Analysis"}
