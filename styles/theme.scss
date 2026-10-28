@@ -151,6 +151,13 @@ h1.display em { color: $accent; }
         font-variant-numeric: tabular-nums; padding-top: .35em; } } }
 }
 
+.cv-index p { display: grid; grid-template-columns: 8em minmax(0, 1fr); margin: 0 0 .8em; align-items: baseline;
+  .links { display: flex; flex-wrap: wrap; gap: .5em 1.6em; }
+  a { font-family: $font-label; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: $ink; text-decoration: none;
+    &:hover { color: $accent; } } }
+.pubgroup h2 .to-top { display: block; margin-top: .9em; font-size: inherit; letter-spacing: inherit; color: $muted; text-decoration: none;
+  &:hover { color: $accent; } }
+
 // ---- Essays (posts): text on the page grid, hanging from column 4 --------------
 .page-layout-article {
   display: block !important;

@@ -141,7 +141,7 @@ def main():
         lis = '\n'.join(item_html(e) for e in items)
         sections.append(
             f'<section class="pubgroup" id="{key}">\n'
-            f'<h2 class="lab">{heading}<span class="count">{len(items)}</span></h2>\n'
+            f'<h2 class="lab">{heading}<span class="count">{len(items)}</span><a class="to-top title-link" href="#">Top ↑</a></h2>\n'
             f'<ol class="publist">\n{lis}\n</ol>\n</section>'
         )
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

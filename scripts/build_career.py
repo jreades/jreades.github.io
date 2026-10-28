@@ -142,7 +142,7 @@ def item_html(i):
 
 
 def section_html(key, heading, body):
-    return (f'<section class="pubgroup" id="{key}">\n<h2 class="lab">{heading}</h2>\n'
+    return (f'<section class="pubgroup" id="{key}">\n<h2 class="lab">{heading}<a class="to-top title-link" href="#">Top ↑</a></h2>\n'
             f'<ul class="publist career">\n{body}\n</ul>\n</section>')
 
 
