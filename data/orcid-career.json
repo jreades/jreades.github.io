@@ -45,15 +45,6 @@
   "end": null
  },
  {
-  "kind": "employment",
-  "put_code": 15640684,
-  "role": "",
-  "org": "King's College London",
-  "dept": "",
-  "start": null,
-  "end": 2020
- },
- {
   "kind": "funding",
   "put_code": 2656105,
   "role": "Diversity and UK Firm Performance",
@@ -74,7 +65,7 @@
  {
   "kind": "invited-position",
   "put_code": 15939661,
-  "role": "Visiting Researcher",
+  "role": "Affiliate Researcher",
   "org": "Massachusetts Institute of Technology Senseable City Lab",
   "dept": "",
   "start": 2006,
